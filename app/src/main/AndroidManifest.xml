@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BetterSkin">
         <activity
+            android:name=".LogoDisplay"
+            android:exported="false" />
+        <activity
             android:name=".ThirdQuiz"
             android:exported="false" />
         <activity
