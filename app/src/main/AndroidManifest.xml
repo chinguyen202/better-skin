@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BetterSkin">
         <activity
-            android:name=".welcome"
+            android:name=".ThirdQuiz"
             android:exported="false" />
         <activity
-            android:name=".quiz3"
+            android:name=".SecondQuiz"
             android:exported="false" />
         <activity
-            android:name=".quiz2"
+            android:name=".FirstQuiz"
             android:exported="false" />
         <activity
-            android:name=".quiz1"
+            android:name=".Welcome"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

@@ -9,7 +9,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
+
     Timer timer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this,welcome.class);
+                Intent intent = new Intent(MainActivity.this, Welcome.class);
                 startActivity(intent);
-                finish();
+                //finish();
             }
         },3000);
     }

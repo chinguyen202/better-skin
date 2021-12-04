@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".quiz2">
+    tools:context=".SecondQuiz">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -110,5 +110,6 @@
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline4" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".quiz1">
-
+    tools:context=".FirstQuiz">
 
     <TextView
         android:id="@+id/tvQuiz1"
@@ -88,4 +87,6 @@
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline3" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
