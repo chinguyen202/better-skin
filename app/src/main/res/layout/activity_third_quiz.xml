@@ -38,12 +38,14 @@
         app:layout_constraintTop_toBottomOf="@id/tvQuiz3"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
+        android:id="@+id/sensitiveRadioGroup"
         >
         <RadioButton
             android:id="@+id/rbYes1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:button="@null"
+            android:checked="true"
             android:text="Yes"
             android:textSize="20sp"/>
         <RadioButton
@@ -74,11 +76,13 @@
         android:layout_marginTop="25dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@id/tvQuiz4">
+        app:layout_constraintTop_toBottomOf="@id/tvQuiz4"
+        android:id="@+id/pregnancyRadioGroup">
         <RadioButton
             android:id="@+id/rbYes2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:checked="true"
             android:button="@null"
             android:text="Yes"
             android:textSize="20sp"/>
@@ -105,6 +109,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
         android:text="Generate routines"
+        android:onClick="goToGenerateRoutine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline6" />
 
