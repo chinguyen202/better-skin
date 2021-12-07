@@ -16,18 +16,6 @@
         app:layout_constraintStart_toStartOf="@+id/guideline1"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnNormal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Normal Skin"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintStart_toStartOf="@+id/guideline1"
-        app:layout_constraintTop_toBottomOf="@+id/tvQuiz1" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline1"
         android:layout_width="wrap_content"
@@ -36,57 +24,60 @@
         app:layout_constraintGuide_percent="0.1"/>
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
+        android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.9" />
 
-    <Button
-        android:id="@+id/btnDry"
+    <RadioGroup
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Dry Skin"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
-        app:layout_constraintTop_toBottomOf="@+id/btnNormal" />
+        app:layout_constraintTop_toBottomOf="@id/tvQuiz1">
+
+        <RadioButton
+            android:id="@+id/rbNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:text="Normal Skin"
+            android:textSize="20sp"/>
+
+        <RadioButton
+            android:id="@+id/rbDry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:text="Dry Skin"
+            android:textSize="20sp"/>
+
+        <RadioButton
+            android:id="@+id/rbOily"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:text="Oily Skin"
+            android:textSize="20sp"/>
+
+        <RadioButton
+            android:id="@+id/rbCombination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:text="Combination"
+            android:textSize="20sp"/>
+    </RadioGroup>
 
     <Button
-        android:id="@+id/btnOily"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Oily Skin"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@+id/btnDry"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintStart_toStartOf="@+id/guideline1"/>
-
-    <Button
-        android:id="@+id/btnCombination"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Combination Skin"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@+id/btnOily"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintStart_toStartOf="@+id/guideline1" />
-
-    <Button
-        android:id="@+id/btnNext"
+        android:id="@+id/btnNext1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="25dp"
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3" />
-
+        app:layout_constraintEnd_toStartOf="@+id/guideline2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

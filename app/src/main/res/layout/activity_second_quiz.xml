@@ -31,82 +31,56 @@
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnGoal1"
+    <RadioGroup
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Improve hydration"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:gravity="start"
-        android:paddingLeft="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvQuiz2"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/tvQuiz2" />
-
-    <Button
-        android:id="@+id/btnGoal2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Reduce fine lines and wrinkles"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:gravity="start"
-        android:paddingLeft="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/btnGoal1" />
-
-    <Button
-        android:id="@+id/btnGoal3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Reduce breakouts"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:gravity="start"
-        android:paddingLeft="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/btnGoal2" />
-
-    <Button
-        android:id="@+id/btnGoal4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Reduce hyperpigmentation"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:gravity="start"
-        android:paddingLeft="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/btnGoal3" />
-
-    <Button
-        android:id="@+id/btnGoal5"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Reduce backheads and minimize pores"
-        android:gravity="start"
-        android:paddingLeft="10dp"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/btnGoal4" />
+        >
+        <RadioButton
+            android:id="@+id/rbGoal1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:textSize="20sp"
+            android:text="Improve hydration"/>
+        <RadioButton
+            android:id="@+id/rbGoal2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:button="@null"
+            android:text="Reduce fine lines and wrinkles"/>
+        <RadioButton
+            android:id="@+id/rbGoal3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:button="@null"
+            android:text="Reduce breakouts"/>
+        <RadioButton
+            android:id="@+id/rbGoal4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:textSize="20sp"
+            android:text="Reduce hyperpigmentatio"/>
+        <RadioButton
+            android:id="@+id/rbGoal5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:textSize="20sp"
+            android:text="Reduce backheads and minimize pores"/>
+    </RadioGroup>
 
     <Button
         android:id="@+id/btnNext2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="25dp"
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline4" />
