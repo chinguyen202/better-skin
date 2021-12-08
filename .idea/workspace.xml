@@ -13,19 +13,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dde26e3c-e785-46c8-a83f-4935104d5491" name="Default Changelist" comment="first commit, empty project">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0.2/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/ProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/ApplicationDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/ProductDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/ProductDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
