@@ -14,6 +14,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dde26e3c-e785-46c8-a83f-4935104d5491" name="Default Changelist" comment="first commit, empty project">
       <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/ThirdQuiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/ThirdQuiz.java" afterDir="false" />

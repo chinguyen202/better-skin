@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Better Skin</string>
+    <string name="your_profile_title">MY PROFILE</string>
+    <string name="about_me_btn">About me</string>
+    <string name="username">Username</string>
+    <string name="user_email">Email</string>
+    <string name="morning_routine_btn">Morning routine</string>
+    <string name="evening_routine_btn">Evening routine</string>
+    <string name="morning_routine_title">Morning routine</string>
+    <string name="evening_routine_title">Evening routine</string>
 </resources>
