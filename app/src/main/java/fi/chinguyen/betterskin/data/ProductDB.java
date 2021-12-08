@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase;
 
 @Database(entities = {Product.class}, version = 1)
 public abstract class ProductDB extends RoomDatabase {
-    public abstract ProductDAO productDAO();
+    public abstract ApplicationDAO productDAO();
     private static ProductDB productDB;
 
     public static ProductDB get(Context context) {
