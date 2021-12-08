@@ -38,12 +38,14 @@
         app:layout_constraintTop_toBottomOf="@+id/tvQuiz2"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
+        android:id="@+id/mainGoalGroup"
         >
         <RadioButton
             android:id="@+id/rbGoal1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:button="@null"
+            android:checked="true"
             android:textSize="20sp"
             android:text="Improve hydration"/>
         <RadioButton
@@ -69,7 +71,7 @@
             android:layout_marginTop="25dp"
             android:button="@null"
             android:textSize="20sp"
-            android:text="Reduce hyperpigmentatio"/>
+            android:text="Reduce hyperpigmentation"/>
         <RadioButton
             android:id="@+id/rbGoal5"
             android:layout_width="match_parent"
@@ -77,7 +79,7 @@
             android:layout_marginTop="25dp"
             android:button="@null"
             android:textSize="20sp"
-            android:text="Reduce backheads and minimize pores"/>
+            android:text="Reduce blackheads and minimize pores"/>
     </RadioGroup>
 
     <Button
@@ -86,6 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
         android:text="Next"
+        android:onClick="goToThirdQuiz"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline4" />
 
