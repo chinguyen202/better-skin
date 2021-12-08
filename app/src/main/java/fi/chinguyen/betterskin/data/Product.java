@@ -2,17 +2,33 @@ package fi.chinguyen.betterskin.data;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.ColumnInfo;
 
-@Entity
+@Entity(tableName = "Product")
 public class Product {
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "Product ID")
     private long id;
+
+    @ColumnInfo(name = "Product name")
     private String name;
+
+    @ColumnInfo(name = "Step")
     private String step;
+
+    @ColumnInfo(name = "Time to use")
     private String timeUse;
+
+    @ColumnInfo(name = "Skin goal")
     private String goal;
+
+    @ColumnInfo(name = "Skin type")
     private String skinType;
+
+    @ColumnInfo(name = "Sensitive Level")
     private boolean sensitiveLevel;
+
+    @ColumnInfo(name = "Pregnant state")
     private boolean pregnant;
 
     public Product(long id, String name, String step, String timeUse, String goal, String skinType, boolean sensitiveLevel, boolean pregnant) {

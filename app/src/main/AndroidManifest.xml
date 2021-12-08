@@ -11,27 +11,56 @@
         android:theme="@style/Theme.BetterSkin">
         <activity
             android:name=".LogoDisplay"
-            android:exported="false" />
-        <activity
-            android:name=".ThirdQuiz"
-            android:exported="false" />
-        <activity
-            android:name=".SecondQuiz"
-            android:exported="false" />
-        <activity
-            android:name=".FirstQuiz"
-            android:exported="false" />
-        <activity
-            android:name=".Welcome"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:parentActivityName=".Welcome">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Welcome"/>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ThirdQuiz"
+            android:exported="false"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <activity
+            android:name=".SecondQuiz"
+            android:exported="false"
+            android:parentActivityName=".ThirdQuiz">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ThirdQuiz"/>
+        </activity>
+
+        <activity
+            android:name=".FirstQuiz"
+            android:exported="false"
+            android:parentActivityName=".SecondQuiz">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".SecondQuiz"/>
+        </activity>
+
+        <activity
+            android:name=".Welcome"
+            android:exported="false"
+            android:parentActivityName=".FirstQuiz">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FirstQuiz"/>
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="false">
+
         </activity>
     </application>
 
