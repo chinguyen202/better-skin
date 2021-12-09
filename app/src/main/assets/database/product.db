@@ -1,0 +1,326 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: mysql.metropolia.fi
+-- Generation Time: Dec 09, 2021 at 07:43 PM
+-- Server version: 10.5.12-MariaDB
+-- PHP Version: 7.4.24
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `chinguy`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Product`
+--
+
+CREATE TABLE `Product` (
+  `productID` int(11) NOT NULL,
+  `productName` varchar(200) NOT NULL,
+  `stepUse` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Product`
+--
+
+INSERT INTO `Product` (`productID`, `productName`, `stepUse`) VALUES
+(1, 'Salicylic Acid Cleanser', 'Clean'),
+(2, 'Oat Cleansing Balm', 'Clean'),
+(3, 'Hyaluronic Acid Cleanser', 'Clean'),
+(4, 'Fulvic Acid Cleanser', 'Clean'),
+(5, 'Oil & Water Double Cleanser', 'Clean'),
+(6, 'SPF 30 Daily Sunscreen', 'SPF'),
+(7, 'Vitamin B,C and E Moisturizer', 'Moisturizer'),
+(8, 'Omega Water Cream', 'Moisturizer'),
+(9, 'Bakuchiol Moisturizer', 'Moisturizer'),
+(10, 'Squalane', 'Moisturizer'),
+(11, 'Peptide Moisturizer', 'Moisturizer'),
+(12, 'Multi-biotic', 'Moisturizer'),
+(13, 'Rosehip oil', 'Moisturizer'),
+(14, 'Symbright Moisturizer', 'Moisturizer'),
+(15, 'Hemp Oil Moisturizer', 'Moisturizer'),
+(16, 'Niacinamide', 'Treat'),
+(17, 'Succinic Acid Acne Treatment', 'Treat'),
+(18, 'Retinol', 'Treat'),
+(19, 'Beta Hydroxy', 'Treat'),
+(20, '15% Vitamin C + EGF Serum', 'Treat'),
+(21, 'Collagen Booster', 'Treat'),
+(22, 'Tranexamic acid Night Treatment', 'Treat'),
+(23, 'Kaolin Clay Mask', 'Treat'),
+(24, 'Q10', 'Treat'),
+(25, 'Glyconic Acid Toner', 'Treat'),
+(26, 'Polyglutamic Acid', 'Treat'),
+(27, 'PHA Toner', 'Treat'),
+(28, 'Lactic Acid', 'Treat'),
+(29, 'Vitamin C 30%', 'Treat'),
+(30, 'Ceramide Night Treatment', 'Treat'),
+(31, 'Apple Cider Vinegar Acid Peel', 'Treat'),
+(32, 'Alpha Hydroxy Acid', 'Treat'),
+(33, 'Hepta-peptide', 'Treat'),
+(34, 'Madecassoside', 'Treat'),
+(35, 'Glucoside serum', 'Treat');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `skinGoal`
+--
+
+CREATE TABLE `skinGoal` (
+  `productID` int(11) NOT NULL,
+  `skinGoal` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `skinGoal`
+--
+
+INSERT INTO `skinGoal` (`productID`, `skinGoal`) VALUES
+(18, 'Fine lines & wrinkles'),
+(21, 'Fine lines & wrinkles'),
+(24, 'Fine lines & wrinkles'),
+(9, 'Fine lines & wrinkles'),
+(11, 'Fine lines & wrinkles'),
+(33, 'Fine lines & wrinkles'),
+(18, 'Hyperpigmentation'),
+(20, 'Hyperpigmentation'),
+(22, 'Hyperpigmentation'),
+(4, 'Hyperpigmentation'),
+(2, 'Hyperpigmentation'),
+(14, 'Hyperpigmentation'),
+(29, 'Hyperpigmentation'),
+(1, 'Breakouts'),
+(18, 'Breakouts'),
+(16, 'Breakouts'),
+(19, 'Breakouts'),
+(22, 'Breakouts'),
+(7, 'Breakouts'),
+(23, 'Breakouts'),
+(9, 'Breakouts'),
+(25, 'Breakouts'),
+(27, 'Breakouts'),
+(25, 'Improve texture'),
+(26, 'Improve texture'),
+(13, 'Improve texture'),
+(27, 'Improve texture'),
+(28, 'Improve texture'),
+(31, 'Improve texture'),
+(32, 'Improve texture'),
+(33, 'Improve texture'),
+(34, 'Improve texture'),
+(7, 'Improve hyrdration'),
+(3, 'Improve hyrdration'),
+(24, 'Improve hyrdration'),
+(8, 'Improve hyrdration'),
+(10, 'Improve hyrdration'),
+(11, 'Improve hyrdration'),
+(30, 'Improve hyrdration');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `skintype`
+--
+
+CREATE TABLE `skintype` (
+  `productID` int(11) NOT NULL,
+  `skintype` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `skintype`
+--
+
+INSERT INTO `skintype` (`productID`, `skintype`) VALUES
+(2, 'Dry'),
+(1, 'Normal'),
+(1, 'Combination'),
+(1, 'Oily'),
+(3, 'Normal'),
+(3, 'Combination'),
+(3, 'Oily'),
+(3, 'Dry'),
+(4, 'Oily'),
+(4, 'Normal'),
+(4, 'Combination'),
+(5, 'Oily'),
+(5, 'Normal'),
+(5, 'Combination'),
+(7, 'Dry'),
+(26, 'Dry'),
+(10, 'Dry'),
+(24, 'Dry'),
+(13, 'Dry'),
+(11, 'Dry'),
+(30, 'Dry'),
+(16, 'Oily'),
+(18, 'Oily'),
+(19, 'Oily'),
+(23, 'Oily'),
+(25, 'Oily'),
+(12, 'Oily'),
+(29, 'Oily'),
+(31, 'Oily'),
+(19, 'Combination'),
+(23, 'Combination'),
+(9, 'Combination'),
+(25, 'Combination'),
+(11, 'Combination'),
+(12, 'Combination'),
+(31, 'Combination'),
+(15, 'Combination'),
+(18, 'Normal'),
+(19, 'Normal'),
+(23, 'Normal'),
+(9, 'Normal'),
+(25, 'Normal'),
+(11, 'Normal'),
+(12, 'Normal'),
+(28, 'Normal'),
+(29, 'Normal'),
+(31, 'Normal'),
+(15, 'Normal'),
+(16, 'Sensitive'),
+(2, 'Sensitive'),
+(9, 'Sensitive'),
+(12, 'Sensitive'),
+(11, 'Sensitive'),
+(27, 'Sensitive'),
+(28, 'Sensitive'),
+(30, 'Sensitive'),
+(6, 'Sensitive'),
+(6, 'Dry'),
+(6, 'Oily'),
+(6, 'Normal'),
+(6, 'Combination'),
+(8, 'Sensitive'),
+(8, 'Dry'),
+(8, 'Oily'),
+(8, 'Normal'),
+(8, 'Combination'),
+(14, 'Sensitive'),
+(14, 'Dry'),
+(14, 'Oily'),
+(14, 'Normal'),
+(14, 'Combination'),
+(17, 'Sensitive'),
+(17, 'Dry'),
+(17, 'Oily'),
+(17, 'Normal'),
+(17, 'Combination');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `time`
+--
+
+CREATE TABLE `time` (
+  `productID` int(11) NOT NULL,
+  `timeUse` char(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `time`
+--
+
+INSERT INTO `time` (`productID`, `timeUse`) VALUES
+(1, 'AM'),
+(2, 'AM'),
+(3, 'AM'),
+(4, 'AM'),
+(5, 'AM'),
+(6, 'AM'),
+(7, 'AM'),
+(8, 'AM'),
+(9, 'AM'),
+(10, 'AM'),
+(11, 'AM'),
+(12, 'AM'),
+(13, 'AM'),
+(14, 'AM'),
+(15, 'AM'),
+(1, 'PM'),
+(2, 'PM'),
+(3, 'PM'),
+(4, 'PM'),
+(5, 'PM'),
+(7, 'PM'),
+(8, 'PM'),
+(9, 'PM'),
+(10, 'PM'),
+(11, 'PM'),
+(12, 'PM'),
+(13, 'PM'),
+(14, 'PM'),
+(15, 'PM'),
+(16, 'AM'),
+(16, 'PM'),
+(17, 'AM'),
+(17, 'PM'),
+(18, 'PM'),
+(19, 'AM'),
+(19, 'PM'),
+(20, 'AM'),
+(21, 'AM'),
+(21, 'PM'),
+(22, 'PM'),
+(23, 'AM'),
+(23, 'PM'),
+(24, 'AM'),
+(24, 'PM'),
+(25, 'PM'),
+(26, 'AM'),
+(26, 'PM'),
+(27, 'AM'),
+(27, 'PM'),
+(28, 'PM'),
+(29, 'AM'),
+(30, 'PM'),
+(31, 'PM'),
+(32, 'PM'),
+(33, 'AM'),
+(33, 'PM'),
+(34, 'AM'),
+(34, 'PM'),
+(35, 'AM'),
+(35, 'PM');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `Product`
+--
+ALTER TABLE `Product`
+  ADD PRIMARY KEY (`productID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `Product`
+--
+ALTER TABLE `Product`
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

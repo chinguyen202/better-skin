@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF7F8"
     tools:context=".ThirdQuiz">
 
     <androidx.constraintlayout.widget.Guideline
@@ -24,81 +25,53 @@
         android:id="@+id/tvQuiz3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="Do you have sensitive skin?"
+        android:layout_marginTop="128dp"
+        android:fontFamily="@font/ubuntu_bold"
+        android:text="@string/sensitive_skin_title"
+        android:textColor="#000000"
         android:textSize="25sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
+        android:id="@+id/sensitiveRadioGroup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        app:layout_constraintTop_toBottomOf="@id/tvQuiz3"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        android:id="@+id/sensitiveRadioGroup"
-        >
+        app:layout_constraintTop_toBottomOf="@id/tvQuiz3">
+
         <RadioButton
             android:id="@+id/rbYes1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:button="@null"
-            android:checked="true"
-            android:text="Yes"
+            android:background="@drawable/choices_selector"
+            android:button="@android:color/transparent"
+            android:fontFamily="@font/ubuntu_regular"
             android:onClick="getSkinSensitivity"
-            android:textSize="20sp"/>
+            android:paddingLeft="20dp"
+            android:text="@string/yes_option"
+            android:textColor="@drawable/text_color_choices_selector"
+            android:textSize="20sp" />
+
         <RadioButton
             android:id="@+id/rbNo1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="25dp"
-            android:button="@null"
+            android:background="@drawable/choices_selector"
+            android:button="@android:color/transparent"
+            android:fontFamily="@font/ubuntu_regular"
             android:onClick="getSkinSensitivity"
-            android:text="No"
-            android:textSize="20sp"/>
+            android:paddingLeft="20dp"
+            android:text="@string/no_option"
+            android:textColor="@drawable/text_color_choices_selector"
+            android:textSize="20sp" />
     </RadioGroup>
 
-
-    <TextView
-        android:id="@+id/tvQuiz4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Are you pregnant?"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toStartOf="@+id/guideline6"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/guideline7" />
-
-    <RadioGroup
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline6"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@id/tvQuiz4"
-        android:id="@+id/pregnancyRadioGroup">
-        <RadioButton
-            android:id="@+id/rbYes2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:checked="true"
-            android:button="@null"
-            android:text="Yes"
-            android:onClick="getPregnancyStatus"
-            android:textSize="20sp"/>
-        <RadioButton
-            android:id="@+id/rbNo2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="25dp"
-            android:button="@null"
-            android:text="No"
-            android:onClick="getPregnancyStatus"
-            android:textSize="20sp"/>
-    </RadioGroup>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
@@ -112,8 +85,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
-        android:text="Generate routines"
+        android:fontFamily="@font/ubuntu_regular"
         android:onClick="goToGenerateRoutine"
+        android:text="@string/generate_routine_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline6" />
 
