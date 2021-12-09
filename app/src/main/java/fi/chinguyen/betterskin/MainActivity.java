@@ -2,20 +2,20 @@ package fi.chinguyen.betterskin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+//<<<<<<< HEAD
+//<<<<<<< HEAD
 import android.content.Intent;
 import android.os.Bundle;
-=======
+//=======
 import android.os.Bundle; 
->>>>>>> master
-=======
+//>>>>>>> master
+//=======
 import android.os.Bundle; 
-=======
+//=======
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
->>>>>>> master
+//>>>>>>> master
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -31,7 +31,7 @@ MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-<<<<<<< HEAD
+/*<<<<<<< HEAD
 =======
     }
     public void goToFirstQuiz(View view) {
@@ -39,5 +39,5 @@ MainActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_MESSAGE, true);
         startActivity(intent);
 >>>>>>> master
-    }
+    }*/
 }
