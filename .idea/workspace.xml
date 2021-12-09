@@ -5,17 +5,17 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a836be9-817a-47a7-a359-f39a2cbce652" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/.Product.java.swp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/ProductDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/ProductDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_second_quiz.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_second_quiz.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/ApplicationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/ApplicationDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/userQuizChoices.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/userQuizChoices.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +157,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="origin/main" />
                       </list>
                     </value>
                   </entry>
