@@ -12,7 +12,6 @@ import android.widget.RadioGroup;
 public class ThirdQuiz extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.better-skin.MESSAGE";
     private String userSensitivity;
-    private String userPregnancy;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,21 +26,12 @@ public class ThirdQuiz extends AppCompatActivity {
         userSensitivity = selectedSensitiveSkin.getText().toString();
         Log.d("Hi", userSensitivity);
     }
-    public void getPregnancyStatus(View view){
 
-        RadioGroup pregnancy = findViewById(R.id.pregnancyRadioGroup);
-        // Listen to the user's choice
-        RadioButton selectedPregnancy = findViewById(pregnancy.getCheckedRadioButtonId());
-        // Get RadioButton text
-        userPregnancy = selectedPregnancy.getText().toString();
-        Log.d("Hi", userPregnancy);
-    }
+
     public void goToGenerateRoutine(View view) {
         userQuizChoices.getInstance().addToUserChoices(userSensitivity);
-        userQuizChoices.getInstance().addToUserChoices(userPregnancy);
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra(EXTRA_MESSAGE, userSensitivity);
-        intent.putExtra(EXTRA_MESSAGE, userPregnancy);
         startActivity(intent);
     }
 }

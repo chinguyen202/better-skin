@@ -4,14 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFF7F8"
     tools:context=".FirstQuiz">
 
     <TextView
         android:id="@+id/tvQuiz1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="What is your skin type? "
+        android:layout_marginTop="128dp"
+        android:fontFamily="@font/ubuntu_bold"
+        android:text="@string/skin_type_title"
+        android:textColor="@color/black"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.1"/>
+        app:layout_constraintGuide_percent="0.1" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -31,53 +35,68 @@
         app:layout_constraintGuide_percent="0.9" />
 
     <RadioGroup
+        android:id="@+id/skinType"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
-        app:layout_constraintTop_toBottomOf="@id/tvQuiz1"
-        android:id="@+id/skinType">
+        app:layout_constraintTop_toBottomOf="@id/tvQuiz1">
 
         <RadioButton
             android:id="@+id/rbSkinType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:button="@null"
-            android:text="Normal Skin"
+            android:background="@drawable/choices_selector"
+            android:button="@android:color/transparent"
+            android:fontFamily="@font/ubuntu_regular"
             android:onClick="getSkinType"
-            android:checked="true"
-            android:textSize="20sp"/>
+            android:paddingLeft="20dp"
+            android:text="@string/rb_normal"
+            android:textColor="@drawable/text_color_choices_selector"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/rbDry"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
+            android:background="@drawable/choices_selector"
             android:button="@null"
-            android:text="Dry Skin"
+            android:fontFamily="@font/ubuntu_regular"
             android:onClick="getSkinType"
-            android:textSize="20sp"/>
+            android:paddingLeft="20dp"
+            android:text="@string/rb_dry"
+            android:textColor="@drawable/text_color_choices_selector"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/rbOily"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
+            android:background="@drawable/choices_selector"
             android:button="@null"
-            android:text="Oily Skin"
+            android:fontFamily="@font/ubuntu_regular"
             android:onClick="getSkinType"
-            android:textSize="20sp"/>
+            android:paddingLeft="20dp"
+            android:text="@string/rb_oily"
+            android:textColor="@drawable/text_color_choices_selector"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/rbCombination"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
+            android:background="@drawable/choices_selector"
             android:button="@null"
-            android:text="Combination"
+            android:fontFamily="@font/ubuntu_regular"
             android:onClick="getSkinType"
-            android:textSize="20sp"/>
+            android:paddingLeft="20dp"
+            android:text="@string/rb_combination"
+            android:textColor="@drawable/text_color_choices_selector"
+            android:textSize="20sp" />
     </RadioGroup>
 
     <Button
@@ -85,8 +104,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
-        android:text="Next"
+        android:fontFamily="@font/ubuntu_regular"
         android:onClick="goToSecondQuiz"
+        android:text="@string/next_quiz_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline2" />
 
