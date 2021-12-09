@@ -5,11 +5,24 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a836be9-817a-47a7-a359-f39a2cbce652" name="Default Changelist" comment="" />
+    <list default="true" id="0a836be9-817a-47a7-a359-f39a2cbce652" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/ProductName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/ProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/ProductDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/ProductDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/ProductDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/SkinGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/SkinGoal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/SkinType.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/SkinType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/Time.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,6 +62,13 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -65,6 +85,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/assets/database" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/assets/database" />
     </key>
   </component>
