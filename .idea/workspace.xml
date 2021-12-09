@@ -13,6 +13,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/.Product.java.swp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/ProductDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/ProductDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/User.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_second_quiz.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_second_quiz.xml" afterDir="false" />
     </list>
