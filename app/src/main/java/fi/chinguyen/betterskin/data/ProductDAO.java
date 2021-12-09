@@ -17,14 +17,8 @@ public interface ApplicationDAO {
     @Query("SELECT * FROM Product")
     List<Product> getAllProduct();
 
-    @Query("SELECT * FROM Product WHERE `Skin goal` like :goal")
-    List<Product> searchProductByGoal(String goal);
-
-    @Query("SELECT * FROM Product WHERE `Skin type` like :skintype")
-    List<Product> searchProductBySkintype(String skintype);
-
-    @Query("SELECT * FROM Product WHERE `Product ID` like :ProductId")
-    Product getById(long ProductId);
+    @Query("SELECT * FROM Product WHERE `Step use` like stepUse")
+    List<Product> getProductByStep(stepUse);
 
     @Update
     int updateProduct(Product product);
