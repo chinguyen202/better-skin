@@ -14,8 +14,13 @@ import android.os.Bundle;
 //=======
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+<<<<<<< HEAD
 //>>>>>>> master
+=======
+import android.widget.TextView;
+>>>>>>> master
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -30,6 +35,7 @@ MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+<<<<<<< HEAD
 
 /*<<<<<<< HEAD
 =======
@@ -40,4 +46,8 @@ MainActivity extends AppCompatActivity {
         startActivity(intent);
 >>>>>>> master
     }*/
+=======
+        Log.d("hello", userQuizChoices.getInstance().getUserChoices().toString());
+    }
+>>>>>>> master
 }

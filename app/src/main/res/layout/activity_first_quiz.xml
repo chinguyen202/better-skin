@@ -40,11 +40,12 @@
         android:id="@+id/skinType">
 
         <RadioButton
-            android:id="@+id/rbNormal"
+            android:id="@+id/rbSkinType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:button="@null"
             android:text="Normal Skin"
+            android:onClick="getSkinType"
             android:checked="true"
             android:textSize="20sp"/>
 
@@ -55,6 +56,7 @@
             android:layout_marginTop="25dp"
             android:button="@null"
             android:text="Dry Skin"
+            android:onClick="getSkinType"
             android:textSize="20sp"/>
 
         <RadioButton
@@ -64,6 +66,7 @@
             android:layout_marginTop="25dp"
             android:button="@null"
             android:text="Oily Skin"
+            android:onClick="getSkinType"
             android:textSize="20sp"/>
 
         <RadioButton
@@ -73,6 +76,7 @@
             android:layout_marginTop="25dp"
             android:button="@null"
             android:text="Combination"
+            android:onClick="getSkinType"
             android:textSize="20sp"/>
     </RadioGroup>
 
