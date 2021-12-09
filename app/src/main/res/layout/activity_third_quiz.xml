@@ -47,6 +47,7 @@
             android:button="@null"
             android:checked="true"
             android:text="Yes"
+            android:onClick="getSkinSensitivity"
             android:textSize="20sp"/>
         <RadioButton
             android:id="@+id/rbNo1"
@@ -54,6 +55,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="25dp"
             android:button="@null"
+            android:onClick="getSkinSensitivity"
             android:text="No"
             android:textSize="20sp"/>
     </RadioGroup>
@@ -85,6 +87,7 @@
             android:checked="true"
             android:button="@null"
             android:text="Yes"
+            android:onClick="getPregnancyStatus"
             android:textSize="20sp"/>
         <RadioButton
             android:id="@+id/rbNo2"
@@ -93,6 +96,7 @@
             android:layout_marginTop="25dp"
             android:button="@null"
             android:text="No"
+            android:onClick="getPregnancyStatus"
             android:textSize="20sp"/>
     </RadioGroup>
 

@@ -46,6 +46,7 @@
             android:layout_height="match_parent"
             android:button="@null"
             android:checked="true"
+            android:onClick="getSkinMainGoal"
             android:textSize="20sp"
             android:text="Improve hydration"/>
         <RadioButton
@@ -55,6 +56,7 @@
             android:layout_marginTop="25dp"
             android:textSize="20sp"
             android:button="@null"
+            android:onClick="getSkinMainGoal"
             android:text="Reduce fine lines and wrinkles"/>
         <RadioButton
             android:id="@+id/rbGoal3"
@@ -63,6 +65,7 @@
             android:layout_marginTop="25dp"
             android:textSize="20sp"
             android:button="@null"
+            android:onClick="getSkinMainGoal"
             android:text="Reduce breakouts"/>
         <RadioButton
             android:id="@+id/rbGoal4"
@@ -71,6 +74,7 @@
             android:layout_marginTop="25dp"
             android:button="@null"
             android:textSize="20sp"
+            android:onClick="getSkinMainGoal"
             android:text="Reduce hyperpigmentation"/>
         <RadioButton
             android:id="@+id/rbGoal5"
@@ -78,6 +82,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="25dp"
             android:button="@null"
+            android:onClick="getSkinMainGoal"
             android:textSize="20sp"
             android:text="Reduce blackheads and minimize pores"/>
     </RadioGroup>
