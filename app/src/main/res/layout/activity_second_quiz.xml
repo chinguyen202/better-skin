@@ -47,7 +47,7 @@
             android:button="@null"
             android:checked="true"
             android:textSize="20sp"
-            android:text="Improve hydration"/>
+            android:text="Improve texture"/>
         <RadioButton
             android:id="@+id/rbGoal2"
             android:layout_width="match_parent"

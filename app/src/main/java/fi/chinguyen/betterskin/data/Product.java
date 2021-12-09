@@ -8,62 +8,54 @@ import androidx.room.ColumnInfo;
 public class Product {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "Product ID")
-    private long id;
+    private int productID;
 
     @ColumnInfo(name = "Product name")
-    private String name;
-
-    @ColumnInfo(name = "Step")
-    private String step;
+    private String productName;
 
     @ColumnInfo(name = "Time to use")
     private String timeUse;
 
-    @ColumnInfo(name = "Skin goal")
-    private String goal;
+    @ColumnInfo(name = "Step")
+    private String stepUse;
 
     @ColumnInfo(name = "Skin type")
+    private String skinGoal;
+
+    @ColumnInfo(name = "Skin goal")
     private String skinType;
 
     @ColumnInfo(name = "Sensitive Level")
-    private boolean sensitiveLevel;
+    private boolean sensitiveSkin;
 
     @ColumnInfo(name = "Pregnant state")
     private boolean pregnant;
 
-    public Product(long id, String name, String step, String timeUse, String goal, String skinType, boolean sensitiveLevel, boolean pregnant) {
-        this.id = id;
-        this.name = name;
-        this.step = step;
+    public Product(int productID, String productName, String timeUse, String stepUse, String skinGoal, String skinType, boolean sensitiveSkin, boolean pregnant) {
+        this.productID = productID;
+        this.productName = productName;
         this.timeUse = timeUse;
-        this.goal = goal;
+        this.stepUse = stepUse;
+        this.skinGoal = skinGoal;
         this.skinType = skinType;
-        this.sensitiveLevel = sensitiveLevel;
+        this.sensitiveSkin = sensitiveSkin;
         this.pregnant = pregnant;
     }
 
-    public long getId() {
-        return id;
+    public int getProductID() {
+        return productID;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setProductID(int productID) {
+        this.productID = productID;
     }
 
-    public String getName() {
-        return name;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getStep() {
-        return step;
-    }
-
-    public void setStep(String step) {
-        this.step = step;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public String getTimeUse() {
@@ -74,12 +66,20 @@ public class Product {
         this.timeUse = timeUse;
     }
 
-    public String getGoal() {
-        return goal;
+    public String getStepUse() {
+        return stepUse;
     }
 
-    public void setGoal(String goal) {
-        this.goal = goal;
+    public void setStepUse(String stepUse) {
+        this.stepUse = stepUse;
+    }
+
+    public String getSkinGoal() {
+        return skinGoal;
+    }
+
+    public void setSkinGoal(String skinGoal) {
+        this.skinGoal = skinGoal;
     }
 
     public String getSkinType() {
@@ -90,12 +90,12 @@ public class Product {
         this.skinType = skinType;
     }
 
-    public boolean isSensitiveLevel() {
-        return sensitiveLevel;
+    public boolean isSensitiveSkin() {
+        return sensitiveSkin;
     }
 
-    public void setSensitiveLevel(boolean sensitiveLevel) {
-        this.sensitiveLevel = sensitiveLevel;
+    public void setSensitiveSkin(boolean sensitiveSkin) {
+        this.sensitiveSkin = sensitiveSkin;
     }
 
     public boolean isPregnant() {
@@ -109,14 +109,15 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", step='" + step + '\'' +
+                "productID=" + productID +
+                ", productName='" + productName + '\'' +
                 ", timeUse='" + timeUse + '\'' +
-                ", goal='" + goal + '\'' +
+                ", stepUse='" + stepUse + '\'' +
+                ", skinGoal='" + skinGoal + '\'' +
                 ", skinType='" + skinType + '\'' +
-                ", sensitiveLevel=" + sensitiveLevel +
+                ", sensitiveSkin=" + sensitiveSkin +
                 ", pregnant=" + pregnant +
                 '}';
     }
 }
+

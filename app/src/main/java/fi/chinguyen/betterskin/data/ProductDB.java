@@ -13,7 +13,7 @@ public abstract class ProductDB extends RoomDatabase {
 
     public static ProductDB get(Context context) {
         if(null == productDB){
-            productDB = Room.databaseBuilder(context.getApplicationContext(), ProductDB.class,"skincare-product").allowMainThreadQueries().build();
+            productDB = Room.databaseBuilder(context.getApplicationContext(), ProductDB.class,"skincare-product").allowMainThreadQueries().createFromAsset("database/Product.db").build();
         }
         return productDB;
     }
