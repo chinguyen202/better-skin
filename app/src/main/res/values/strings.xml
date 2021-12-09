@@ -15,10 +15,10 @@
     <string name="rb_combination">Combination</string>
     <string name="next_quiz_button">Next</string>
     <string name="main_goal_title">What is your main goal?</string>
-    <string name="rb_goal_1">Improve hydration</string>
+    <string name="rb_goal_1">Improve texture</string>
     <string name="rb_goal_2">Reduce fine lines and wrinkle</string>
     <string name="rb_goal_3">Reduce breakouts</string>
-    <string name="rb_goal_4">Reduce hyperpigmentation</string>
+    <string name="rb_goal_4">Reduce hyper pigmentation</string>
     <string name="rb_goal_5">Reduce blackheads</string>
     <string name="sensitive_skin_title">Do you have sensitive skin?</string>
     <string name="pregnant_title">Are you pregnant?</string>
