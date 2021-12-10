@@ -1,2 +1,4 @@
-package fi.chinguyen.betterskin.data;public class SkinGoal {
+package fi.chinguyen.betterskin.data;
+
+    public class SkinGoal {
 }
