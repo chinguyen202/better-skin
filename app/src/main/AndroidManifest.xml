@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="fi.chinguyen.betterskin">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,26 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BetterSkin">
-
         <activity
-            android:name=".Login"
-            android:exported="true">
+            android:name=".LogoDisplay"
+            android:exported="true"
+            android:parentActivityName=".Welcome">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Welcome"/>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".LogoDisplay"
-            android:exported="false"
-            android:parentActivityName=".Welcome">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Welcome"/>
-        </activity>
-
         <activity
             android:name=".ThirdQuiz"
             android:exported="false"
@@ -39,7 +30,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
         </activity>
-
         <activity
             android:name=".SecondQuiz"
             android:exported="false"
@@ -72,15 +62,6 @@
             android:exported="false">
 
         </activity>
-        <activity
-            android:name=".Register"
-            android:exported="false"
-            android:parentActivityName=".Register">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Register"/>
-        </activity>
-
     </application>
 
 </manifest>

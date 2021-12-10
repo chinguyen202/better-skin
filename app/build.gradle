@@ -1,6 +1,5 @@
 plugins {
     id 'com.android.application'
-    id 'com.google.gms.google-services'
 }
 android {
     compileSdk 31
@@ -28,7 +27,6 @@ android {
 }
 
 dependencies {
-    implementation 'com.google.firebase:firebase-auth:21.0.1'
     def room_version = "2.3.0"
 
     implementation "androidx.room:room-runtime:$room_version"
