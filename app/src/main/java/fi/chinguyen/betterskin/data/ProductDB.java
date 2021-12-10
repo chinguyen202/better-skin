@@ -7,7 +7,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 //database class
 @Database(
-        entities = {Product.class,SkinType.class,SkinGoal.class,Time.class,ProductName.class},
+        entities = {Product.class,SkinType.class,SkinGoal.class,Time.class},
         version = 1
 )
 

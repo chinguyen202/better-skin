@@ -6,15 +6,20 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
+import fi.chinguyen.betterskin.data.Product;
+import fi.chinguyen.betterskin.data.ProductDB;
+
+/*
 import nl.dionsegijn.konfetti.KonfettiView;
 import nl.dionsegijn.konfetti.models.Shape;
 import nl.dionsegijn.konfetti.models.Size;
-
+*/
 public class LogoDisplay extends AppCompatActivity {
 
     private Timer timer;
@@ -23,6 +28,10 @@ public class LogoDisplay extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logo_display);
+
+
+
+
         DisplayMetrics display = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(display);
         // Animated confetti made in the direction of https://github.com/DanielMartinus/Konfetti
@@ -46,6 +55,5 @@ public class LogoDisplay extends AppCompatActivity {
                 startActivity(intent);
             }
         },3000);
-
     }
 }
