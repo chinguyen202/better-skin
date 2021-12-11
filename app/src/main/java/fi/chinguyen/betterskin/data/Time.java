@@ -1,2 +1,4 @@
-package fi.chinguyen.betterskin.data;public class Time {
+package fi.chinguyen.betterskin.data;
+
+    public class Time {
 }
