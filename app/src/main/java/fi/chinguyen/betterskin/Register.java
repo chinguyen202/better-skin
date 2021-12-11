@@ -1,6 +1,7 @@
 package fi.chinguyen.betterskin;
 
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -15,9 +16,16 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Register extends AppCompatActivity {
     EditText fullNameInput, emailInput, passwordInput, phoneInput;
@@ -25,6 +33,8 @@ public class Register extends AppCompatActivity {
     TextView loginButton;
     FirebaseAuth fAuth;
     ProgressBar progressBar;
+    FirebaseFirestore fStore;
+    String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +50,7 @@ public class Register extends AppCompatActivity {
         loginButton = findViewById(R.id.goToLogin);
 
         fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
         progressBar = findViewById(R.id.progressBar);
 
         if(fAuth.getCurrentUser() !=null){
@@ -52,6 +63,8 @@ public class Register extends AppCompatActivity {
             public void onClick(View v) {
                 String email = emailInput.getText().toString().trim();
                 String password = passwordInput.getText().toString().trim();
+                String fullName = fullNameInput.getText().toString().trim();
+                String phone = phoneInput.getText().toString().trim();
 
 
                 //Register condition
@@ -81,6 +94,18 @@ public class Register extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(Register.this,"User created", Toast.LENGTH_SHORT).show();
+                            userID = fAuth.getCurrentUser().getUid();
+                            DocumentReference documentReference = fStore.collection("users").document(userID);
+                            Map<String, Object> user = new HashMap<>();
+                            user.put("fName", fullName);
+                            user.put("email", email);
+                            user.put("phone", phone);
+                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Log.d("123", "onSuccess: user Profile created "+userID);
+                                }
+                            });
                             startActivity(new Intent(getApplicationContext(), LogoDisplay.class));
                         }else{
                             Toast.makeText(Register.this,"Error!" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
