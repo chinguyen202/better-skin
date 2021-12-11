@@ -10,6 +10,7 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import java.lang.reflect.Array;
 import java.util.List;
 
 @Dao
@@ -34,9 +35,11 @@ public interface AppDAO {
     @Query("SELECT productName FROM skincareProduct WHERE timeUse like :timeUse")
     public List<Name> getProductByTime(String timeUse);
 
+
+
     //select product using all input from user
     @Query("SELECT productName FROM skincareProduct WHERE stepUse like :stepUse AND skinGoal like :skinGoal AND skinType like :skinType AND timeUse like :timeUse")
-    public List<Name> getProductByInput(String stepUse,String skinGoal,String skinType,String timeUse);
+    public Name getProductByInput(String stepUse, String skinGoal, String skinType, String timeUse);
 
     @Update
     public void updateProduct(SkincareProduct skincareProduct);
