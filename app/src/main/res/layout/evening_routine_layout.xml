@@ -16,6 +16,24 @@
         android:id="@+id/imageButton"
         android:layout_width="50sp"
         android:layout_height="50sp"
+        android:background="@color/choices_normal"
+        android:onClick="goToProfile"
+        android:paddingRight="5sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline11"
+        app:layout_constraintTop_toTopOf="@+id/guideline9"
+        app:srcCompat="@drawable/profile_icon" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline90"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.02" />
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="48sp"
         android:onClick="goToProfile"
         android:paddingRight="5sp"
         android:background="@color/choices_normal"
