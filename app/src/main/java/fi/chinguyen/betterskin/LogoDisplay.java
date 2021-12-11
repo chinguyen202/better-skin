@@ -6,12 +6,16 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import android.util.Log;
+
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -33,8 +37,7 @@ public class LogoDisplay extends AppCompatActivity implements View.OnTouchListen
         DisplayMetrics display = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(display);
         {final KonfettiView konfettiView = findViewById(R.id.viewConfetti);
-            konfettiView.build()
-                    .addColors(Color.WHITE)
+            konfettiView.build().addColors(Color.WHITE)
                     .setDirection(0.0, 359.0)
                     .setSpeed(5f, 10f)
                     .setFadeOutEnabled(true)
@@ -44,6 +47,16 @@ public class LogoDisplay extends AppCompatActivity implements View.OnTouchListen
                     .setPosition(-50f, display.widthPixels + 50f, -50f, -50f)
                     .streamFor(300, 5000L);
         }
+
+        //List<data.Product> list = Arrays.asList((new ProductData()).addProductData());
+        //Log.d("data", "onCreate: " + list.get(0));
+
+        AppDB data = AppDB.getInstance(this);
+        AppDAO dataDao = data.appDao();
+        dataDao.loadAllProduct();
+        List<AppDAO.Name> list = dataDao.getProductByInput("Breakouts","Dry");
+        Log.d("data", "lengtg: " + list.toString());
+
         timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
