@@ -1,31 +1,37 @@
 package fi.chinguyen.betterskin;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
+import fi.chinguyen.betterskin.data.Product;
 import nl.dionsegijn.konfetti.KonfettiView;
 import nl.dionsegijn.konfetti.models.Shape;
 import nl.dionsegijn.konfetti.models.Size;
 
-public class LogoDisplay extends AppCompatActivity {
-
+public class LogoDisplay extends AppCompatActivity implements View.OnTouchListener {
     private Timer timer;
+    private Boolean isTouched = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logo_display);
+        LinearLayout logoLayout = (LinearLayout) findViewById(R.id.logoLayout);
+        // Animated confetti made following the direction of https://github.com/DanielMartinus/Konfetti
         DisplayMetrics display = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(display);
-        // Animated confetti made following the direction of https://github.com/DanielMartinus/Konfetti
         {final KonfettiView konfettiView = findViewById(R.id.viewConfetti);
             konfettiView.build()
                     .addColors(Color.WHITE)
@@ -42,10 +48,20 @@ public class LogoDisplay extends AppCompatActivity {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                Intent intent = new Intent(LogoDisplay.this, Welcome.class);
-                startActivity(intent);
+                if(!isTouched){
+                    Intent intent = new Intent(LogoDisplay.this, Welcome.class);
+                    startActivity(intent);
+                }
             }
         },3000);
+        logoLayout.setOnTouchListener(this);
+    }
 
+
+    public boolean onTouch(View v, MotionEvent event) {
+        isTouched = true;
+                startActivity(new Intent(LogoDisplay.this, Welcome.class));
+
+        return true;
     }
 }
