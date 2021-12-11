@@ -50,9 +50,8 @@ public class LogoDisplay extends AppCompatActivity implements View.OnTouchListen
 
         AppDB data = AppDB.getInstance(this);
         AppDAO dataDao = data.appDao();
-        dataDao.loadAllProduct();
-        List<AppDAO.Name> list = dataDao.getProductByInput("Clean","Breakouts","Normal","AM");
-        Log.d("data", "product: " + list.toString());
+        String product = dataDao.getProductByInput("Clean","Reduce breakouts","Normal","AM").toString();
+        Log.d("data", "product: " + product);
 
         timer = new Timer();
         timer.schedule(new TimerTask() {
