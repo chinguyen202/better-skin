@@ -15,7 +15,7 @@ import java.util.List;
 
 @Dao
 public interface AppDAO {
-
+    //conflict resolution strategy: insert same product will replace the old product
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void addProduct(SkincareProduct skincareProduct);
 
@@ -36,8 +36,8 @@ public interface AppDAO {
     public Name getProductByTime(String timeUse);
 
     //select product using all input from user
-    @Query("SELECT productName FROM skincareProduct WHERE stepUse like :stepUse AND skinGoal like :skinGoal AND skinType like :skinType AND timeUse like :timeUse")
-    public Name getProductByInput(String stepUse, String skinGoal, String skinType, String timeUse);
+    @Query("SELECT productName FROM skincareProduct WHERE stepUse like :stepUse AND skinGoal like :skinGoal AND skinType like :skinType AND sensitiveSkin like :sensitiveSkin AND timeUse like :timeUse")
+    public String getProductByInput(String stepUse, String skinGoal, String skinType, String sensitiveSkin,String timeUse);
 
     //Select product by using step in which product is used for
     @Query("Select * from SkincareProduct Where stepUse like :stepUse")
@@ -46,6 +46,7 @@ public interface AppDAO {
     @Update
     public void updateProduct(SkincareProduct skincareProduct);
 
+    //delete product from database
     @Delete
     public void deleteProduct(SkincareProduct skincareProduct);
 
