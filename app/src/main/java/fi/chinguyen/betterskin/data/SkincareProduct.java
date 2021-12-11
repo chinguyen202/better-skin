@@ -15,14 +15,16 @@ public class SkincareProduct {
     private String stepUse;
     private String skinGoal;
     private String skinType;
+    private String sensitiveSkin;
     private String timeUse;
 
-    public SkincareProduct(int productID, @NonNull String productName, @NonNull String stepUse, String skinGoal, String skinType, String timeUse) {
+    public SkincareProduct(int productID, String productName, String stepUse, String skinGoal, String skinType, String sensitiveSkin, String timeUse) {
         this.productID = productID;
         this.productName = productName;
         this.stepUse = stepUse;
         this.skinGoal = skinGoal;
         this.skinType = skinType;
+        this.sensitiveSkin = sensitiveSkin;
         this.timeUse = timeUse;
     }
 
@@ -34,21 +36,19 @@ public class SkincareProduct {
         this.productID = productID;
     }
 
-    @NonNull
     public String getProductName() {
         return productName;
     }
 
-    public void setProductName(@NonNull String productName) {
+    public void setProductName(String productName) {
         this.productName = productName;
     }
 
-    @NonNull
     public String getStepUse() {
         return stepUse;
     }
 
-    public void setStepUse(@NonNull String stepUse) {
+    public void setStepUse(String stepUse) {
         this.stepUse = stepUse;
     }
 
@@ -68,6 +68,14 @@ public class SkincareProduct {
         this.skinType = skinType;
     }
 
+    public String getSensitiveSkin() {
+        return sensitiveSkin;
+    }
+
+    public void setSensitiveSkin(String sensitiveSkin) {
+        this.sensitiveSkin = sensitiveSkin;
+    }
+
     public String getTimeUse() {
         return timeUse;
     }
@@ -75,6 +83,7 @@ public class SkincareProduct {
     public void setTimeUse(String timeUse) {
         this.timeUse = timeUse;
     }
+
 
     @Override
     public String toString() {
@@ -84,6 +93,7 @@ public class SkincareProduct {
                 ", stepUse='" + stepUse + '\'' +
                 ", skinGoal='" + skinGoal + '\'' +
                 ", skinType='" + skinType + '\'' +
+                ", sensitiveSkin='" + sensitiveSkin + '\'' +
                 ", timeUse='" + timeUse + '\'' +
                 '}';
     }

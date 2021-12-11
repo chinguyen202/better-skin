@@ -38,8 +38,8 @@ public interface AppDAO {
 
 
     //select product using all input from user
-    @Query("SELECT productName FROM skincareProduct WHERE stepUse like :stepUse AND skinGoal like :skinGoal AND skinType like :skinType AND timeUse like :timeUse")
-    public Name getProductByInput(String stepUse, String skinGoal, String skinType, String timeUse);
+    @Query("SELECT productName FROM skincareProduct WHERE stepUse like :stepUse AND skinGoal like :skinGoal AND skinType like :skinType AND sensitiveSkin like :sensitiveSkin AND timeUse like :timeUse")
+    public String getProductByInput(String stepUse, String skinGoal, String skinType, String sensitiveSkin,String timeUse);
 
     @Update
     public void updateProduct(SkincareProduct skincareProduct);

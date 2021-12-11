@@ -50,7 +50,7 @@ public class LogoDisplay extends AppCompatActivity {
 
         AppDB data = AppDB.getInstance(this);
         AppDAO dataDao = data.appDao();
-        String product = dataDao.getProductByInput("Clean","Reduce breakouts","Normal","AM").toString();
+        String product = dataDao.getProductByInput("Clean","Reduce breakouts","Normal","Yes","PM");
         Log.d("data", "product: " + product);
 
         timer = new Timer();
