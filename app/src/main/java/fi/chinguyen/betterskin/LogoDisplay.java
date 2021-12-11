@@ -27,8 +27,7 @@ public class LogoDisplay extends AppCompatActivity {
         getWindowManager().getDefaultDisplay().getMetrics(display);
         // Animated confetti made following the direction of https://github.com/DanielMartinus/Konfetti
         {final KonfettiView konfettiView = findViewById(R.id.viewConfetti);
-            konfettiView.build()
-                    .addColors(Color.WHITE)
+            konfettiView.build().addColors(Color.WHITE)
                     .setDirection(0.0, 359.0)
                     .setSpeed(5f, 10f)
                     .setFadeOutEnabled(true)
