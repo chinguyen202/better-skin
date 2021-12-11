@@ -5,26 +5,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-<<<<<<< HEAD
+
 import android.util.DisplayMetrics;
 import android.view.View;
-=======
+
 import android.util.Log;
->>>>>>> feature/testDatabase
 
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-<<<<<<< HEAD
 import nl.dionsegijn.konfetti.KonfettiView;
 import nl.dionsegijn.konfetti.models.Shape;
 import nl.dionsegijn.konfetti.models.Size;
-=======
+
 import fi.chinguyen.betterskin.data.AppDAO;
 import fi.chinguyen.betterskin.data.AppDB;
 import fi.chinguyen.betterskin.data.SkincareProduct;
->>>>>>> feature/testDatabase
+
 
 public class LogoDisplay extends AppCompatActivity {
 
@@ -34,7 +32,7 @@ public class LogoDisplay extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logo_display);
-<<<<<<< HEAD
+
         DisplayMetrics display = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(display);
         // Animated confetti made following the direction of https://github.com/DanielMartinus/Konfetti
@@ -49,7 +47,6 @@ public class LogoDisplay extends AppCompatActivity {
                     .setPosition(-50f, display.widthPixels + 50f, -50f, -50f)
                     .streamFor(300, 5000L);
         }
-=======
 
         //List<data.Product> list = Arrays.asList((new ProductData()).addProductData());
         //Log.d("data", "onCreate: " + list.get(0));
@@ -60,7 +57,6 @@ public class LogoDisplay extends AppCompatActivity {
         List<AppDAO.Name> list = dataDao.getProductByInput("Breakouts","Dry");
         Log.d("data", "lengtg: " + list.toString());
 
->>>>>>> feature/testDatabase
         timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
