@@ -13,6 +13,7 @@ import android.widget.Toast;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,7 +26,7 @@ import java.util.Objects;
 public class Login extends AppCompatActivity {
     EditText emailInput,passwordInput;
     Button loginButton;
-    TextView createNewButton;
+    TextView createNewButton, forgotPassword;
     FirebaseAuth auth;
     ProgressBar progressBar;
 
@@ -41,6 +42,7 @@ public class Login extends AppCompatActivity {
         createNewButton = findViewById(R.id.goToRegister);
         progressBar = findViewById(R.id.progressBar);
         auth = FirebaseAuth.getInstance();
+        forgotPassword = findViewById(R.id.forgetPassword);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,12 +86,12 @@ public class Login extends AppCompatActivity {
             }
 
         });
-        createNewButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Register.class));
-            }
-        });;
+
+    }
+    public void goToRegister(View view) {
+        Intent intent = new Intent(this, Register.class);
+        startActivity(intent);
+
 
     }
 }
