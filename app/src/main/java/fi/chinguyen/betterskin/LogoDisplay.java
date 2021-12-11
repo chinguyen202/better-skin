@@ -4,9 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import fi.chinguyen.betterskin.data.AppDAO;
+import fi.chinguyen.betterskin.data.AppDB;
+import fi.chinguyen.betterskin.data.SkincareProduct;
 
 public class LogoDisplay extends AppCompatActivity {
 
@@ -16,6 +22,15 @@ public class LogoDisplay extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logo_display);
+
+        //List<data.Product> list = Arrays.asList((new ProductData()).addProductData());
+        //Log.d("data", "onCreate: " + list.get(0));
+
+        AppDB data = AppDB.getInstance(this);
+        AppDAO dataDao = data.appDao();
+        dataDao.loadAllProduct();
+        List<AppDAO.Name> list = dataDao.getProductByInput("Breakouts","Dry");
+        Log.d("data", "lengtg: " + list.toString());
 
         timer = new Timer();
         timer.schedule(new TimerTask() {
