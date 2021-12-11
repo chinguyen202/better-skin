@@ -29,17 +29,19 @@ public interface AppDAO {
 
     //List product name
     @Query("Select productName from skincareProduct ")
-    public List<Name> loadName();
+    public Name loadName();
 
     //Select product based on time use
     @Query("SELECT productName FROM skincareProduct WHERE timeUse like :timeUse")
-    public List<Name> getProductByTime(String timeUse);
-
-
+    public Name getProductByTime(String timeUse);
 
     //select product using all input from user
     @Query("SELECT productName FROM skincareProduct WHERE stepUse like :stepUse AND skinGoal like :skinGoal AND skinType like :skinType AND timeUse like :timeUse")
     public Name getProductByInput(String stepUse, String skinGoal, String skinType, String timeUse);
+
+    //Select product by using step in which product is used for
+    @Query("Select * from SkincareProduct Where stepUse like :stepUse")
+    public Name getSpfProduct(String stepUse);
 
     @Update
     public void updateProduct(SkincareProduct skincareProduct);

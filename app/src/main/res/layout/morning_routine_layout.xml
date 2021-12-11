@@ -9,7 +9,7 @@
 
     <ImageButton
         android:id="@+id/goToProfile"
-        android:layout_width="50sp"
+        android:layout_width="60sp"
         android:layout_height="50sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintTop_toTopOf="@+id/guideline12"
@@ -18,42 +18,12 @@
         android:background="@color/choices_normal"
         app:srcCompat="@drawable/profile_icon" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="@+id/guideline4">
-
-        <TextView
-            android:id="@+id/firstMorningProduct"
+        <ListView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_height="match_parent"
+            android:id="@+id/morningRoutineList">
+        </ListView>
 
-        <TextView
-            android:id="@+id/secondMorningProduct"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/thirdMorningProduct"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/forthMorningProduct"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/fifthMorningProduct"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-    </LinearLayout>
 
     <TextView
         android:id="@+id/morningRoutineTitle"
