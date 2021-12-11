@@ -14,8 +14,8 @@
 
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="48sp"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
         android:onClick="goToProfile"
         android:paddingRight="5sp"
         android:background="@color/choices_normal"

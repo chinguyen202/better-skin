@@ -13,8 +13,7 @@ public class GenerateMorningRoutine extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.morning_routine_layout);
     }
-    public void returnToProfile(View view) {
-        Log.d("Profile",userQuizChoices.getInstance().getUserChoices().toString());
+    public void goToProfile(View view) {
         Intent intent = new Intent(this, Profile.class);
         startActivity(intent);
     }
