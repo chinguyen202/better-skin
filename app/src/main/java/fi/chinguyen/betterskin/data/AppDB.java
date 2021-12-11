@@ -26,7 +26,6 @@ public abstract class AppDB extends RoomDatabase {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                         AppDB.class, "skincare.db")
                         .fallbackToDestructiveMigration()
-                       // .addCallback(roomCallBack)
                         .fallbackToDestructiveMigration()
                         .allowMainThreadQueries()
                         .createFromAsset("skincareProduct.db")
@@ -35,28 +34,8 @@ public abstract class AppDB extends RoomDatabase {
             }
         return INSTANCE;
 
-      /*  private static .Callback roomCallBack = new Callback() {
-            @Override
-            public void onCreate(@NonNull SupportSQLiteDatabase db) {
-                super.onCreate(appDb);
-                new PopulateDB(INSTANCE).execute();
-            }
-        };*/
     }
-/*
-    private static class PopulateDB extends AsyncTask<Void,Void,Void>{
-        private AppDAO appDao;
-
-        public PopulateDB(AppDB appDb){
-            this.appDao = appDb.appDao();
-        }
-
-        @Override
-        protected Void doInBackground(Void...voids){
-            appDao.addProduct(new SkincareProduct());
-            return null;
-        }*/
-    }
+}
 
 
 
