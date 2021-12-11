@@ -48,14 +48,11 @@ public class LogoDisplay extends AppCompatActivity implements View.OnTouchListen
                     .streamFor(300, 5000L);
         }
 
-        //List<data.Product> list = Arrays.asList((new ProductData()).addProductData());
-        //Log.d("data", "onCreate: " + list.get(0));
-
         AppDB data = AppDB.getInstance(this);
         AppDAO dataDao = data.appDao();
         dataDao.loadAllProduct();
-        List<AppDAO.Name> list = dataDao.getProductByInput("Breakouts","Dry");
-        Log.d("data", "lengtg: " + list.toString());
+        List<AppDAO.Name> list = dataDao.getProductByInput("Clean","Breakouts","Normal","AM");
+        Log.d("data", "product: " + list.toString());
 
         timer = new Timer();
         timer.schedule(new TimerTask() {
