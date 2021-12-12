@@ -21,7 +21,7 @@
             </intent-filter>
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Login"/>
+                android:value=".Register"/>
         </activity>
 
         <activity
@@ -30,8 +30,7 @@
             android:parentActivityName=".Register">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Register"/>
-
+                android:value=".Login"/>
         </activity>
 
 
