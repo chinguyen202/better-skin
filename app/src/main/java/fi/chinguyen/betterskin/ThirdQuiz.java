@@ -30,7 +30,7 @@ public class ThirdQuiz extends AppCompatActivity {
 
     public void goToGenerateRoutine(View view) {
         userQuizChoices.getInstance().addToUserChoices(userSensitivity);
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, GenerateMorningRoutine.class);
         intent.putExtra(EXTRA_MESSAGE, userSensitivity);
         startActivity(intent);
     }
