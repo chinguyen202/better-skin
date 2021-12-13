@@ -11,8 +11,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 @Database(
         entities = {SkincareProduct.class},
-        version = 1,
-        exportSchema = true
+        version = 1
 )
 public abstract class AppDB extends RoomDatabase {
     public SkincareProduct[] applicationDao;
