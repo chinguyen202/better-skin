@@ -9,9 +9,11 @@ import androidx.room.PrimaryKey;
 public class SkincareProduct {
 
     @PrimaryKey(autoGenerate = true)
+    @NonNull
     private int productID;
-
+    @NonNull
     private String productName;
+    @NonNull
     private String stepUse;
     private String skinGoal;
     private String skinType;

@@ -29,7 +29,7 @@ public abstract class AppDB extends RoomDatabase {
                        // .addCallback(roomCallBack)
                         .fallbackToDestructiveMigration()
                         .allowMainThreadQueries()
-                        .createFromAsset("skincareProduct.db")
+                        .createFromAsset("SkincareProduct.db")
                         .build();
 
             }

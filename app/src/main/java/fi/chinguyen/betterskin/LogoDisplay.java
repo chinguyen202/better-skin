@@ -28,9 +28,9 @@ public class LogoDisplay extends AppCompatActivity {
 
         AppDB data = AppDB.getInstance(this);
         AppDAO dataDao = data.appDao();
-        dataDao.loadAllProduct();
-        List<AppDAO.Name> list = dataDao.getProductByInput("Breakouts","Dry");
-        Log.d("data", "lengtg: " + list.toString());
+
+        List<SkincareProduct> list = dataDao.getProductByStepUse("Clean");
+        Log.d("data", "lengtg: " + list.size());
 
         timer = new Timer();
         timer.schedule(new TimerTask() {
