@@ -39,7 +39,7 @@ public class GenerateMorningRoutine extends AppCompatActivity {
         String spf = dataDao.getSpfProduct("SPF");
         morningRoutine.add(cleaner);
         morningRoutine.add(treat);
-       morningRoutine.add(moisturizer);
+        morningRoutine.add(moisturizer);
         morningRoutine.add(spf);
         Log.d(TAG, "product: " + morningRoutine.toString());
         ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this, R.layout.list_view_display, morningRoutine);

@@ -30,8 +30,8 @@ public class Register extends AppCompatActivity {
         rePassword = findViewById(R.id.reTypePassword);
         registerButton = findViewById(R.id.registerButton);
         goToLogin = findViewById(R.id.goToLogin);
-        user123 = new User(this);
-
+     //   user123 = new User(this);
+/*
         registerButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -70,6 +70,6 @@ public class Register extends AppCompatActivity {
                 startActivity(intent);
 
             }
-        });
+        });*/
     }
 }

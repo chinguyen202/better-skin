@@ -15,10 +15,10 @@ public interface UserDao {
     void addUser(User user);
 
     @Query("SELECT * FROM User")
-    List<User> getAllUser();
+    public List<User> getAllUser();
 
-    @Query("SELECT userID FROM User")
-    int getUserId();
+    @Query("SELECT * FROM User WHERE userID = :id")
+    public User getUserById(long id);
 
     @Update
     void updateUser(User user);

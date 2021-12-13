@@ -1,6 +1,5 @@
 package fi.chinguyen.betterskin.data;
 
-<<<<<<< HEAD
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -9,37 +8,55 @@ import androidx.room.PrimaryKey;
 @Entity
 public class User {
     @PrimaryKey(autoGenerate = true)
-    private int userID;
+    private long uID;
+
+    @ColumnInfo(name = "fullName")
+    @NonNull
+    private String fullName;
 
     @ColumnInfo(name = "username")
     @NonNull
-    private String userName;
+    private String username;
 
     @ColumnInfo(name = "password")
     @NonNull
     private String password;
 
-    public User(int userID, @NonNull String userName, @NonNull String password) {
-        this.userID = userID;
-        this.userName = userName;
+    @ColumnInfo(name = "phoneNumber")
+    private String phoneNumber;
+
+    public User(long userID, @NonNull String fullName, @NonNull String username, @NonNull String password, String phoneNumber) {
+        this.uID = userID;
+        this.fullName = fullName;
+        this.username = username;
         this.password = password;
+        this.phoneNumber = phoneNumber;
     }
 
-    public int getUserID() {
-        return userID;
+    public long getUserID() {
+        return uID;
     }
 
     public void setUserID(int userID) {
-        this.userID = userID;
+        this.uID = userID;
     }
 
     @NonNull
-    public String getUserName() {
-        return userName;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setUserName(@NonNull String userName) {
-        this.userName = userName;
+    public void setFullName(@NonNull String fullName) {
+        this.fullName = fullName;
+    }
+
+    @NonNull
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(@NonNull String username) {
+        this.username = username;
     }
 
     @NonNull
@@ -51,72 +68,22 @@ public class User {
         this.password = password;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     @Override
     public String toString() {
         return "User{" +
-                "userID=" + userID +
-                ", userName='" + userName + '\'' +
+                "userID=" + uID +
+                ", fullName='" + fullName + '\'' +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
-=======
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
-import androidx.annotation.Nullable;
-
-public class User extends SQLiteOpenHelper {
-
-    public static final String DBNAME = "Login.db";
-
-    public User (Context context){
-        super(context, "Login.db", null, 1);
-
-
-    }
-
-
-    @Override
-    public void onCreate(SQLiteDatabase MyDB) {
-        MyDB.execSQL("create Table users(username TEXT primary key, password TEXT)");
-
-    }
-
-    @Override
-    public void onUpgrade(SQLiteDatabase MyDB, int oldVersion, int newVersion) {
-        MyDB.execSQL("Drop Table if exists users");
-    }
-
-    public boolean insertData(String username, String password){
-        SQLiteDatabase MyDB = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("username", username);
-        contentValues.put("password",password);
-        long result = MyDB.insert("users",null,contentValues);
-        if(result==-1) return false;
-        else
-            return true;
-    }
-
-    public boolean checkUsername (String username){
-        SQLiteDatabase MyDB = this.getWritableDatabase();
-        Cursor cursor = MyDB.rawQuery("Select * from users where username =?",new String[] {username});
-        if(cursor.getCount()>0)
-            return true;
-        else
-            return false;
-
-    }
-
-    public boolean checkUsernamePassword (String username, String password) {
-        SQLiteDatabase MyDB = this.getWritableDatabase();
-        Cursor cursor = MyDB.rawQuery("Select * from users where username =? and password =?",new String[] {username,password});
-        if(cursor.getCount()>0)
-            return true;
-        else
-            return false;
->>>>>>> origin/testStandAloneRegisterandLogin
     }
 }

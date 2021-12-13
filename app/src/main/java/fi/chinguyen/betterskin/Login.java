@@ -29,8 +29,11 @@ public class Login extends AppCompatActivity {
         loginButton = findViewById(R.id.loginButton);
         createNewAccount = findViewById(R.id.goToRegister);
         guest = findViewById(R.id.guest);
-        user123 = new User(this);
 
+
+
+       // user123 = new User(this);
+/*
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,7 +71,7 @@ public class Login extends AppCompatActivity {
                 startActivity(intent);
 
             }
-        });
+        });*/
 
     }
 }
