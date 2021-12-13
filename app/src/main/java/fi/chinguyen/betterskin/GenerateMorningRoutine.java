@@ -16,9 +16,10 @@ import fi.chinguyen.betterskin.data.AppDAO;
 import fi.chinguyen.betterskin.data.AppDB;
 
 public class GenerateMorningRoutine extends AppCompatActivity {
+    public static final String TAG = "Test mode";
     public static final String EXTRA_MESSAGE = "com.example.better-skin.MESSAGE";
 
-//    private static final GenerateMorningRoutine morningInstance = new GenerateMorningRoutine();
+    private static final GenerateMorningRoutine morningInstance = new GenerateMorningRoutine();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +31,17 @@ public class GenerateMorningRoutine extends AppCompatActivity {
         AppDB data = AppDB.getInstance(this);
         AppDAO dataDao = data.appDao();
         String cleaner = dataDao.getProductByInput("Clean",userChoices.get(1),userChoices.get(0), userChoices.get(2),"AM");
+        Log.d(TAG,"product"+cleaner);
         String moisturizer = dataDao.getProductByInput("Moisturizer",userChoices.get(1),userChoices.get(0), userChoices.get(2),"AM");
+        Log.d(TAG,"product"+moisturizer);
         String treat = dataDao.getProductByInput("Treat",userChoices.get(1),userChoices.get(0), userChoices.get(2),"AM");
+        Log.d(TAG,"product"+treat);
         String spf = dataDao.getSpfProduct("SPF");
         morningRoutine.add(cleaner);
         morningRoutine.add(treat);
-//        morningRoutine.add(moisturizer);
+       morningRoutine.add(moisturizer);
         morningRoutine.add(spf);
-        Log.d("data", "product: " + morningRoutine.toString());
+        Log.d(TAG, "product: " + morningRoutine.toString());
         ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this, R.layout.list_view_display, morningRoutine);
         ListView  morningRoutineList = findViewById(R.id.morningRoutineList);
 
@@ -45,7 +49,7 @@ public class GenerateMorningRoutine extends AppCompatActivity {
         morningRoutineList.setAdapter(arrayAdapter);
 
         morningRoutineList.setOnItemClickListener((adapterView, view, i, l) -> {
-            Log.d("hI", morningRoutine.toString());
+            Log.d(TAG, morningRoutine.toString());
             Intent nextActivity = new Intent(GenerateMorningRoutine.this, DisplayMorningProductInfo.class);
             nextActivity.putExtra(EXTRA_MESSAGE, i);
             startActivity(nextActivity);

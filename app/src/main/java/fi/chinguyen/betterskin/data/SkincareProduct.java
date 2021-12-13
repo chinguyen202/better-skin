@@ -9,13 +9,27 @@ import androidx.room.PrimaryKey;
 public class SkincareProduct {
 
     @PrimaryKey(autoGenerate = true)
+    @NonNull
     private int productID;
 
+    @ColumnInfo(name = "productName")
+    @NonNull
     private String productName;
+
+    @ColumnInfo(name = "stepUse")
+    @NonNull
     private String stepUse;
+
+    @ColumnInfo(name = "skinGoal")
     private String skinGoal;
+
+    @ColumnInfo(name = "skinType")
     private String skinType;
+
+    @ColumnInfo(name = "sensitiveSkin")
     private String sensitiveSkin;
+
+    @ColumnInfo(name = "timeUse")
     private String timeUse;
 
     public SkincareProduct(int productID, String productName, String stepUse, String skinGoal, String skinType, String sensitiveSkin, String timeUse) {
