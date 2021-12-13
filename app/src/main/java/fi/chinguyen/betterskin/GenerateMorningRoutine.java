@@ -14,6 +14,8 @@ import java.util.ArrayList;
 
 import fi.chinguyen.betterskin.data.AppDAO;
 import fi.chinguyen.betterskin.data.AppDB;
+import fi.chinguyen.betterskin.data.MorningRoutine;
+import fi.chinguyen.betterskin.data.SkincareProduct;
 
 public class GenerateMorningRoutine extends AppCompatActivity {
     public static final String TAG = "Test mode";
@@ -39,7 +41,9 @@ public class GenerateMorningRoutine extends AppCompatActivity {
         morningRoutine.add(treat);
         morningRoutine.add(moisturizer);
         morningRoutine.add(spf);
+
         Log.d(TAG, "product: " + morningRoutine.toString());
+
         ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this, R.layout.list_view_display, morningRoutine);
         ListView  morningRoutineList = findViewById(R.id.morningRoutineList);
 

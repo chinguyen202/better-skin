@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,9 +29,10 @@ public class Login extends AppCompatActivity {
         password = findViewById(R.id.passwordInput);
         loginButton = findViewById(R.id.loginButton);
         createNewAccount = findViewById(R.id.goToRegister);
-        guest = findViewById(R.id.guest);
-        user123 = new User(this);
 
+
+       // user123 = new User(this);
+/*
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,7 +45,7 @@ public class Login extends AppCompatActivity {
                         Boolean checkUserPassword = user123.checkUsernamePassword(user, pass);
                         if (checkUserPassword == true) {
                             Toast.makeText(Login.this, "Sign in successful", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), LogoDisplay.class);
+                            Intent intent = new Intent(getApplicationContext(), Profile.class);
                             startActivity(intent);
                         } else {
                             Toast.makeText(Login.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
@@ -61,14 +63,10 @@ public class Login extends AppCompatActivity {
 
             }
         });
-        guest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v){
-                Intent intent = new Intent(getApplicationContext(), LogoDisplay.class);
-                startActivity(intent);
 
+<<<<<<< HEAD
             }
-        });
+        });*/
 
     }
 }

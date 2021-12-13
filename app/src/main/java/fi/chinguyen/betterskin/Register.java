@@ -15,7 +15,7 @@ import fi.chinguyen.betterskin.data.User;
 
 public class Register extends AppCompatActivity {
 
-    EditText userName, password, rePassword;
+    EditText fullName, userName, password, rePassword, phone;
     Button registerButton;
     TextView goToLogin;
     User user123;
@@ -24,20 +24,22 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
 
-
+        //fullName = findViewById(R.id.fullNameInput);
         userName = findViewById(R.id.userNameInput);
         password = findViewById(R.id.passwordInput);
         rePassword = findViewById(R.id.reTypePassword);
         registerButton = findViewById(R.id.registerButton);
+        //phone = findViewById(R.id.phoneInput);
         goToLogin = findViewById(R.id.goToLogin);
-        user123 = new User(this);
-
+     //   user123 = new User(this);
+/*
         registerButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 String user = userName.getText().toString();
                 String pass = password.getText().toString();
                 String repass = rePassword.getText().toString();
+
 
                 if(user.equals("")||pass.equals("")||repass.equals("")) {
                     Toast.makeText(Register.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
@@ -48,7 +50,7 @@ public class Register extends AppCompatActivity {
                             Boolean insert = user123.insertData(user, pass);
                             if(insert==true){
                                 Toast.makeText(Register.this, "Registered successfully", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(),Login.class);
+                                Intent intent = new Intent(getApplicationContext(),Welcome.class);
                                 startActivity(intent);
                             }else{
                                 Toast.makeText(Register.this, "Registration failed", Toast.LENGTH_SHORT).show();
@@ -66,10 +68,10 @@ public class Register extends AppCompatActivity {
         goToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (getApplicationContext(),Login.class);
+                Intent intent = new Intent (getApplicationContext(), Login.class);
                 startActivity(intent);
 
             }
-        });
+        });*/
     }
 }

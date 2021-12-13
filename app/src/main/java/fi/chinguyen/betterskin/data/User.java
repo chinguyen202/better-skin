@@ -7,56 +7,94 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 public class User extends SQLiteOpenHelper {
 
     public static final String DBNAME = "Login.db";
 
-    public User (Context context){
-        super(context, "Login.db", null, 1);
+@Entity
+public class User {
+    @PrimaryKey(autoGenerate = true)
+    private long uID;
 
+    @ColumnInfo(name = "fullName")
+    @NonNull
+    private String fullName;
 
+    @ColumnInfo(name = "username")
+    @NonNull
+    private String username;
+
+    @ColumnInfo(name = "password")
+    @NonNull
+    private String password;
+
+    @ColumnInfo(name = "phoneNumber")
+    private String phoneNumber;
+
+    public User(long uID, @NonNull String fullName, @NonNull String username, @NonNull String password, String phoneNumber) {
+        this.uID = uID;
+        this.fullName = fullName;
+        this.username = username;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
     }
 
+    public long getUID() {
+        return uID;
+    }
+
+    public void setuID(long uID) {
+        this.uID = uID;
+    }
+
+    @NonNull
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(@NonNull String fullName) {
+        this.fullName = fullName;
+    }
+
+    @NonNull
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(@NonNull String username) {
+        this.username = username;
+    }
+
+    @NonNull
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(@NonNull String password) {
+        this.password = password;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
     @Override
-    public void onCreate(SQLiteDatabase MyDB) {
-        MyDB.execSQL("create Table users(username TEXT primary key, password TEXT)");
-
-    }
-
-    @Override
-    public void onUpgrade(SQLiteDatabase MyDB, int oldVersion, int newVersion) {
-        MyDB.execSQL("Drop Table if exists users");
-    }
-
-    public boolean insertData(String username, String password){
-        SQLiteDatabase MyDB = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("username", username);
-        contentValues.put("password",password);
-        long result = MyDB.insert("users",null,contentValues);
-        if(result==-1) return false;
-        else
-            return true;
-    }
-
-    public boolean checkUsername (String username){
-        SQLiteDatabase MyDB = this.getWritableDatabase();
-        Cursor cursor = MyDB.rawQuery("Select * from users where username =?",new String[] {username});
-        if(cursor.getCount()>0)
-            return true;
-        else
-            return false;
-
-    }
-
-    public boolean checkUsernamePassword (String username, String password) {
-        SQLiteDatabase MyDB = this.getWritableDatabase();
-        Cursor cursor = MyDB.rawQuery("Select * from users where username =? and password =?",new String[] {username,password});
-        if(cursor.getCount()>0)
-            return true;
-        else
-            return false;
+    public String toString() {
+        return "User{" +
+                "uID=" + uID +
+                ", fullName='" + fullName + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
     }
 }
