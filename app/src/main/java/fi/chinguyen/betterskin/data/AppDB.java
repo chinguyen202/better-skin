@@ -30,7 +30,7 @@ public abstract class AppDB extends RoomDatabase {
                         .fallbackToDestructiveMigration()
                         .fallbackToDestructiveMigration()
                         .allowMainThreadQueries()
-                        .createFromAsset("betterskin.db")
+                        .createFromAsset("betterSkin.db")
                         .build();
 
             }
