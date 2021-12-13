@@ -22,5 +22,7 @@ public class userQuizChoices extends AppCompatActivity {
         return userChoices;
     }
 
+    public void clearChoices(){userChoices.clear();};
+
 }
 

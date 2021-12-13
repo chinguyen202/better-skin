@@ -10,20 +10,21 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
-public class DisplayMorningProductInfo extends AppCompatActivity {
+public class DisplayEveningProductInfo extends AppCompatActivity {
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.display_product_info);
 
-        ImageView productImg= (ImageView) findViewById(R.id.product);
+        ImageView productImg = (ImageView) findViewById(R.id.product);
         Bundle b = getIntent().getExtras();
         int a = b.getInt(GenerateMorningRoutine.EXTRA_MESSAGE, 0);
-        ArrayList<String> morningProductList=getIntent().getExtras().getStringArrayList("product");
+        ArrayList<String> eveningProductList=getIntent().getExtras().getStringArrayList("product");
         ArrayList<String> productInformation = new ArrayList<>();
-        ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this, R.layout.display_product_intruction, productInformation);
+        ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this, R.layout.list_view_display, productInformation);
         ListView instruction = findViewById(R.id.listViewInstruction);
+
         if (a == 0) {
             Log.d("boo", "I am 0");
             productImg.setImageResource(R.drawable.cleansing_transparent);
@@ -37,7 +38,7 @@ public class DisplayMorningProductInfo extends AppCompatActivity {
             instruction.setAdapter(arrayAdapter);
         } else if (a == 1) {
             Log.d("boo", "I am 1");
-            if (morningProductList.get(1).toLowerCase().contains("toner")){
+            if (eveningProductList.get(1).toLowerCase().contains("toner")){
                 productImg.setImageResource(R.drawable.toner_transparent);
                 // -- This information following this article https://www.womenshealthmag.com/beauty/a19952473/how-to-use-facial-toner/
                 productInformation.add("Soak a cotton pad with toner, then swipe it over your entire face, neck, and chest.");
@@ -53,30 +54,22 @@ public class DisplayMorningProductInfo extends AppCompatActivity {
             instruction.setAdapter(arrayAdapter);
         } else if (a == 2) {
             Log.d("boo", "I am 2");
-            if (morningProductList.get(2).toLowerCase().contains("oil")){
+            Log.d("boo", "I am 2");
+            if (eveningProductList.get(2).toLowerCase().contains("oil")){
                 productImg.setImageResource(R.drawable.oil_transparent_);
-                // -- This information following this article https://www.womenshealthmag.com/beauty/a19952473/how-to-use-facial-toner/
+                // -- This information following this article https://www.dermstore.com/blog/how-to-use-face-oils/
                 productInformation.add("One to three drops of your choice of oil is enough to cover your whole face and deliver the benefits your skin needs.");
-                productInformation.add("Dab or pat the oils, pushing them into your pores, rather than just sliding them around on the skin’s surface. This will help your skin absorb the oil and make use of its benefits much quicker.");
+                productInformation.add("Dab or pat the oil, pushing them into your pores, rather than just sliding them around on the skin’s surface. This will help your skin absorb the oil and make use of its benefits much quicker.");
             }else{
-            productImg.setImageResource(R.drawable.moisturizer_transparent);
-            // -- This information following this article https://www.wikihow.com/Apply-Moisturizer
-            productInformation.add("Use an almond-sized amount of product for each application.");
-            productInformation.add("Dab a small amount of the moisturizer on different areas of your face.");
-            productInformation.add("Gently spread the moisturizer evenly around your face with your fingertips.");
+                productImg.setImageResource(R.drawable.moisturizer_transparent);
+                // -- This information following this article https://www.wikihow.com/Apply-Moisturizer
+                productInformation.add("Use an almond-sized amount of product for each application.");
+                productInformation.add("Dab a small amount of the moisturizer on different areas of your face.");
+                productInformation.add("Gently spread the moisturizer evenly around your face with your fingertips.");
             }
             instruction.setAdapter(arrayAdapter);
-        } else {
-            Log.d("boo", "I am 3");
-            productImg.setImageResource(R.drawable.suncreen_transparent);
-            // -- This information following this article https://www.arlingtondermatology.net/2020/07/10/tips-for-applying-sunscreen-to-your-face/
-            productInformation.add("Apply a generous amount of sunscreen.");
-            productInformation.add("As a rule of thumb, you need about a nickel-sized dollop for your face.");
-            productInformation.add("Cover your neck and upper chest as well.");
-            productInformation.add("Rub excess sunscreen onto the backs of your hands.");
-            instruction.setAdapter(arrayAdapter);
         }
+
     }
 }
-
 

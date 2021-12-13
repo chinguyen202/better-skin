@@ -49,6 +49,7 @@ public class GenerateMorningRoutine extends AppCompatActivity {
         morningRoutineList.setOnItemClickListener((adapterView, view, i, l) -> {
             Log.d(TAG, morningRoutine.toString());
             Intent nextActivity = new Intent(GenerateMorningRoutine.this, DisplayMorningProductInfo.class);
+            nextActivity.putStringArrayListExtra("product",morningRoutine);
             nextActivity.putExtra(EXTRA_MESSAGE, i);
             startActivity(nextActivity);
         });

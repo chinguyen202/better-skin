@@ -18,6 +18,7 @@ public class FirstQuiz extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_quiz);
+        userQuizChoices.getInstance().clearChoices();
     }
     public void getSkinType(View view){
         RadioGroup skinType = findViewById(R.id.skinType);
