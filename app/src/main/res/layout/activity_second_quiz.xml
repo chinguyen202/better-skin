@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF7F8"
     tools:context=".SecondQuiz">
 
     <androidx.constraintlayout.widget.Guideline
@@ -24,60 +25,92 @@
         android:id="@+id/tvQuiz2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="What is your main goal?"
-        android:textSize="25sp"
+        android:layout_marginTop="128dp"
+        android:fontFamily="@font/ubuntu_bold"
+        android:text="@string/main_goal_title"
+        android:textColor="@color/black"
+        android:textSize="29sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
+        android:id="@+id/mainGoalGroup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvQuiz2"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/tvQuiz2">
+
         <RadioButton
             android:id="@+id/rbGoal1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:button="@null"
-            android:textSize="20sp"
-            android:text="Improve hydration"/>
+            android:background="@drawable/choices_selector"
+            android:button="@android:color/transparent"
+            android:fontFamily="@font/ubuntu_regular"
+            android:onClick="getSkinMainGoal"
+            android:paddingLeft="20dp"
+            android:text="@string/rb_goal_1"
+            android:textColor="@drawable/text_color_choices_selector"
+            android:textSize="20sp" />
+
         <RadioButton
             android:id="@+id/rbGoal2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="25dp"
-            android:textSize="20sp"
-            android:button="@null"
-            android:text="Reduce fine lines and wrinkles"/>
+            android:background="@drawable/choices_selector"
+            android:button="@android:color/transparent"
+            android:onClick="getSkinMainGoal"
+            android:paddingLeft="20dp"
+            android:text="@string/rb_goal_2"
+            android:textColor="@drawable/text_color_choices_selector"
+            android:textSize="20sp" />
+
         <RadioButton
             android:id="@+id/rbGoal3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="25dp"
-            android:textSize="20sp"
-            android:button="@null"
-            android:text="Reduce breakouts"/>
+            android:background="@drawable/choices_selector"
+            android:button="@android:color/transparent"
+            android:fontFamily="@font/ubuntu_regular"
+            android:onClick="getSkinMainGoal"
+            android:paddingLeft="20dp"
+            android:text="@string/rb_goal_3"
+            android:textColor="@drawable/text_color_choices_selector"
+            android:textSize="20sp" />
+
         <RadioButton
             android:id="@+id/rbGoal4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="25dp"
-            android:button="@null"
-            android:textSize="20sp"
-            android:text="Reduce hyperpigmentatio"/>
+            android:background="@drawable/choices_selector"
+            android:button="@android:color/transparent"
+            android:fontFamily="@font/ubuntu_regular"
+            android:onClick="getSkinMainGoal"
+            android:paddingLeft="20dp"
+            android:text="@string/rb_goal_4"
+            android:textColor="@drawable/text_color_choices_selector"
+            android:textSize="20sp" />
+
         <RadioButton
             android:id="@+id/rbGoal5"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="25dp"
-            android:button="@null"
-            android:textSize="20sp"
-            android:text="Reduce backheads and minimize pores"/>
+            android:background="@drawable/choices_selector"
+            android:button="@android:color/transparent"
+            android:fontFamily="@font/ubuntu_regular"
+            android:onClick="getSkinMainGoal"
+            android:paddingLeft="20dp"
+            android:text="@string/rb_goal_5"
+            android:textColor="@drawable/text_color_choices_selector"
+            android:textSize="20sp" />
     </RadioGroup>
 
     <Button
@@ -85,7 +118,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
-        android:text="Next"
+        android:fontFamily="@font/ubuntu_bold"
+        android:onClick="goToThirdQuiz"
+        android:text="@string/next_quiz_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline4" />
 

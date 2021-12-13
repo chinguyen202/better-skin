@@ -1,3 +1,35 @@
 <resources>
     <string name="app_name">Better Skin</string>
+    <string name="your_profile_title">MY PROFILE</string>
+    <string name="about_me_btn">About me</string>
+    <string name="username">Username</string>
+    <string name="user_email">Email</string>
+    <string name="morning_routine_btn">Morning routine</string>
+    <string name="evening_routine_btn">Evening routine</string>
+    <string name="morning_routine_title">Morning routine</string>
+    <string name="evening_routine_title">Evening routine</string>
+    <string name="skin_type_title">What is your skin type?</string>
+    <string name="rb_normal">Normal</string>
+    <string name="rb_dry">Dry</string>
+    <string name="rb_oily">Oily</string>
+    <string name="rb_combination">Combination</string>
+    <string name="next_quiz_button">Next</string>
+    <string name="main_goal_title">What is your main goal?</string>
+    <string name="rb_goal_1">Improve texture</string>
+    <string name="rb_goal_2">Reduce fine lines and wrinkle</string>
+    <string name="rb_goal_3">Reduce breakouts</string>
+    <string name="rb_goal_4">Reduce hyper pigmentation</string>
+    <string name="rb_goal_5">Improve hydration</string>
+    <string name="sensitive_skin_title">Do you have sensitive skin?</string>
+    <string name="pregnant_title">Are you pregnant?</string>
+    <string name="yes_option">Yes</string>
+    <string name="no_option">No</string>
+    <string name="generate_routine_button">Generate Routines</string>
+    <string name="welcome_title">Personalized your  routine</string>
+    <string name="welcome_quote">Self care starts with skincare</string>
+    <string name="take_quiz_again">Take the quiz again</string>
+
+
+
+
 </resources>

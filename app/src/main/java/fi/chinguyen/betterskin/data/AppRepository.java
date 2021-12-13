@@ -18,7 +18,10 @@ public class AppRepository {
         list = loadAllProduct();
     }
 
-    public LiveData<List<SkincareProduct>> loadAllProduct(){
+    // Room executes all queries on a separate thread.
+    // Observed LiveData will notify the observer when the data has changed.
+    LiveData<List<SkincareProduct>> loadAllProduct(){
+
         return list;
     }
 }

@@ -11,52 +11,37 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 @Database(
         entities = {SkincareProduct.class},
-        version = 1
+        version = 1,
+        exportSchema = true
 )
 public abstract class AppDB extends RoomDatabase {
     public SkincareProduct[] applicationDao;
 
+    //The database exposes DAOs through an abstract "getter" method for each @Dao
     public abstract AppDAO appDao();
-
+    //defined a singleton to prevent having multiple instances of the database opened at the same time
     private static AppDB INSTANCE;
-
+    //returns the singleton,create database first time it's accessed from an existing database
     public static synchronized AppDB getInstance(Context context){
         if(INSTANCE == null){
             
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                         AppDB.class, "skincare.db")
                         .fallbackToDestructiveMigration()
-                       // .addCallback(roomCallBack)
                         .fallbackToDestructiveMigration()
                         .allowMainThreadQueries()
+<<<<<<< HEAD
                         .createFromAsset("SkincareProduct.db")
+=======
+                        .createFromAsset("betterSkin.db")
+>>>>>>> feature/implementDatabase
                         .build();
 
             }
         return INSTANCE;
 
-      /*  private static .Callback roomCallBack = new Callback() {
-            @Override
-            public void onCreate(@NonNull SupportSQLiteDatabase db) {
-                super.onCreate(appDb);
-                new PopulateDB(INSTANCE).execute();
-            }
-        };*/
     }
-/*
-    private static class PopulateDB extends AsyncTask<Void,Void,Void>{
-        private AppDAO appDao;
-
-        public PopulateDB(AppDB appDb){
-            this.appDao = appDb.appDao();
-        }
-
-        @Override
-        protected Void doInBackground(Void...voids){
-            appDao.addProduct(new SkincareProduct());
-            return null;
-        }*/
-    }
+}
 
 
 
