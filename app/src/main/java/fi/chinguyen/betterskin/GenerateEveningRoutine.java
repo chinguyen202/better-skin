@@ -16,7 +16,7 @@ import fi.chinguyen.betterskin.data.AppDB;
 
 public class GenerateEveningRoutine extends AppCompatActivity {
     private static final String EXTRA_MESSAGE = "com.example.better-skin.MESSAGE";
-
+    private static final String productList = "com.example.better-skin.MESSAGE";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +41,7 @@ public class GenerateEveningRoutine extends AppCompatActivity {
         eveningRoutineList.setOnItemClickListener((adapterView, view, i, l) -> {
             Log.d("hI", eveningRoutineList.toString());
             Intent nextActivity = new Intent(GenerateEveningRoutine.this, DisplayMorningProductInfo.class);
+            nextActivity.putStringArrayListExtra("product",eveningRoutine);
             nextActivity.putExtra(EXTRA_MESSAGE, i);
             startActivity(nextActivity);
         });

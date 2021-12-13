@@ -2,13 +2,13 @@
 
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/productName"
-    android:layout_width="271sp"
+    android:layout_width="332sp"
     android:layout_height="50sp"
     android:paddingLeft="35sp"
     android:text="hu"
-    android:paddingTop="12sp"
     android:textSize="20sp"
     android:textColor="@color/white"
+    android:gravity="center_vertical"
     android:background="@drawable/list_view_display"
     android:fontFamily="@font/ubuntu_regular"
     android:layout_margin="5sp">

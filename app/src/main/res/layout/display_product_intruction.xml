@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:paddingLeft="35sp"
     android:paddingTop="12sp"
+    android:paddingRight="10sp"
     android:textSize="20sp"
     android:textColor="@color/black"
     android:fontFamily="@font/ubuntu_regular"
