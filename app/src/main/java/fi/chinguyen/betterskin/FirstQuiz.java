@@ -10,6 +10,7 @@ import android.widget.RadioGroup;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class FirstQuiz extends AppCompatActivity {
+    public static final String TAG = "Test mode";
     public static final String EXTRA_MESSAGE = "com.example.better-skin.MESSAGE";
     private String userSkinType;
     @Override
@@ -24,7 +25,7 @@ public class FirstQuiz extends AppCompatActivity {
         RadioButton selectedSkinType  = findViewById(skinType.getCheckedRadioButtonId());
         // Get RadioButton text
         userSkinType = selectedSkinType.getText().toString();
-        Log.d("Hi", userSkinType);
+        Log.d(TAG, userSkinType);
     }
 
 
