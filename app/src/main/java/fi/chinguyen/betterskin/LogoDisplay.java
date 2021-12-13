@@ -54,7 +54,7 @@ public class LogoDisplay extends AppCompatActivity implements View.OnTouchListen
             @Override
             public void run() {
                 if(!isTouched){
-                    Intent intent = new Intent(LogoDisplay.this, Welcome.class);
+                    Intent intent = new Intent(LogoDisplay.this, Login.class);
                     startActivity(intent);
                 }
             }

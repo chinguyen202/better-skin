@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF7F8"
     tools:context=".Register">
 
 
@@ -14,97 +15,88 @@
         android:layout_marginStart="69dp"
         android:layout_marginTop="150dp"
         android:layout_marginEnd="67dp"
-        android:text="Create New Account"
+        android:fontFamily="@font/ubuntu_bold"
+        android:text="@string/create_new_account"
+        android:textColor="@color/black"
         android:textSize="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/userNameInput"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/fullNameInput"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
-        android:ems="10"
-        android:hint="Full name"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/userNameInput"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createNewAccount" />
+        app:layout_constraintTop_toTopOf="@+id/guideline17">
 
-    <EditText
-        android:id="@+id/userNameInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="162dp"
-        android:layout_marginBottom="413dp"
-        android:ems="10"
-        android:hint="Username"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createNewAccount" />
+        <EditText
+            android:id="@+id/fullNameInput"
+            android:layout_width="220sp"
+            android:layout_height="50sp"
+            android:ems="10"
+            android:fontFamily="@font/ubuntu_regular"
+            android:hint="@string/full_name"
+            android:inputType="textPersonName"
+            android:textColor="@color/black" />
 
-    <EditText
-        android:id="@+id/passwordInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="322dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userNameInput"
-        app:layout_constraintVertical_bias="0.213" />
-    <EditText
-        android:id="@+id/reTypePassword"
-        android:layout_width="213dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="240dp"
-        android:ems="10"
-        android:hint="Confirm password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userNameInput"
-        app:layout_constraintVertical_bias="0.534" />
-    <EditText
-        android:id="@+id/phoneInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:ems="10"
-        android:hint="Phone"
-        android:inputType="phone"
-        app:layout_constraintBottom_toTopOf="@+id/registerButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reTypePassword"
-        app:layout_constraintVertical_bias="0.333" />
+        <EditText
+            android:id="@+id/userNameInput"
+            android:layout_width="220sp"
+            android:layout_height="50sp"
+            android:ems="10"
+            android:fontFamily="@font/ubuntu_regular"
+            android:hint="@string/username"
+            android:inputType="textPersonName"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/passwordInput"
+            android:layout_width="220sp"
+            android:layout_height="50sp"
+            android:ems="10"
+            android:fontFamily="@font/ubuntu_regular"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/reTypePassword"
+            android:layout_width="220sp"
+            android:layout_height="50sp"
+            android:ems="10"
+            android:fontFamily="@font/ubuntu_regular"
+            android:hint="@string/confirm_password"
+            android:inputType="textPassword"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/phoneInput"
+            android:layout_width="220sp"
+            android:layout_height="50sp"
+            android:ems="10"
+            android:fontFamily="@font/ubuntu_regular"
+            android:hint="@string/phone"
+            android:inputType="phone"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/goToLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="99dp"
-        android:text="Already registered? Login here"
+        android:fontFamily="@font/ubuntu_regular"
+        android:text="@string/login_here"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerButton" />
-
 
 
     <Button
@@ -112,12 +104,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="139dp"
-        android:text="Register"
+        android:fontFamily="@font/ubuntu_bold"
+        android:text="@string/register"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reTypePassword" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="229dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="469dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

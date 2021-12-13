@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:backgroundTint="#FFF7F8"
+    android:background="#FFF7F8"
     tools:context=".FirstQuiz">
 
     <TextView

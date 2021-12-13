@@ -22,7 +22,6 @@ public class aboutMe extends AppCompatActivity {
         displayPassword = findViewById(R.id.displayPassword);
 
         User db = new User(this);
-        Cursor cursor = User.allData();
 
 
     }
