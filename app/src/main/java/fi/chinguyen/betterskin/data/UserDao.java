@@ -5,6 +5,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
+import androidx.room.Room;
 
 import java.util.List;
 
@@ -12,17 +13,20 @@ import java.util.List;
 public interface UserDao {
 
     @Insert
-    void addUser(User user);
+    void registerUser(UserEntity userEntity);
 
-    @Query("SELECT * FROM User")
-    public List<User> getAllUser();
+    @Query("SELECT * FROM users WHERE userId=(:userId) and password =(:password)")
+    UserEntity login(String userId, String password);
 
-    @Query("SELECT * FROM User WHERE uID = :id")
-    public User getUserById(long id);
+    @Query("SELECT * FROM users")
+    public List<UserEntity> getAllUser();
+
+    @Query("SELECT * FROM users WHERE id = :id")
+    public UserEntity getUserById(long id);
 
     @Update
-    void updateUser(User user);
+    void updateUser(UserEntity userEntity);
 
     @Delete
-    void deleteUser(User user);
+    void deleteUser(UserEntity userEntity);
 }

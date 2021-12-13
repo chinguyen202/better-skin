@@ -11,58 +11,53 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import fi.chinguyen.betterskin.data.User;
+import fi.chinguyen.betterskin.data.UserDao;
+import fi.chinguyen.betterskin.data.UserDatabase;
+import fi.chinguyen.betterskin.data.UserEntity;
 
 public class Register extends AppCompatActivity {
 
     EditText fullName, userName, password, rePassword, phone;
     Button registerButton;
     TextView goToLogin;
-    User user123;
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
 
-        //fullName = findViewById(R.id.fullNameInput);
+        fullName = findViewById(R.id.fullNameInput);
         userName = findViewById(R.id.userNameInput);
         password = findViewById(R.id.passwordInput);
         rePassword = findViewById(R.id.reTypePassword);
         registerButton = findViewById(R.id.registerButton);
-        //phone = findViewById(R.id.phoneInput);
         goToLogin = findViewById(R.id.goToLogin);
-     //   user123 = new User(this);
-/*
-        registerButton.setOnClickListener(new View.OnClickListener(){
+
+        registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
-                String user = userName.getText().toString();
-                String pass = password.getText().toString();
-                String repass = rePassword.getText().toString();
-
-
-                if(user.equals("")||pass.equals("")||repass.equals("")) {
-                    Toast.makeText(Register.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
-                }else{
-                    if(pass.equals(repass)){
-                        Boolean checkUsername = user123.checkUsername(user);
-                        if(checkUsername==false){
-                            Boolean insert = user123.insertData(user, pass);
-                            if(insert==true){
-                                Toast.makeText(Register.this, "Registered successfully", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(),Welcome.class);
-                                startActivity(intent);
-                            }else{
-                                Toast.makeText(Register.this, "Registration failed", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                        else{
-                            Toast.makeText(Register.this, "User already exists! Please sign in", Toast.LENGTH_SHORT).show();
-                        }
-                    }else{
+            public void onClick(View view) {
+                UserEntity userEntity = new UserEntity();
+                userEntity.setUserId(userName.getText().toString());
+                userEntity.setPassword(password.getText().toString());
+                userEntity.setName(fullName.getText().toString());
+                if (validateInput(userEntity)) {
+                    if(password !=rePassword){
                         Toast.makeText(Register.this, "Passwords is not matching", Toast.LENGTH_SHORT).show();
+                    }else{
+                        //Register user
+                        UserDatabase userDatabase = UserDatabase.getUserDatabase(getApplicationContext());
+                        UserDao userDao = userDatabase.userDao();
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                userDao.registerUser(userEntity);
+                                Toast.makeText(getApplicationContext(), "User registered", Toast.LENGTH_SHORT).show();
+                            }
+                        });
                     }
-                } }
+                } else{
+                    Toast.makeText(getApplicationContext(), "Fill all fields", Toast.LENGTH_SHORT).show();
+                }
+            }
         });
 
         goToLogin.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +67,12 @@ public class Register extends AppCompatActivity {
                 startActivity(intent);
 
             }
-        });*/
+        });
+    }
+    private Boolean validateInput(UserEntity userEntity) {
+        if (userEntity.getName().isEmpty() || userEntity.getUserId().isEmpty() || userEntity.getUserId().isEmpty()) {
+            return false;
+        }
+        return true;
     }
 }

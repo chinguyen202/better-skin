@@ -10,18 +10,19 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import fi.chinguyen.betterskin.data.User;
+import fi.chinguyen.betterskin.data.UserDao;
+import fi.chinguyen.betterskin.data.UserDatabase;
+import fi.chinguyen.betterskin.data.UserEntity;
 
 
 public class Login extends AppCompatActivity {
 
     EditText username, password;
     Button loginButton;
-    TextView createNewAccount, guest;
-    User user123;
+    TextView createNewAccount;
 
     @Override
-    protected void onCreate (Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
@@ -30,43 +31,46 @@ public class Login extends AppCompatActivity {
         loginButton = findViewById(R.id.loginButton);
         createNewAccount = findViewById(R.id.goToRegister);
 
-
-       // user123 = new User(this);
-/*
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String user = username.getText().toString();
-                String pass = password.getText().toString();
-
-                if (user.equals("") || pass.equals("")) {
-                    Toast.makeText(Login.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
+                String userIdText = username.getText().toString();
+                String passwordText = password.getText().toString();
+                if(userIdText.isEmpty() || passwordText.isEmpty()){
+                    Toast.makeText(getApplicationContext(), "Fill all fields!",Toast.LENGTH_SHORT).show();
                 }else{
-                        Boolean checkUserPassword = user123.checkUsernamePassword(user, pass);
-                        if (checkUserPassword == true) {
-                            Toast.makeText(Login.this, "Sign in successful", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), Profile.class);
-                            startActivity(intent);
-                        } else {
-                            Toast.makeText(Login.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
+                    UserDatabase userDatabase = UserDatabase.getUserDatabase(getApplicationContext());
+                    UserDao userDao = userDatabase.userDao();
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            UserEntity userEntity = userDao.login(userIdText, passwordText);
+                            if(userEntity == null) {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(getApplicationContext(), "Invalid credentials", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            } else{
+                                String name = userEntity.getName();
+                                startActivity(new Intent(Login.this, Welcome.class).putExtra("name",name));
+                            }
                         }
-                    }
+                    });
                 }
-
+            }
         });
+
 
         createNewAccount.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick (View v){
+            public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Register.class);
                 startActivity(intent);
 
             }
         });
-
-<<<<<<< HEAD
-            }
-        });*/
-
     }
 }
+

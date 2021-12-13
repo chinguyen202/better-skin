@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.w3c.dom.Text;
 
-import fi.chinguyen.betterskin.data.User;
+import fi.chinguyen.betterskin.data.UserEntity;
 
 public class aboutMe extends AppCompatActivity {
 

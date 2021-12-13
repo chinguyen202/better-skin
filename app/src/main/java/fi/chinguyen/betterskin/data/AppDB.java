@@ -10,7 +10,7 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 @Database(
-        entities = {SkincareProduct.class,User.class,MorningRoutine.class,EveningRoutine.class,},
+        entities = {SkincareProduct.class,UserEntity.class,MorningRoutine.class,EveningRoutine.class,},
         version = 1
 )
 public abstract class AppDB extends RoomDatabase {

@@ -9,7 +9,7 @@ import java.util.List;
 ////Intersection class to connect user with evening routine
 public class UserWithMorningRoutine {
     @Embedded
-    public User user;
+    public UserEntity user;
     @Relation(parentColumn = "uId", entityColumn = "userId")
     public List<MorningRoutine> morningRoutines;
 
@@ -20,7 +20,7 @@ public class UserWithMorningRoutine {
     @NonNull
     @Override
     public String toString(){
-        return user.getFullName();
+        return user.getName();
 
     }
 }
