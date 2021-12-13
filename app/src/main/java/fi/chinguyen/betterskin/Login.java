@@ -29,12 +29,6 @@ public class Login extends AppCompatActivity {
         password = findViewById(R.id.passwordInput);
         loginButton = findViewById(R.id.loginButton);
         createNewAccount = findViewById(R.id.goToRegister);
-<<<<<<< HEAD
-        guest = findViewById(R.id.guest);
-=======
-        user123 = new User(this);
->>>>>>> origin/testStandAloneRegisterandLogin
-
 
 
        // user123 = new User(this);
@@ -73,8 +67,6 @@ public class Login extends AppCompatActivity {
 <<<<<<< HEAD
             }
         });*/
-=======
->>>>>>> origin/testStandAloneRegisterandLogin
 
     }
 }

@@ -17,7 +17,7 @@ public interface UserDao {
     @Query("SELECT * FROM User")
     public List<User> getAllUser();
 
-    @Query("SELECT * FROM User WHERE userID = :id")
+    @Query("SELECT * FROM User WHERE uID = :id")
     public User getUserById(long id);
 
     @Update

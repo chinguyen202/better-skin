@@ -10,14 +10,9 @@ public class User {
     @PrimaryKey(autoGenerate = true)
     private long uID;
 
-<<<<<<< HEAD
     @ColumnInfo(name = "fullName")
     @NonNull
     private String fullName;
-=======
-    public static final String DBNAME = "Login.db";
-    private String Tag;
->>>>>>> origin/testStandAloneRegisterandLogin
 
     @ColumnInfo(name = "username")
     @NonNull
@@ -30,20 +25,20 @@ public class User {
     @ColumnInfo(name = "phoneNumber")
     private String phoneNumber;
 
-    public User(long userID, @NonNull String fullName, @NonNull String username, @NonNull String password, String phoneNumber) {
-        this.uID = userID;
+    public User(long uID, @NonNull String fullName, @NonNull String username, @NonNull String password, String phoneNumber) {
+        this.uID = uID;
         this.fullName = fullName;
         this.username = username;
         this.password = password;
         this.phoneNumber = phoneNumber;
     }
 
-    public long getUserID() {
+    public long getUID() {
         return uID;
     }
 
-    public void setUserID(int userID) {
-        this.uID = userID;
+    public void setuID(long uID) {
+        this.uID = uID;
     }
 
     @NonNull
@@ -55,21 +50,9 @@ public class User {
         this.fullName = fullName;
     }
 
-<<<<<<< HEAD
     @NonNull
     public String getUsername() {
         return username;
-=======
-    public boolean insertData(String username, String password){
-        SQLiteDatabase MyDB = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("username", username);
-        contentValues.put("password", password);
-        long result = MyDB.insert("users",null,contentValues);
-        if(result==-1) return false;
-        else
-            return true;
->>>>>>> origin/testStandAloneRegisterandLogin
     }
 
     public void setUsername(@NonNull String username) {
@@ -96,7 +79,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "userID=" + uID +
+                "uID=" + uID +
                 ", fullName='" + fullName + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
