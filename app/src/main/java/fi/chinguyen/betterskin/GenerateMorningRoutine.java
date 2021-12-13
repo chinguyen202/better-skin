@@ -23,6 +23,7 @@ public class GenerateMorningRoutine extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.morning_routine_layout);
+        Log.d("Hi", userQuizChoices.getInstance().getUserChoices().toString());
         ArrayList<String> userChoices = userQuizChoices.getInstance().getUserChoices();
         ArrayList<String> morningRoutine = new ArrayList<>();
 

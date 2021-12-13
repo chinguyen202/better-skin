@@ -21,7 +21,7 @@ public class GenerateEveningRoutine extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.evening_routine_layout);
-
+        Log.d("Hi", userQuizChoices.getInstance().getUserChoices().toString());
         ArrayList<String> userChoices = userQuizChoices.getInstance().getUserChoices();
         ArrayList<String> eveningRoutine = new ArrayList<>();
 
