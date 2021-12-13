@@ -13,24 +13,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dde26e3c-e785-46c8-a83f-4935104d5491" name="Default Changelist" comment="first commit, empty project">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/EveningRoutine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/EveningRoutineDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/MorningRoutine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/MorningRoutineDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/UserWithEveningRoutine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/UserWithMorningRoutine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0.2/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/GenerateMorningRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/GenerateMorningRoutine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/AppDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/AppDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/UserDao.java" afterDir="false" />
-    </list>
+    <list default="true" id="dde26e3c-e785-46c8-a83f-4935104d5491" name="Default Changelist" comment="first commit, empty project" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

@@ -10,9 +10,14 @@ public class User {
     @PrimaryKey(autoGenerate = true)
     private long uID;
 
+<<<<<<< HEAD
     @ColumnInfo(name = "fullName")
     @NonNull
     private String fullName;
+=======
+    public static final String DBNAME = "Login.db";
+    private String Tag;
+>>>>>>> origin/testStandAloneRegisterandLogin
 
     @ColumnInfo(name = "username")
     @NonNull
@@ -50,9 +55,21 @@ public class User {
         this.fullName = fullName;
     }
 
+<<<<<<< HEAD
     @NonNull
     public String getUsername() {
         return username;
+=======
+    public boolean insertData(String username, String password){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("username", username);
+        contentValues.put("password", password);
+        long result = MyDB.insert("users",null,contentValues);
+        if(result==-1) return false;
+        else
+            return true;
+>>>>>>> origin/testStandAloneRegisterandLogin
     }
 
     public void setUsername(@NonNull String username) {
