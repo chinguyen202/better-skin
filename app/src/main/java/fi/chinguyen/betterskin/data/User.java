@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 public class User extends SQLiteOpenHelper {
 
     public static final String DBNAME = "Login.db";
+    private String Tag;
 
     public User (Context context){
         super(context, "Login.db", null, 1);
@@ -34,7 +35,7 @@ public class User extends SQLiteOpenHelper {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("username", username);
-        contentValues.put("password",password);
+        contentValues.put("password", password);
         long result = MyDB.insert("users",null,contentValues);
         if(result==-1) return false;
         else
