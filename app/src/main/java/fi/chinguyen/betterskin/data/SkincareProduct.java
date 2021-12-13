@@ -1,45 +1,45 @@
 package fi.chinguyen.betterskin.data;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-import androidx.room.ColumnInfo;
 
-@Entity(tableName = "Product")
-public class Product {
+@Entity(tableName = "skincareProduct")
+public class SkincareProduct {
+
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "Product ID")
+    @NonNull
     private int productID;
 
-    @ColumnInfo(name = "Product name")
+    @ColumnInfo(name = "productName")
+    @NonNull
     private String productName;
 
-    @ColumnInfo(name = "Time to use")
-    private String timeUse;
-
-    @ColumnInfo(name = "Step")
+    @ColumnInfo(name = "stepUse")
+    @NonNull
     private String stepUse;
 
-    @ColumnInfo(name = "Skin type")
+    @ColumnInfo(name = "skinGoal")
     private String skinGoal;
 
-    @ColumnInfo(name = "Skin goal")
+    @ColumnInfo(name = "skinType")
     private String skinType;
 
-    @ColumnInfo(name = "Sensitive Level")
-    private boolean sensitiveSkin;
+    @ColumnInfo(name = "sensitiveSkin")
+    private String sensitiveSkin;
 
-    @ColumnInfo(name = "Pregnant state")
-    private boolean pregnant;
+    @ColumnInfo(name = "timeUse")
+    private String timeUse;
 
-    public Product(int productID, String productName, String timeUse, String stepUse, String skinGoal, String skinType, boolean sensitiveSkin, boolean pregnant) {
+    public SkincareProduct(int productID, String productName, String stepUse, String skinGoal, String skinType, String sensitiveSkin, String timeUse) {
         this.productID = productID;
         this.productName = productName;
-        this.timeUse = timeUse;
         this.stepUse = stepUse;
         this.skinGoal = skinGoal;
         this.skinType = skinType;
         this.sensitiveSkin = sensitiveSkin;
-        this.pregnant = pregnant;
+        this.timeUse = timeUse;
     }
 
     public int getProductID() {
@@ -56,14 +56,6 @@ public class Product {
 
     public void setProductName(String productName) {
         this.productName = productName;
-    }
-
-    public String getTimeUse() {
-        return timeUse;
-    }
-
-    public void setTimeUse(String timeUse) {
-        this.timeUse = timeUse;
     }
 
     public String getStepUse() {
@@ -90,34 +82,33 @@ public class Product {
         this.skinType = skinType;
     }
 
-    public boolean isSensitiveSkin() {
+    public String getSensitiveSkin() {
         return sensitiveSkin;
     }
 
-    public void setSensitiveSkin(boolean sensitiveSkin) {
+    public void setSensitiveSkin(String sensitiveSkin) {
         this.sensitiveSkin = sensitiveSkin;
     }
 
-    public boolean isPregnant() {
-        return pregnant;
+    public String getTimeUse() {
+        return timeUse;
     }
 
-    public void setPregnant(boolean pregnant) {
-        this.pregnant = pregnant;
+    public void setTimeUse(String timeUse) {
+        this.timeUse = timeUse;
     }
+
 
     @Override
     public String toString() {
-        return "Product{" +
+        return "SkincareProduct{" +
                 "productID=" + productID +
                 ", productName='" + productName + '\'' +
-                ", timeUse='" + timeUse + '\'' +
                 ", stepUse='" + stepUse + '\'' +
                 ", skinGoal='" + skinGoal + '\'' +
                 ", skinType='" + skinType + '\'' +
-                ", sensitiveSkin=" + sensitiveSkin +
-                ", pregnant=" + pregnant +
+                ", sensitiveSkin='" + sensitiveSkin + '\'' +
+                ", timeUse='" + timeUse + '\'' +
                 '}';
     }
 }
-

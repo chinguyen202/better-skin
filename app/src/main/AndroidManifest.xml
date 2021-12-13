@@ -95,6 +95,12 @@
             android:exported="false">
 
         </activity>
+
+        <activity
+            android:name=".DisplayMorningProductInfo"
+            android:exported="false">
+
+        </activity>
     </application>
 
 </manifest>
