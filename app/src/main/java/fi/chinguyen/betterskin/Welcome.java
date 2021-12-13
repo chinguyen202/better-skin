@@ -16,8 +16,6 @@ public class Welcome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        Intent intent = getIntent();
-
         getStart = findViewById(R.id.btnStart);
         getStart.setOnClickListener(view ->{
             Intent firstQuiz = new Intent(Welcome.this, FirstQuiz.class);
