@@ -12,14 +12,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
 public class DisplayEveningRoutine extends AppCompatActivity {
-    public static final String EXTRA_MESSAGE = "com.example.better-skin.MESSAGE";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.display_product_info);
 
         ImageView productImg = (ImageView) findViewById(R.id.product);
-        TextView introduction = (TextView) findViewById(R.id.introduction);
         Bundle b = getIntent().getExtras();
         int a = b.getInt(GenerateMorningRoutine.EXTRA_MESSAGE, 0);
         ArrayList<String> productInformation = new ArrayList<>();
@@ -29,6 +27,7 @@ public class DisplayEveningRoutine extends AppCompatActivity {
         if (a == 0) {
             Log.d("boo", "I am 0");
             productImg.setImageResource(R.drawable.cleansing_transparent);
+            // -- This information following this article https://www.biore.com/en-us/blog/brightening/how-to-use-cleanser/
             productInformation.add("Pull you hair back.");
             productInformation.add("Wash your hands.");
             productInformation.add("Wet your face by apply lukewarm water to your face.");

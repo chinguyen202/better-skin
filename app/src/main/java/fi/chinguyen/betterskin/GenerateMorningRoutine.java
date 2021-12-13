@@ -19,8 +19,6 @@ public class GenerateMorningRoutine extends AppCompatActivity {
     public static final String TAG = "Test mode";
     public static final String EXTRA_MESSAGE = "com.example.better-skin.MESSAGE";
 
-    private static final GenerateMorningRoutine morningInstance = new GenerateMorningRoutine();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +37,7 @@ public class GenerateMorningRoutine extends AppCompatActivity {
         String spf = dataDao.getSpfProduct("SPF");
         morningRoutine.add(cleaner);
         morningRoutine.add(treat);
-       morningRoutine.add(moisturizer);
+        morningRoutine.add(moisturizer);
         morningRoutine.add(spf);
         Log.d(TAG, "product: " + morningRoutine.toString());
         ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this, R.layout.list_view_display, morningRoutine);
@@ -56,19 +54,11 @@ public class GenerateMorningRoutine extends AppCompatActivity {
         });
 
     }
-//
-//    public static GenerateMorningRoutine getMorningInstance() {
-//        return morningInstance;
-//    }
-//
-//    public ArrayList<String> getMorningRoutine() {
-//        return morningRoutine;
-//    }
 
-
-
-
-
+    public void getEveningRoutine(View view) {
+        Intent intent = new Intent(this, GenerateEveningRoutine.class);
+        startActivity(intent);
+    }
 
     public void goToProfile(View view) {
         Intent intent = new Intent(this, Profile.class);
