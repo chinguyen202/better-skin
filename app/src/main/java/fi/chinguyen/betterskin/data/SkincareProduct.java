@@ -11,17 +11,12 @@ public class SkincareProduct {
     @PrimaryKey(autoGenerate = true)
     @NonNull
     private int productID;
-<<<<<<< HEAD
-    @NonNull
-    private String productName;
-=======
 
     @ColumnInfo(name = "productName")
     @NonNull
     private String productName;
 
     @ColumnInfo(name = "stepUse")
->>>>>>> feature/implementDatabase
     @NonNull
     private String stepUse;
 

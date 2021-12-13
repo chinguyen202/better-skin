@@ -21,6 +21,7 @@ import java.util.TimerTask;
 
 import fi.chinguyen.betterskin.data.AppDAO;
 import fi.chinguyen.betterskin.data.AppDB;
+import fi.chinguyen.betterskin.data.SkincareProduct;
 import nl.dionsegijn.konfetti.KonfettiView;
 import nl.dionsegijn.konfetti.models.Shape;
 import nl.dionsegijn.konfetti.models.Size;
@@ -33,17 +34,14 @@ public class LogoDisplay extends AppCompatActivity implements View.OnTouchListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logo_display);
-<<<<<<< HEAD
 
-        //List<data.Product> list = Arrays.asList((new ProductData()).addProductData());
-        //Log.d("data", "onCreate: " + list.get(0));
 
         AppDB data = AppDB.getInstance(this);
         AppDAO dataDao = data.appDao();
 
         List<SkincareProduct> list = dataDao.getProductByStepUse("Clean");
-        Log.d("data", "lengtg: " + list.size());
-=======
+        Log.d("data", "length " + list.size());
+
         LinearLayout logoLayout = (LinearLayout) findViewById(R.id.logoLayout);
         // Animated confetti made following the direction of https://github.com/DanielMartinus/Konfetti
         DisplayMetrics display = new DisplayMetrics();
@@ -59,7 +57,6 @@ public class LogoDisplay extends AppCompatActivity implements View.OnTouchListen
                     .setPosition(-50f, display.widthPixels + 50f, -50f, -50f)
                     .streamFor(300, 5000L);
         }
->>>>>>> feature/implementDatabase
 
         timer = new Timer();
         timer.schedule(new TimerTask() {
