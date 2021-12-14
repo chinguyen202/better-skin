@@ -13,22 +13,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b01814c5-c086-4b40-bd39-22b7b07ac09b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/UserEntity.java" afterDir="false" />
+    <list default="true" id="b01814c5-c086-4b40-bd39-22b7b07ac09b" name="Default Changelist" comment="login and register">
       <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/aboutMe.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/aboutMe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/AppDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/AppDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/UserWithEveningRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/UserWithEveningRoutine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/UserWithMorningRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/fi/chinguyen/betterskin/data/UserWithMorningRoutine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/register.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638260595948</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="login and register">
+      <created>1639434513148</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1639434513148</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -242,7 +240,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit, empty project" />
     <MESSAGE value="merge branch" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge branch" />
+    <MESSAGE value="login and register" />
+    <option name="LAST_COMMIT_MESSAGE" value="login and register" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

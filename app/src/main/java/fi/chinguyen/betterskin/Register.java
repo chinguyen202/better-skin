@@ -39,11 +39,8 @@ public class Register extends AppCompatActivity {
                 userEntity.setUserId(userName.getText().toString());
                 userEntity.setPassword(password.getText().toString());
                 userEntity.setName(fullName.getText().toString());
+                String repass = rePassword.getText().toString();
                 if (validateInput(userEntity)) {
-                    if(password !=rePassword){
-                        Toast.makeText(Register.this, "Passwords is not matching", Toast.LENGTH_SHORT).show();
-                    }else{
-                        //Register user
                         UserDatabase userDatabase = UserDatabase.getUserDatabase(getApplicationContext());
                         UserDao userDao = userDatabase.userDao();
                         new Thread(new Runnable() {
@@ -53,7 +50,7 @@ public class Register extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "User registered", Toast.LENGTH_SHORT).show();
                             }
                         });
-                    }
+
                 } else{
                     Toast.makeText(getApplicationContext(), "Fill all fields", Toast.LENGTH_SHORT).show();
                 }
