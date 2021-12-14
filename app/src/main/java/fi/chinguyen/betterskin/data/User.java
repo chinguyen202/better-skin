@@ -1,62 +1,53 @@
 package fi.chinguyen.betterskin.data;
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
-import androidx.annotation.Nullable;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
-public class User extends SQLiteOpenHelper {
+@Entity(tableName = "users")
+public class User {
 
-    public static final String DBNAME = "Login.db";
+    @PrimaryKey(autoGenerate = true)
+    Integer uID;
 
-    public User (Context context){
-        super(context, "Login.db", null, 1);
+    @ColumnInfo(name = "username")
+    String username;
 
+    @ColumnInfo(name = "password")
+    String password;
 
+    @ColumnInfo(name = "fullName")
+    String fullName;
+
+    public Integer getuID() {
+        return uID;
     }
 
-
-    @Override
-    public void onCreate(SQLiteDatabase MyDB) {
-        MyDB.execSQL("create Table users(username TEXT primary key, password TEXT)");
-
+    public void setuID(Integer uID) {
+        this.uID = uID;
     }
 
-    @Override
-    public void onUpgrade(SQLiteDatabase MyDB, int oldVersion, int newVersion) {
-        MyDB.execSQL("Drop Table if exists users");
+    public String getUsername() {
+        return username;
     }
 
-    public boolean insertData(String username, String password){
-        SQLiteDatabase MyDB = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("username", username);
-        contentValues.put("password",password);
-        long result = MyDB.insert("users",null,contentValues);
-        if(result==-1) return false;
-        else
-            return true;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public boolean checkUsername (String username){
-        SQLiteDatabase MyDB = this.getWritableDatabase();
-        Cursor cursor = MyDB.rawQuery("Select * from users where username =?",new String[] {username});
-        if(cursor.getCount()>0)
-            return true;
-        else
-            return false;
-
+    public String getPassword() {
+        return password;
     }
 
-    public boolean checkUsernamePassword (String username, String password) {
-        SQLiteDatabase MyDB = this.getWritableDatabase();
-        Cursor cursor = MyDB.rawQuery("Select * from users where username =? and password =?",new String[] {username,password});
-        if(cursor.getCount()>0)
-            return true;
-        else
-            return false;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 }

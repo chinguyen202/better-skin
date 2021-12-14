@@ -1,4 +1,5 @@
 package fi.chinguyen.betterskin;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,18 +10,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import fi.chinguyen.betterskin.data.AppDB;
 import fi.chinguyen.betterskin.data.User;
+import fi.chinguyen.betterskin.data.UserDao;
 
 
 public class Login extends AppCompatActivity {
 
     EditText username, password;
     Button loginButton;
-    TextView createNewAccount, guest;
-    User user123;
+    TextView createNewAccount;
+
 
     @Override
-    protected void onCreate (Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
@@ -28,47 +31,46 @@ public class Login extends AppCompatActivity {
         password = findViewById(R.id.passwordInput);
         loginButton = findViewById(R.id.loginButton);
         createNewAccount = findViewById(R.id.goToRegister);
-        guest = findViewById(R.id.guest);
-        user123 = new User(this);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String user = username.getText().toString();
-                String pass = password.getText().toString();
+                String userName = username.getText().toString();
+                String passWord = password.getText().toString();
 
-                if (user.equals("") || pass.equals("")) {
-                    Toast.makeText(Login.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
-                }else{
-                        Boolean checkUserPassword = user123.checkUsernamePassword(user, pass);
-                        if (checkUserPassword == true) {
-                            Toast.makeText(Login.this, "Sign in successful", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), LogoDisplay.class);
-                            startActivity(intent);
-                        } else {
-                            Toast.makeText(Login.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
+                if (userName.isEmpty() || passWord.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Fill username and password please!", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    //Query from database
+                    AppDB userDB = AppDB.getInstance(getApplicationContext());
+                    UserDao userDao = userDB.userDao();
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            User user = userDao.logIn(userName, passWord);
+                            if (user == null) {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(getApplicationContext(), "Invalid password or username!", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
+                            } else {
+                                //int userID = userDao.getUserID();
+                                String username = userDao.getUsername();
+                                String fullName = userDao.getFullname();
+                                startActivity(new Intent(getApplicationContext(), Profile.class));
+                            }
                         }
-                    }
+
+                    }).start();
                 }
-
-        });
-
-        createNewAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v){
-                Intent intent = new Intent(getApplicationContext(), Register.class);
-                startActivity(intent);
-
+                ;
             }
-        });
-        guest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v){
-                Intent intent = new Intent(getApplicationContext(), LogoDisplay.class);
-                startActivity(intent);
 
-            }
+            ;
         });
-
     }
 }
