@@ -4,24 +4,26 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
-import androidx.room.Update;
-
-import java.util.List;
 
 @Dao
 public interface UserDao {
 
     @Insert
-    void addUser(User user);
+    void registerUser(User user);
 
-    @Query("SELECT * FROM User")
-    public List<User> getAllUser();
+  //  @Query("Select userID from users")
+   // int getUserID();
 
-    @Query("SELECT * FROM User WHERE uID = :id")
-    public User getUserById(long id);
+    @Query("Select username from users")
+    String getUsername();
 
-    @Update
-    void updateUser(User user);
+    @Query("Select fullName from users")
+    String getFullname();
+
+    @Query("Select username from users where username=(:username) AND password=(:password)")
+    User logIn(String username, String password);
+
+
 
     @Delete
     void deleteUser(User user);

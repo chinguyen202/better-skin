@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/better_skin_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.BetterSkin">
+
         <activity
             android:name=".Login"
             android:exported="false"
@@ -35,6 +36,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ThirdQuiz"
             android:exported="false"
@@ -61,14 +63,6 @@
                 android:value=".SecondQuiz"/>
         </activity>
 
-        <activity
-            android:name=".Welcome"
-            android:exported="false"
-            android:parentActivityName=".FirstQuiz">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".FirstQuiz"/>
-        </activity>
 
         <activity
             android:name=".MainActivity"
@@ -102,6 +96,12 @@
 
         <activity
             android:name=".DisplayMorningProductInfo"
+            android:exported="false">
+
+        </activity>
+
+        <activity
+            android:name=".Welcome"
             android:exported="false">
 
         </activity>

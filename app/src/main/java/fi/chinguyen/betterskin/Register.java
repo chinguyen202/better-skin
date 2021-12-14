@@ -2,67 +2,67 @@ package fi.chinguyen.betterskin;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.tabs.TabLayout;
+
+import fi.chinguyen.betterskin.data.AppDB;
 import fi.chinguyen.betterskin.data.User;
+import fi.chinguyen.betterskin.data.UserDao;
 
 public class Register extends AppCompatActivity {
 
-    EditText fullName, userName, password, rePassword, phone;
+    EditText userName, password,fullName;
     Button registerButton;
     TextView goToLogin;
-    User user123;
+
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
 
-        //fullName = findViewById(R.id.fullNameInput);
         userName = findViewById(R.id.userNameInput);
         password = findViewById(R.id.passwordInput);
-        rePassword = findViewById(R.id.reTypePassword);
+        fullName = findViewById(R.id.fullNameInput);
         registerButton = findViewById(R.id.registerButton);
         //phone = findViewById(R.id.phoneInput);
         goToLogin = findViewById(R.id.goToLogin);
-     //   user123 = new User(this);
-/*
         registerButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                String user = userName.getText().toString();
-                String pass = password.getText().toString();
-                String repass = rePassword.getText().toString();
+                //Create an user
+                User user = new User();
+                user.setUsername(userName.getText().toString());
+                user.setPassword(password.getText().toString());
+                user.setFullName(fullName.getText().toString());
 
+                if(validateUser(user)){
+                    //insert user to database
+                    AppDB userDB = AppDB.getInstance(getApplicationContext());
+                    UserDao userDao = userDB.userDao();
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            userDao.registerUser(user);
+                            Log.d("User","user registered");
+                        }
+                    }).start();
+                    Intent intent = new Intent (getApplicationContext(),Welcome.class);
+                    startActivity(intent);
 
-                if(user.equals("")||pass.equals("")||repass.equals("")) {
-                    Toast.makeText(Register.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
                 }else{
-                    if(pass.equals(repass)){
-                        Boolean checkUsername = user123.checkUsername(user);
-                        if(checkUsername==false){
-                            Boolean insert = user123.insertData(user, pass);
-                            if(insert==true){
-                                Toast.makeText(Register.this, "Registered successfully", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(),Welcome.class);
-                                startActivity(intent);
-                            }else{
-                                Toast.makeText(Register.this, "Registration failed", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                        else{
-                            Toast.makeText(Register.this, "User already exists! Please sign in", Toast.LENGTH_SHORT).show();
-                        }
-                    }else{
-                        Toast.makeText(Register.this, "Passwords is not matching", Toast.LENGTH_SHORT).show();
-                    }
-                } }
+                    Toast.makeText(getApplicationContext(),"Enter all information please!",Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
         });
 
         goToLogin.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +72,14 @@ public class Register extends AppCompatActivity {
                 startActivity(intent);
 
             }
-        });*/
+        });
+    }
+
+    private Boolean validateUser(User user){
+        if(user.getUsername().isEmpty() || user.getPassword().isEmpty() ||user.getFullName().isEmpty()){
+            return false;
+        }
+        return true;
+
     }
 }

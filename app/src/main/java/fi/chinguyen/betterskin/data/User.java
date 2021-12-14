@@ -1,100 +1,54 @@
 package fi.chinguyen.betterskin.data;
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
-import androidx.annotation.Nullable;
-import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-public class User extends SQLiteOpenHelper {
-
-    public static final String DBNAME = "Login.db";
-
-@Entity
+@Entity(tableName = "users")
 public class User {
-    @PrimaryKey(autoGenerate = true)
-    private long uID;
 
-    @ColumnInfo(name = "fullName")
-    @NonNull
-    private String fullName;
+    @PrimaryKey(autoGenerate = true)
+    Integer uID;
 
     @ColumnInfo(name = "username")
-    @NonNull
-    private String username;
+    String username;
 
     @ColumnInfo(name = "password")
-    @NonNull
-    private String password;
+    String password;
 
-    @ColumnInfo(name = "phoneNumber")
-    private String phoneNumber;
+    @ColumnInfo(name = "fullName")
+    String fullName;
 
-    public User(long uID, @NonNull String fullName, @NonNull String username, @NonNull String password, String phoneNumber) {
-        this.uID = uID;
-        this.fullName = fullName;
-        this.username = username;
-        this.password = password;
-        this.phoneNumber = phoneNumber;
-    }
-
-    public long getUID() {
+    public Integer getuID() {
         return uID;
     }
 
-    public void setuID(long uID) {
+    public void setuID(Integer uID) {
         this.uID = uID;
     }
 
-    @NonNull
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(@NonNull String fullName) {
-        this.fullName = fullName;
-    }
-
-    @NonNull
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(@NonNull String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
-    @NonNull
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(@NonNull String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "uID=" + uID +
-                ", fullName='" + fullName + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                '}';
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 }
+
