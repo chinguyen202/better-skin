@@ -60,11 +60,10 @@
         android:id="@+id/loginHere"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="94dp"
-        android:layout_marginBottom="115dp"
-        android:text="@string/login"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/ubuntu_bold"
-        android:textColor="@color/black"
+        android:text="@string/login"
+        android:textColor="@color/white"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -104,26 +103,20 @@
         tools:layout_conversion_absoluteHeight="19dp"
         tools:layout_conversion_absoluteWidth="124dp" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="333dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="244dp" />
+        app:layout_constraintGuide_begin="345dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="170dp" />
+        app:layout_constraintGuide_begin="101dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline15"

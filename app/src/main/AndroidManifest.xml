@@ -99,6 +99,12 @@
             android:exported="false">
 
         </activity>
+
+        <activity
+            android:name=".Welcome"
+            android:exported="false">
+
+        </activity>
     </application>
 
 </manifest>

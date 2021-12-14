@@ -72,7 +72,7 @@ public class Register extends AppCompatActivity {
                 startActivity(intent);
 
             }
-        });*/
+        });
     }
 
     private Boolean validateUser(User user){

@@ -32,12 +32,7 @@ public class Login extends AppCompatActivity {
         password = findViewById(R.id.passwordInput);
         loginButton = findViewById(R.id.loginButton);
         createNewAccount = findViewById(R.id.goToRegister);
-    }
-}
 
-
-       // user123 = new User(this);
-/*
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,19 +73,14 @@ public class Login extends AppCompatActivity {
         });
         createNewAccount.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick (View v){
+            public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Register.class);
                 startActivity(intent);
 
             }
         });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-            }
-        });
-=======
-<<<<<<< HEAD
-            }
-        });*/
+
+    }
+}
 
