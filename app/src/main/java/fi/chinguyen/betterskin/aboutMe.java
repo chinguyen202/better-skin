@@ -21,8 +21,6 @@ public class aboutMe extends AppCompatActivity {
         displayUsername = findViewById(R.id.displayUsername);
         displayPassword = findViewById(R.id.displayPassword);
 
-        User db = new User(this);
-
 
     }
 }

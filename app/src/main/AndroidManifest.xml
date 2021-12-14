@@ -12,44 +12,29 @@
 
         <activity
             android:name=".Login"
-            android:exported="true">
+            android:exported="false"
+            android:parentActivityName=".LogoDisplay">
+
         </activity>
 
         <activity
             android:name=".Register"
-            android:exported="false">
+            android:exported="false"
+            android:parentActivityName=".Login">
         </activity>
 
         <activity
             android:name=".LogoDisplay"
             android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".Login"
-            android:exported="false"
-            android:parentActivityName=".LogoDisplay">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LogoDisplay"/>
-        </activity>
+                android:value=".Welcome"/>
 
-        <activity
-            android:name=".Register">
-        </activity>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <activity
-            android:name=".Welcome"
-            android:exported="false"
-            android:parentActivityName=".FirstQuiz">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".FirstQuiz"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity

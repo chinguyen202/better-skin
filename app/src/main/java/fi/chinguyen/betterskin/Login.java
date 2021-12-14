@@ -32,6 +32,9 @@ public class Login extends AppCompatActivity {
     }
 }
 
+
+       // user123 = new User(this);
+/*
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,8 +71,10 @@ public class Login extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), LogoDisplay.class);
                 startActivity(intent);
 
+<<<<<<< HEAD
             }
         });
-
-    }
-}
+=======
+<<<<<<< HEAD
+            }
+        });*/
