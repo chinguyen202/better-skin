@@ -2,11 +2,10 @@ package fi.chinguyen.betterskin;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -20,9 +19,7 @@ import java.util.Set;
 import fi.chinguyen.betterskin.data.AppDAO;
 import fi.chinguyen.betterskin.data.AppDB;
 import fi.chinguyen.betterskin.data.MorningRoutine;
-import fi.chinguyen.betterskin.data.MorningRoutineDao;
-import fi.chinguyen.betterskin.data.User;
-import fi.chinguyen.betterskin.data.UserDao;
+import fi.chinguyen.betterskin.data.MorningRoutineOfUser;
 
 public class GenerateMorningRoutine extends AppCompatActivity {
     public static final String TAG = "Test mode";
@@ -41,9 +38,6 @@ public class GenerateMorningRoutine extends AppCompatActivity {
 
         AppDB data = AppDB.getInstance(this);
         AppDAO dataDao = data.appDao();
-        UserDao userDao = data.userDao();
-        MorningRoutineDao morningRoutineDao = data.morningRoutineDao();
-
 
         cleanser = dataDao.getProductByInput("Clean",userChoices.get(1),userChoices.get(0), userChoices.get(2),"AM");
         Log.d(TAG,"product"+cleanser);
@@ -59,13 +53,16 @@ public class GenerateMorningRoutine extends AppCompatActivity {
 
         Log.d(TAG, "product: " + morningRoutine.toString());
 
-
         //Create a morning routine
         MorningRoutine amRoutine = new MorningRoutine();
         amRoutine.setCleanser(cleanser);
         amRoutine.setMoisturizer(moisturizer);
         amRoutine.setTreat(treat);
         amRoutine.setSpf(spf);
+        amRoutine.setUserID(dataDao.getUserID());
+        //insert morning Routine to database
+        dataDao.addAMRoutine(amRoutine);
+        Log.d(TAG,"inserted: "+ amRoutine.toString());
 
         ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this, R.layout.list_view_display, morningRoutine);
         ListView  morningRoutineList = findViewById(R.id.morningRoutineList);

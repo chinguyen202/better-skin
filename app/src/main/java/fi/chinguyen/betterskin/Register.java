@@ -11,17 +11,16 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.tabs.TabLayout;
-
+import fi.chinguyen.betterskin.data.AppDAO;
 import fi.chinguyen.betterskin.data.AppDB;
 import fi.chinguyen.betterskin.data.User;
-import fi.chinguyen.betterskin.data.UserDao;
 
 public class Register extends AppCompatActivity {
 
     EditText userName, password,fullName, rePassword;
     Button registerButton;
     TextView goToLogin;
+    User user;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
@@ -39,7 +38,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Create an user
-                User user = new User();
+                user = new User();
                 user.setUsername(userName.getText().toString());
                 user.setPassword(password.getText().toString());
                 user.setFullName(fullName.getText().toString());

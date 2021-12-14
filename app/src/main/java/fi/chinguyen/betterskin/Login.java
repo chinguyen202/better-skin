@@ -7,13 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import fi.chinguyen.betterskin.data.AppDAO;
 import fi.chinguyen.betterskin.data.AppDB;
 import fi.chinguyen.betterskin.data.User;
-import fi.chinguyen.betterskin.data.UserDao;
 
 
 public class Login extends AppCompatActivity {
@@ -21,6 +20,8 @@ public class Login extends AppCompatActivity {
     EditText username, password;
     Button loginButton;
     TextView createNewAccount;
+    AppDB appDB;
+    AppDAO appDao;
 
 
     @Override
@@ -44,12 +45,12 @@ public class Login extends AppCompatActivity {
 
                 } else {
                     //Query from database
-                    AppDB userDB = AppDB.getInstance(getApplicationContext());
-                    UserDao userDao = userDB.userDao();
+                    appDB= AppDB.getInstance(getApplicationContext());
+                    appDao = appDB.appDao();
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            User user = userDao.logIn(userName, passWord);
+                            User user = appDao.logIn(userName, passWord);
                             if (user == null) {
                                 runOnUiThread(new Runnable() {
                                     @Override
@@ -59,9 +60,7 @@ public class Login extends AppCompatActivity {
                                 });
 
                             } else {
-                                //int userID = userDao.getUserID();
-                                String username = userDao.getUsername();
-                                String fullName = userDao.getFullname();
+                                String userInfo = appDao.getAllUser().toString();
                                 startActivity(new Intent(getApplicationContext(), Profile.class));
                             }
                         }

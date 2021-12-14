@@ -1,5 +1,7 @@
 package fi.chinguyen.betterskin.data;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -7,27 +9,26 @@ import androidx.room.PrimaryKey;
 public class EveningRoutine {
 
     @PrimaryKey(autoGenerate = true)
-    private long morningRId;
+    @NonNull
+    int pmId;
 
+    @ColumnInfo(name = "Cleanser")
     private String cleanser;
+
+    @ColumnInfo(name = "Treat")
     private String treat;
+
+    @ColumnInfo(name = "Moisturizer")
     private String moisturizer;
-    private long userID;
 
-    public EveningRoutine(long morningRId, String cleanser, String treat, String moisturizer, long userID) {
-        this.morningRId = morningRId;
-        this.cleanser = cleanser;
-        this.treat = treat;
-        this.moisturizer = moisturizer;
-        this.userID = userID;
+    private int userID;
+
+    public int getPmId() {
+        return pmId;
     }
 
-    public long getMorningRId() {
-        return morningRId;
-    }
-
-    public void setMorningRId(long morningRId) {
-        this.morningRId = morningRId;
+    public void setPmId(int pmId) {
+        this.pmId = pmId;
     }
 
     public String getCleanser() {
@@ -54,18 +55,18 @@ public class EveningRoutine {
         this.moisturizer = moisturizer;
     }
 
-    public long getUserID() {
+    public int getUserID() {
         return userID;
     }
 
-    public void setUserID(long userID) {
+    public void setUserID(int userID) {
         this.userID = userID;
     }
 
     @Override
     public String toString() {
         return "EveningRoutine{" +
-                "morningRId=" + morningRId +
+                "pmId=" + pmId +
                 ", cleanser='" + cleanser + '\'' +
                 ", treat='" + treat + '\'' +
                 ", moisturizer='" + moisturizer + '\'' +
