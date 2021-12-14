@@ -28,7 +28,6 @@ public abstract class AppDB extends RoomDatabase {
             
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                         AppDB.class, dbName)
-                        .fallbackToDestructiveMigration()
                         .allowMainThreadQueries()
                         .createFromAsset("betterSkin.db")
                         .build();
