@@ -11,17 +11,16 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.tabs.TabLayout;
-
+import fi.chinguyen.betterskin.data.AppDAO;
 import fi.chinguyen.betterskin.data.AppDB;
 import fi.chinguyen.betterskin.data.User;
-import fi.chinguyen.betterskin.data.UserDao;
 
 public class Register extends AppCompatActivity {
 
     EditText userName, password,fullName;
     Button registerButton;
     TextView goToLogin;
+    User user;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
@@ -32,13 +31,12 @@ public class Register extends AppCompatActivity {
         password = findViewById(R.id.passwordInput);
         fullName = findViewById(R.id.fullNameInput);
         registerButton = findViewById(R.id.registerButton);
-        //phone = findViewById(R.id.phoneInput);
         goToLogin = findViewById(R.id.goToLogin);
         registerButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 //Create an user
-                User user = new User();
+                user = new User();
                 user.setUsername(userName.getText().toString());
                 user.setPassword(password.getText().toString());
                 user.setFullName(fullName.getText().toString());
@@ -46,14 +44,17 @@ public class Register extends AppCompatActivity {
                 if(validateUser(user)){
                     //insert user to database
                     AppDB userDB = AppDB.getInstance(getApplicationContext());
-                    UserDao userDao = userDB.userDao();
+                    AppDAO userDao = userDB.appDao();
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
                             userDao.registerUser(user);
                             Log.d("User","user registered");
+
                         }
                     }).start();
+                    userDao.getAllUser();
+                     String userLogIn = userDao.getAllUser().toString();
                     Intent intent = new Intent (getApplicationContext(),Welcome.class);
                     startActivity(intent);
 
