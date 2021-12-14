@@ -1,35 +1,36 @@
 package fi.chinguyen.betterskin.data;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "morningRoutine")
+@Entity(tableName = "morningRoutines")
 public class MorningRoutine {
 
     @PrimaryKey(autoGenerate = true)
-    private long morningRId;
+    int amId;
 
-    private String cleanser;
-    private String treat;
-    private String moisturizer;
-    private String spf;
-    private long userID;
+    @ColumnInfo(name = "Cleanser")
+    String cleanser;
 
-    public MorningRoutine(long morningRId, String cleanser, String treat, String moisturizer, String spf, long userID) {
-        this.morningRId = morningRId;
-        this.cleanser = cleanser;
-        this.treat = treat;
-        this.moisturizer = moisturizer;
-        this.spf = spf;
-        this.userID = userID;
+    @ColumnInfo(name = "Treat")
+    String treat;
+
+    @ColumnInfo(name = "Moisturizer")
+    String moisturizer;
+
+    @ColumnInfo(name = "SPF")
+    String spf;
+
+    @ColumnInfo(name = "userID")
+    int userID;
+
+    public int getAmId() {
+        return amId;
     }
 
-    public long getMorningRId() {
-        return morningRId;
-    }
-
-    public void setMorningRId(long morningRId) {
-        this.morningRId = morningRId;
+    public void setAmId(int amId) {
+        this.amId = amId;
     }
 
     public String getCleanser() {
@@ -64,23 +65,11 @@ public class MorningRoutine {
         this.spf = spf;
     }
 
-    public long getUserID() {
+    public int getUserID() {
         return userID;
     }
 
-    public void setUserID(long userID) {
+    public void setUserID(int userID) {
         this.userID = userID;
-    }
-
-    @Override
-    public String toString() {
-        return "MorningRoutine{" +
-                "morningRId=" + morningRId +
-                ", cleanser='" + cleanser + '\'' +
-                ", treat='" + treat + '\'' +
-                ", moisturizer='" + moisturizer + '\'' +
-                ", spf='" + spf + '\'' +
-                ", userID=" + userID +
-                '}';
     }
 }
