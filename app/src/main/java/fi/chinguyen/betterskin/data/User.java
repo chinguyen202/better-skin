@@ -8,10 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import androidx.annotation.Nullable;
 
-public class User extends SQLiteOpenHelper {
-
-    public static final String DBNAME = "Login.db";
-    private String Tag;
+//public class User extends SQLiteOpenHelper {
+//
+//    public static final String DBNAME = "Login.db";
 
     public User (Context context){
         super(context, "Login.db", null, 1);
@@ -61,3 +60,4 @@ public class User extends SQLiteOpenHelper {
             return false;
     }
 }
+

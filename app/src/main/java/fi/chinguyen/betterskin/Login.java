@@ -21,7 +21,7 @@ public class Login extends AppCompatActivity {
     User user123;
 
     @Override
-    protected void onCreate (Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
@@ -29,7 +29,8 @@ public class Login extends AppCompatActivity {
         password = findViewById(R.id.passwordInput);
         loginButton = findViewById(R.id.loginButton);
         createNewAccount = findViewById(R.id.goToRegister);
-        user123 = new User(this);
+    }
+}
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
