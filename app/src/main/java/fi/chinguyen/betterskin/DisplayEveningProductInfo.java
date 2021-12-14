@@ -26,7 +26,6 @@ public class DisplayEveningProductInfo extends AppCompatActivity {
         ListView instruction = findViewById(R.id.listViewInstruction);
 
         if (a == 0) {
-            Log.d("boo", "I am 0");
             productImg.setImageResource(R.drawable.cleansing_transparent);
             // -- This information following this article https://www.biore.com/en-us/blog/brightening/how-to-use-cleanser/
             productInformation.add("Pull you hair back.");
@@ -37,7 +36,6 @@ public class DisplayEveningProductInfo extends AppCompatActivity {
             productInformation.add("You can use a washcloth to remove the cleanser after washing.");
             instruction.setAdapter(arrayAdapter);
         } else if (a == 1) {
-            Log.d("boo", "I am 1");
             if (eveningProductList.get(1).toLowerCase().contains("toner")){
                 productImg.setImageResource(R.drawable.toner_transparent);
                 // -- This information following this article https://www.womenshealthmag.com/beauty/a19952473/how-to-use-facial-toner/
@@ -53,8 +51,6 @@ public class DisplayEveningProductInfo extends AppCompatActivity {
             }
             instruction.setAdapter(arrayAdapter);
         } else if (a == 2) {
-            Log.d("boo", "I am 2");
-            Log.d("boo", "I am 2");
             if (eveningProductList.get(2).toLowerCase().contains("oil")){
                 productImg.setImageResource(R.drawable.oil_transparent_);
                 // -- This information following this article https://www.dermstore.com/blog/how-to-use-face-oils/

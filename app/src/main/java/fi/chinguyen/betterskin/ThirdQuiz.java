@@ -24,7 +24,6 @@ public class ThirdQuiz extends AppCompatActivity {
         RadioButton selectedSensitiveSkin  = findViewById(sensitiveSkin.getCheckedRadioButtonId());
         // Get RadioButton text
         userSensitivity = selectedSensitiveSkin.getText().toString();
-        Log.d("Hi", userSensitivity);
     }
 
 

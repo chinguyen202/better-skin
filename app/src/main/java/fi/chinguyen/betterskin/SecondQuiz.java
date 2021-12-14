@@ -23,7 +23,6 @@ public class SecondQuiz extends AppCompatActivity {
         RadioButton skinMainGoal  = (RadioButton)findViewById(mainGoalGroup.getCheckedRadioButtonId());
         // Get RadioButton text
         userSkinGoal = skinMainGoal.getText().toString();
-        Log.d("Hi", userSkinGoal);
     }
 
     public void goToThirdQuiz(View view) {

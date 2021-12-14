@@ -32,8 +32,8 @@ public class Register extends AppCompatActivity {
         password = findViewById(R.id.passwordInput);
         fullName = findViewById(R.id.fullNameInput);
         registerButton = findViewById(R.id.registerButton);
-        //phone = findViewById(R.id.phoneInput);
         goToLogin = findViewById(R.id.goToLogin);
+
         registerButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){

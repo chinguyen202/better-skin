@@ -117,7 +117,7 @@
         android:id="@+id/btnNext2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="120dp"
         android:fontFamily="@font/ubuntu_bold"
         android:onClick="goToThirdQuiz"
         android:text="@string/next_quiz_button"

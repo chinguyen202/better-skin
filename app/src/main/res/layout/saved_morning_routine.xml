@@ -20,7 +20,7 @@
 
 
     <ListView
-        android:id="@+id/morningRoutineList"
+        android:id="@+id/savedMorningRoutineList"
         android:layout_width="332sp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10sp"
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/goToSavedEveningRoutine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/go_to_evening_routine"

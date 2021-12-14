@@ -74,8 +74,7 @@ public class LogoDisplay extends AppCompatActivity implements View.OnTouchListen
 
     public boolean onTouch(View v, MotionEvent event) {
         isTouched = true;
-                startActivity(new Intent(LogoDisplay.this, Welcome.class));
-
+                startActivity(new Intent(LogoDisplay.this, Login.class));
         return true;
     }
 }

@@ -1,6 +1,8 @@
 package fi.chinguyen.betterskin;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +13,9 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import fi.chinguyen.betterskin.data.AppDAO;
 import fi.chinguyen.betterskin.data.AppDB;
@@ -23,12 +28,14 @@ public class GenerateMorningRoutine extends AppCompatActivity {
     public static final String TAG = "Test mode";
     public static final String EXTRA_MESSAGE = "com.example.better-skin.MESSAGE";
     String cleanser,moisturizer,treat,spf;
+    SharedPreferences prefs=this.getSharedPreferences("yourPrefsKey", Context.MODE_PRIVATE);
+    SharedPreferences.Editor edit=prefs.edit();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.morning_routine_layout);
-        Log.d("Hi", userQuizChoices.getInstance().getUserChoices().toString());
+        Log.d("User choices:", userQuizChoices.getInstance().getUserChoices().toString());
         ArrayList<String> userChoices = userQuizChoices.getInstance().getUserChoices();
         ArrayList<String> morningRoutine = new ArrayList<>();
 
@@ -51,22 +58,17 @@ public class GenerateMorningRoutine extends AppCompatActivity {
         morningRoutine.add(spf);
 
         Log.d(TAG, "product: " + morningRoutine.toString());
+
+
         //Create a morning routine
         MorningRoutine amRoutine = new MorningRoutine();
         amRoutine.setCleanser(cleanser);
         amRoutine.setMoisturizer(moisturizer);
         amRoutine.setTreat(treat);
         amRoutine.setSpf(spf);
-        //insert morning Routine to database
-       /* if(validateMorningRoutine(amRoutine)){
-            morningRoutineDao.insertAMRoutine();
-
-        }*/
 
         ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this, R.layout.list_view_display, morningRoutine);
         ListView  morningRoutineList = findViewById(R.id.morningRoutineList);
-
-
         morningRoutineList.setAdapter(arrayAdapter);
 
         morningRoutineList.setOnItemClickListener((adapterView, view, i, l) -> {
