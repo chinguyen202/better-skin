@@ -41,7 +41,7 @@ public class Login extends AppCompatActivity {
                 }else{
                     UserDatabase userDatabase = UserDatabase.getUserDatabase(getApplicationContext());
                     UserDao userDao = userDatabase.userDao();
-                    new Thread(new Runnable() {
+                    Thread thread = new Thread(new Runnable() {
                         @Override
                         public void run() {
                             UserEntity userEntity = userDao.login(userIdText, passwordText);
@@ -58,6 +58,7 @@ public class Login extends AppCompatActivity {
                             }
                         }
                     });
+                    thread.start();
                 }
             }
         });
