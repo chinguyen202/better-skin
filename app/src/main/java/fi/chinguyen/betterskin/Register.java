@@ -19,7 +19,7 @@ import fi.chinguyen.betterskin.data.UserDao;
 
 public class Register extends AppCompatActivity {
 
-    EditText userName, password,fullName;
+    EditText userName, password,fullName, rePassword;
     Button registerButton;
     TextView goToLogin;
 
@@ -32,35 +32,42 @@ public class Register extends AppCompatActivity {
         password = findViewById(R.id.passwordInput);
         fullName = findViewById(R.id.fullNameInput);
         registerButton = findViewById(R.id.registerButton);
+        rePassword = findViewById(R.id.reTypePassword);
         goToLogin = findViewById(R.id.goToLogin);
 
         registerButton.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 //Create an user
                 User user = new User();
                 user.setUsername(userName.getText().toString());
                 user.setPassword(password.getText().toString());
                 user.setFullName(fullName.getText().toString());
+                String repass = rePassword.getText().toString();
 
-                if(validateUser(user)){
-                    //insert user to database
-                    AppDB userDB = AppDB.getInstance(getApplicationContext());
-                    UserDao userDao = userDB.userDao();
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            userDao.registerUser(user);
-                            Log.d("User","user registered");
-                        }
-                    }).start();
-                    Intent intent = new Intent (getApplicationContext(),Welcome.class);
-                    startActivity(intent);
+                if (validateUser(user)) {
+                    if (user.getPassword().equals(rePassword.getText().toString())) {
+                        //insert user to database
+                        AppDB userDB = AppDB.getInstance(getApplicationContext());
+                        UserDao userDao = userDB.userDao();
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                userDao.registerUser(user);
+                                Log.d("User", "user registered");
+                            }
+                        }).start();
+                        Intent intent = new Intent(getApplicationContext(), Welcome.class);
+                        startActivity(intent);
 
-                }else{
-                    Toast.makeText(getApplicationContext(),"Enter all information please!",Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(Register.this, "Passwords is not matching", Toast.LENGTH_SHORT).show();
+
+
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "Enter all information please!", Toast.LENGTH_SHORT).show();
                 }
-
             }
 
         });

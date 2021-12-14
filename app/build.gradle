@@ -28,6 +28,7 @@ android {
 }
 
 dependencies {
+    compileOnly files("C:/Users/ADMIN/AppData/Local/Android/Sdk/platforms/android-31/android.jar")
 
     //Room database library
     def room_version = "2.3.0"
