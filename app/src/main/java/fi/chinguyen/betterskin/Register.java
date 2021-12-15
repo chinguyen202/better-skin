@@ -48,7 +48,7 @@ public class Register extends AppCompatActivity {
                     if (user.getPassword().equals(rePassword.getText().toString())) {
                         //insert user to database
                         AppDB userDB = AppDB.getInstance(getApplicationContext());
-                        UserDao userDao = userDB.userDao();
+                        AppDAO userDao = userDB.appDao();
                         new Thread(new Runnable() {
                             @Override
                             public void run() {

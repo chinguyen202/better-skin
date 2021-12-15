@@ -12,6 +12,7 @@ import androidx.room.Transaction;
 import androidx.room.Update;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 @Dao
@@ -34,8 +35,37 @@ public interface AppDAO {
     List<MorningRoutine> getAMRoutineOfUser(int uID);
 
     @Transaction
+    @Query("SELECT moisturizer FROM morningRoutines WHERE userID = :uID")
+    String getAMMoisturizer(int uID);
+
+    @Transaction
+    @Query("SELECT treat FROM morningRoutines WHERE userID = :uID")
+    String getAMTreat(int uID);
+
+    @Transaction
+    @Query("SELECT SPF FROM morningRoutines WHERE userID = :uID")
+    String getSpf(int uID);
+
+    @Transaction
+    @Query("SELECT cleanser FROM morningRoutines WHERE userID = :uID")
+    String getAMCleanser(int uID);
+
+    @Transaction
     @Query("Select * from eveningRoutine where userID = :uID")
-    List<EveningRoutine> getPMRoutinerOfUser(int uID);
+    List<EveningRoutine> getPMRoutineOfUser(int uID);
+
+    @Transaction
+    @Query("SELECT cleanser FROM eveningRoutine WHERE userID = :uID")
+    String getPMCleanser(int uID);
+
+    @Transaction
+    @Query("SELECT moisturizer FROM eveningRoutine WHERE userID = :uID")
+    String getPMMoisturizer(int uID);
+
+    @Transaction
+    @Query("SELECT treat FROM eveningRoutine WHERE userID = :uID")
+    String getPMTreat(int uID);
+
 
     //Select all product
     @Query("Select * from SkincareProduct")

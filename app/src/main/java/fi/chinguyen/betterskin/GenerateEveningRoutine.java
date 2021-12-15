@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import fi.chinguyen.betterskin.data.AppDAO;
 import fi.chinguyen.betterskin.data.AppDB;
 import fi.chinguyen.betterskin.data.EveningRoutine;
-import fi.chinguyen.betterskin.data.User;
 
 public class GenerateEveningRoutine extends AppCompatActivity {
     private static final String TAG = "TEST MODE";
@@ -63,7 +62,7 @@ public class GenerateEveningRoutine extends AppCompatActivity {
 
         eveningRoutineList.setOnItemClickListener((adapterView, view, i, l) -> {
             Log.d(TAG, eveningRoutineList.toString());
-            Intent nextActivity = new Intent(GenerateEveningRoutine.this, DisplayMorningProductInfo.class);
+            Intent nextActivity = new Intent(GenerateEveningRoutine.this, DisplayProductInfo.class);
             nextActivity.putStringArrayListExtra("product",eveningRoutine);
             nextActivity.putExtra(EXTRA_MESSAGE, i);
             startActivity(nextActivity);

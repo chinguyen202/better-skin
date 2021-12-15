@@ -19,12 +19,12 @@ public class Profile extends AppCompatActivity {
     }
 
     public void goToMorningRoutine(View view) {
-        Intent intent = new Intent(this, GenerateMorningRoutine.class);
+        Intent intent = new Intent(this, SavedMorningRoutine.class);
         startActivity(intent);
     }
 
     public void goToEveningRoutine(View view) {
-        Intent intent = new Intent(this, GenerateEveningRoutine.class);
+        Intent intent = new Intent(this, SavedEveningRoutine.class);
         startActivity(intent);
     }
 

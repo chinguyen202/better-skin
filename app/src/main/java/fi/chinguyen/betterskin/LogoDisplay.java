@@ -36,11 +36,7 @@ public class LogoDisplay extends AppCompatActivity implements View.OnTouchListen
         setContentView(R.layout.activity_logo_display);
 
 
-        AppDB data = AppDB.getInstance(this);
-        AppDAO dataDao = data.appDao();
 
-        List<SkincareProduct> list = dataDao.getProductByStepUse("Clean");
-        Log.d("data", "length " + list.size());
 
         LinearLayout logoLayout = (LinearLayout) findViewById(R.id.logoLayout);
         // Animated confetti made following the direction of https://github.com/DanielMartinus/Konfetti

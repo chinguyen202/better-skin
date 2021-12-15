@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class DisplayMorningProductInfo extends AppCompatActivity {
+public class DisplayProductInfo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.display_product_info);
@@ -20,7 +20,7 @@ public class DisplayMorningProductInfo extends AppCompatActivity {
         ImageView productImg= (ImageView) findViewById(R.id.product);
         Bundle b = getIntent().getExtras();
         int a = b.getInt(GenerateMorningRoutine.EXTRA_MESSAGE, 0);
-        ArrayList<String> morningProductList=getIntent().getExtras().getStringArrayList("product");
+        ArrayList<String> ProductList=getIntent().getExtras().getStringArrayList("product");
         ArrayList<String> productInformation = new ArrayList<>();
         ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this, R.layout.display_product_intruction, productInformation);
         ListView instruction = findViewById(R.id.listViewInstruction);
@@ -35,7 +35,7 @@ public class DisplayMorningProductInfo extends AppCompatActivity {
             productInformation.add("You can use a washcloth to remove the cleanser after washing.");
             instruction.setAdapter(arrayAdapter);
         } else if (a == 1) {
-            if (morningProductList.get(1).toLowerCase().contains("toner")){
+            if (ProductList.get(1).toLowerCase().contains("toner")){
                 productImg.setImageResource(R.drawable.toner_transparent);
                 // -- This information following this article https://www.womenshealthmag.com/beauty/a19952473/how-to-use-facial-toner/
                 productInformation.add("Soak a cotton pad with toner, then swipe it over your entire face, neck, and chest.");
@@ -50,7 +50,7 @@ public class DisplayMorningProductInfo extends AppCompatActivity {
             }
             instruction.setAdapter(arrayAdapter);
         } else if (a == 2) {
-            if (morningProductList.get(2).toLowerCase().contains("oil")){
+            if (ProductList.get(2).toLowerCase().contains("oil")){
                 productImg.setImageResource(R.drawable.oil_transparent_);
                 // -- This information following this article https://www.womenshealthmag.com/beauty/a19952473/how-to-use-facial-toner/
                 productInformation.add("One to three drops of your choice of oil is enough to cover your whole face and deliver the benefits your skin needs.");

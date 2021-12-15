@@ -1,8 +1,6 @@
 package fi.chinguyen.betterskin;
 
-import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,21 +10,15 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 import fi.chinguyen.betterskin.data.AppDAO;
 import fi.chinguyen.betterskin.data.AppDB;
 import fi.chinguyen.betterskin.data.MorningRoutine;
-import fi.chinguyen.betterskin.data.MorningRoutineOfUser;
 
 public class GenerateMorningRoutine extends AppCompatActivity {
     public static final String TAG = "Test mode";
     public static final String EXTRA_MESSAGE = "com.example.better-skin.MESSAGE";
-    String cleanser,moisturizer,treat,spf;
-    SharedPreferences prefs=this.getSharedPreferences("yourPrefsKey", Context.MODE_PRIVATE);
-    SharedPreferences.Editor edit=prefs.edit();
+    String cleanser, moisturizer, treat, spf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +62,7 @@ public class GenerateMorningRoutine extends AppCompatActivity {
 
         morningRoutineList.setOnItemClickListener((adapterView, view, i, l) -> {
             Log.d(TAG, morningRoutine.toString());
-            Intent nextActivity = new Intent(GenerateMorningRoutine.this, DisplayMorningProductInfo.class);
+            Intent nextActivity = new Intent(GenerateMorningRoutine.this, DisplayProductInfo.class);
             nextActivity.putStringArrayListExtra("product",morningRoutine);
             nextActivity.putExtra(EXTRA_MESSAGE, i);
             startActivity(nextActivity);

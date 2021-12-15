@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.w3c.dom.Text;
 
+import fi.chinguyen.betterskin.data.AppDAO;
+import fi.chinguyen.betterskin.data.AppDB;
 import fi.chinguyen.betterskin.data.User;
 
 public class aboutMe extends AppCompatActivity {
@@ -20,6 +22,11 @@ public class aboutMe extends AppCompatActivity {
 
         displayUsername = findViewById(R.id.displayUsername);
         displayPassword = findViewById(R.id.displayPassword);
+
+        AppDB data = AppDB.getInstance(this);
+        AppDAO dataDao = data.appDao();
+        int user = dataDao.getUserID();
+
 
 
     }
