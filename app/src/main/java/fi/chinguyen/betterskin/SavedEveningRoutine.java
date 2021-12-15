@@ -1,6 +1,8 @@
 package fi.chinguyen.betterskin;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,7 +25,9 @@ public class SavedEveningRoutine extends AppCompatActivity {
 
         AppDB data = AppDB.getInstance(this);
         AppDAO dataDao = data.appDao();
-        int user = dataDao.getUserID();
+        SharedPreferences loginUser = getSharedPreferences("login", Activity.MODE_PRIVATE);
+        String loginName = loginUser.getString("userName", "");
+        int user = dataDao.getIdByUsername(loginName);
         ArrayList<String> savedEveningProduct = new ArrayList<>();
 
         cleanser = dataDao.getPMCleanser(user);

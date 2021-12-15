@@ -1,6 +1,8 @@
 package fi.chinguyen.betterskin;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,6 +30,8 @@ public class GenerateEveningRoutine extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.evening_routine_layout);
 
+        SharedPreferences loginUser = getSharedPreferences("login", Activity.MODE_PRIVATE);
+        String loginName = loginUser.getString("userName", "");
         data = AppDB.getInstance(this);
         appDao = data.appDao();
 
@@ -50,7 +54,7 @@ public class GenerateEveningRoutine extends AppCompatActivity {
         pmRoutine.setCleanser(cleaner);
         pmRoutine.setMoisturizer(moisturizer);
         pmRoutine.setTreat(treat);
-        pmRoutine.setUserID(appDao.getUserID());
+        pmRoutine.setUserID(appDao.getIdByUsername(loginName));
         appDao.addPMRoutine(pmRoutine);
         //Log.d(TAG,"inserted: "+pmRoutine.toString());
 

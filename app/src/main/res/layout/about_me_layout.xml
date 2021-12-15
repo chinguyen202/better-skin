@@ -61,17 +61,7 @@
             android:paddingRight="10sp"
             android:text="TextView" />
 
-        <TextView
-            android:id="@+id/displayPassword"
-            android:layout_width="300sp"
-            android:layout_height="40sp"
-            android:layout_marginBottom="10sp"
-            android:fontFamily="@font/ubuntu_regular"
-            android:gravity="center_vertical"
-            android:background="@drawable/login_button"
-            android:paddingLeft="10sp"
-            android:paddingRight="10sp"
-            android:text="TextView" />
+
 
     </LinearLayout>
 

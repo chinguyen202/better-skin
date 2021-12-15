@@ -113,6 +113,14 @@ public interface AppDAO {
     @Query("Select username from users")
     String getUsername();
 
+
+    @Query("Select fullName from users where username = :username")
+    String getFullNameByUsername(String username);
+
+    @Query("Select uID from users where username = :username")
+    Integer getIdByUsername(String username);
+
+
     @Query("Select fullName from users")
     String getFullname();
 

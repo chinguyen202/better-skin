@@ -1,6 +1,8 @@
 package fi.chinguyen.betterskin;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +27,8 @@ public class GenerateMorningRoutine extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.morning_routine_layout);
         Log.d("User choices:", userQuizChoices.getInstance().getUserChoices().toString());
+        SharedPreferences loginUser = getSharedPreferences("login", Activity.MODE_PRIVATE);
+        String loginName = loginUser.getString("userName", "");
         ArrayList<String> userChoices = userQuizChoices.getInstance().getUserChoices();
         ArrayList<String> morningRoutine = new ArrayList<>();
 
@@ -51,7 +55,7 @@ public class GenerateMorningRoutine extends AppCompatActivity {
         amRoutine.setMoisturizer(moisturizer);
         amRoutine.setTreat(treat);
         amRoutine.setSpf(spf);
-        amRoutine.setUserID(dataDao.getUserID());
+        amRoutine.setUserID(dataDao.getIdByUsername(loginName));
         //insert morning Routine to database
         dataDao.addAMRoutine(amRoutine);
         Log.d(TAG,"inserted: "+ amRoutine.toString());

@@ -34,10 +34,6 @@ public class LogoDisplay extends AppCompatActivity implements View.OnTouchListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logo_display);
-
-
-
-
         LinearLayout logoLayout = (LinearLayout) findViewById(R.id.logoLayout);
         // Animated confetti made following the direction of https://github.com/DanielMartinus/Konfetti
         DisplayMetrics display = new DisplayMetrics();

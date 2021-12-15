@@ -1,6 +1,8 @@
 package fi.chinguyen.betterskin;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,6 +29,9 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
 
+        SharedPreferences registerUser = getSharedPreferences("register", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = registerUser.edit();
+
         userName = findViewById(R.id.userNameInput);
         password = findViewById(R.id.passwordInput);
         fullName = findViewById(R.id.fullNameInput);
@@ -39,7 +44,8 @@ public class Register extends AppCompatActivity {
             public void onClick(View view) {
                 //Create an user
                 user = new User();
-                user.setUsername(userName.getText().toString());
+                String username = userName.getText().toString();
+                user.setUsername(username);
                 user.setPassword(password.getText().toString());
                 user.setFullName(fullName.getText().toString());
                 String repass = rePassword.getText().toString();
@@ -56,7 +62,7 @@ public class Register extends AppCompatActivity {
                                 Log.d("User", "user registered");
                             }
                         }).start();
-                        Intent intent = new Intent(getApplicationContext(), Welcome.class);
+                        Intent intent = new Intent(getApplicationContext(), Login.class);
                         startActivity(intent);
 
                     } else {
@@ -67,6 +73,8 @@ public class Register extends AppCompatActivity {
                 } else {
                     Toast.makeText(getApplicationContext(), "Enter all information please!", Toast.LENGTH_SHORT).show();
                 }
+                editor.putString("userName", username);
+                editor.apply();
             }
 
         });
