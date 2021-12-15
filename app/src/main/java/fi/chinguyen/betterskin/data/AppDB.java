@@ -1,12 +1,13 @@
 package fi.chinguyen.betterskin.data;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.AsyncTask;
-
 import androidx.annotation.NonNull;
+import androidx.room.AutoMigration;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 @Database(
@@ -20,6 +21,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 public abstract class AppDB extends RoomDatabase {
     private static final String dbName = "betterSkin.db";
+    private static final int DATABASE_VERSION = 1;
 
     //The database exposes DAOs through an abstract "getter" method for each @Dao
     public abstract AppDAO appDao();
@@ -34,16 +36,19 @@ public abstract class AppDB extends RoomDatabase {
             
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                         AppDB.class, dbName)
-                        .fallbackToDestructiveMigration()
+                      //  .fallbackToDestructiveMigration()
                         .allowMainThreadQueries()
                         .createFromAsset("betterSkin.db")
                         .build();
 
             }
         return INSTANCE;
-
     }
 }
+
+
+
+
 
 
 

@@ -17,46 +17,44 @@ import fi.chinguyen.betterskin.data.User;
 
 public class Register extends AppCompatActivity {
 
-    EditText userName, password,fullName;
+    EditText userName, passWord,fullName;
     Button registerButton;
     TextView goToLogin;
-    User user;
+    User user,registerUser;
+    private AppDAO appDAO;
+    private AppDB appDB;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
 
+        appDB = AppDB.getInstance(getApplicationContext());
+        appDAO = appDB.appDao();
+
         userName = findViewById(R.id.userNameInput);
-        password = findViewById(R.id.passwordInput);
+        passWord = findViewById(R.id.passwordInput);
         fullName = findViewById(R.id.fullNameInput);
         registerButton = findViewById(R.id.registerButton);
         goToLogin = findViewById(R.id.goToLogin);
+
+
         registerButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 //Create an user
                 user = new User();
                 user.setUsername(userName.getText().toString());
-                user.setPassword(password.getText().toString());
+                user.setPassword(passWord.getText().toString());
                 user.setFullName(fullName.getText().toString());
 
-                if(validateUser(user)){
-                    //insert user to database
-                    AppDB userDB = AppDB.getInstance(getApplicationContext());
-                    AppDAO userDao = userDB.appDao();
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            userDao.registerUser(user);
-                            Log.d("User","user registered");
 
-                        }
-                    }).start();
-                    userDao.getAllUser();
-                     String userLogIn = userDao.getAllUser().toString();
+                if(validateUser(user)){
                     Intent intent = new Intent (getApplicationContext(),Welcome.class);
+                    appDAO.registerUser(user);
+                    intent.putExtra("registerUser",user);
                     startActivity(intent);
+                    finish();
 
                 }else{
                     Toast.makeText(getApplicationContext(),"Enter all information please!",Toast.LENGTH_SHORT).show();

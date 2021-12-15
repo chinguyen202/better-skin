@@ -23,6 +23,7 @@ public class GenerateEveningRoutine extends AppCompatActivity {
     AppDB data;
     AppDAO appDao;
     EveningRoutine pmRoutine;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class GenerateEveningRoutine extends AppCompatActivity {
 
         data = AppDB.getInstance(this);
         appDao = data.appDao();
+        user = (User) getIntent().getSerializableExtra("registerUser");
 
         Log.d(TAG, userQuizChoices.getInstance().getUserChoices().toString());
         ArrayList<String> userChoices = userQuizChoices.getInstance().getUserChoices();
@@ -51,7 +53,7 @@ public class GenerateEveningRoutine extends AppCompatActivity {
         pmRoutine.setCleanser(cleaner);
         pmRoutine.setMoisturizer(moisturizer);
         pmRoutine.setTreat(treat);
-        pmRoutine.setUserID(appDao.getUserID());
+        pmRoutine.setUserID(user.getuID());
         appDao.addPMRoutine(pmRoutine);
         //Log.d(TAG,"inserted: "+pmRoutine.toString());
 

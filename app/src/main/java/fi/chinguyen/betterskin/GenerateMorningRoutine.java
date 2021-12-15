@@ -16,11 +16,13 @@ import fi.chinguyen.betterskin.data.AppDAO;
 import fi.chinguyen.betterskin.data.AppDB;
 import fi.chinguyen.betterskin.data.MorningRoutine;
 import fi.chinguyen.betterskin.data.MorningRoutineOfUser;
+import fi.chinguyen.betterskin.data.User;
 
 public class GenerateMorningRoutine extends AppCompatActivity {
     public static final String TAG = "Test mode";
     public static final String EXTRA_MESSAGE = "com.example.better-skin.MESSAGE";
     String cleanser,moisturizer,treat,spf;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,9 @@ public class GenerateMorningRoutine extends AppCompatActivity {
 
         AppDB data = AppDB.getInstance(this);
         AppDAO dataDao = data.appDao();
+
+        user = (User) getIntent().getSerializableExtra("registerUser");
+
 
         cleanser = dataDao.getProductByInput("Clean",userChoices.get(1),userChoices.get(0), userChoices.get(2),"AM");
         Log.d(TAG,"product"+cleanser);
@@ -53,10 +58,12 @@ public class GenerateMorningRoutine extends AppCompatActivity {
         amRoutine.setMoisturizer(moisturizer);
         amRoutine.setTreat(treat);
         amRoutine.setSpf(spf);
-        amRoutine.setUserID(dataDao.getUserID());
+        amRoutine.setUserID(user.getuID());
         //insert morning Routine to database
         dataDao.addAMRoutine(amRoutine);
         Log.d(TAG,"inserted: "+ amRoutine.toString());
+
+        Log.d(TAG, "cleanser: "+dataDao.getAMCleanser(dataDao.getUserID()));
 
         ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this, R.layout.list_view_display, morningRoutine);
         ListView  morningRoutineList = findViewById(R.id.morningRoutineList);

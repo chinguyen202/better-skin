@@ -6,11 +6,17 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import fi.chinguyen.betterskin.data.User;
+
 public class Profile extends AppCompatActivity {
+
+    private User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_layout);
+
+        user = (User) getIntent().getSerializableExtra("User");
     }
 
     public void goToAboutMe(View view) {

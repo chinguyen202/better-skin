@@ -29,47 +29,33 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
+        appDB= AppDB.getInstance(getApplicationContext());
+        appDao = appDB.appDao();
+
         username = findViewById(R.id.userNameInput);
         password = findViewById(R.id.passwordInput);
         loginButton = findViewById(R.id.loginButton);
         createNewAccount = findViewById(R.id.goToRegister);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String userName = username.getText().toString();
-                String passWord = password.getText().toString();
+                                           @Override
+                                           public void onClick(View v) {
+                                               String userName = username.getText().toString();
+                                               String passWord = password.getText().toString();
+                                               User user = appDao.getUser(userName, passWord);
 
-                if (userName.isEmpty() || passWord.isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Fill username and password please!", Toast.LENGTH_SHORT).show();
+                                               if (user != null) {
+                                                   Intent intent = new Intent(getApplicationContext(), Profile.class);
+                                                   intent.putExtra("User", user);
+                                                   startActivity(intent);
+                                                   finish();
+                                               } else {
+                                                   Toast.makeText(getApplicationContext(), "User not found or invalid credentials", Toast.LENGTH_SHORT).show();
+                                               }
 
-                } else {
-                    //Query from database
-                    appDB= AppDB.getInstance(getApplicationContext());
-                    appDao = appDB.appDao();
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            User user = appDao.logIn(userName, passWord);
-                            if (user == null) {
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        Toast.makeText(getApplicationContext(), "Invalid password or username!", Toast.LENGTH_SHORT).show();
-                                    }
-                                });
+                                           }
+                                       });
 
-                            } else {
-                                String userInfo = appDao.getAllUser().toString();
-                                startActivity(new Intent(getApplicationContext(), Profile.class));
-                            }
-                        }
-
-                    }).start();
-                }
-            }
-
-        });
         createNewAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

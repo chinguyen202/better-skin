@@ -9,13 +9,18 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import fi.chinguyen.betterskin.data.User;
+
 public class ThirdQuiz extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.better-skin.MESSAGE";
     private String userSensitivity;
+    private User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third_quiz);
+
+        user = (User) getIntent().getSerializableExtra("registerUser");
     }
     public void getSkinSensitivity(View view){
 
@@ -32,6 +37,7 @@ public class ThirdQuiz extends AppCompatActivity {
         userQuizChoices.getInstance().addToUserChoices(userSensitivity);
         Intent intent = new Intent(this, GenerateMorningRoutine.class);
         intent.putExtra(EXTRA_MESSAGE, userSensitivity);
+        intent.putExtra("registerUser",user);
         startActivity(intent);
     }
 }

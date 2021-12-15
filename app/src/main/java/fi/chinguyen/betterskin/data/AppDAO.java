@@ -11,23 +11,26 @@ import androidx.room.Query;
 import androidx.room.Transaction;
 import androidx.room.Update;
 
-import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 @Dao
 public interface AppDAO {
     //conflict resolution strategy: insert same product will replace the old product
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public void addProduct(SkincareProduct skincareProduct);
+    void addProduct(SkincareProduct skincareProduct);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public void registerUser(User user);
+    void registerUser(User user);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public void addAMRoutine(MorningRoutine morningRoutine);
+    void addAMRoutine(MorningRoutine morningRoutine);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public void addPMRoutine(EveningRoutine eveningRoutine);
+    void addPMRoutine(EveningRoutine eveningRoutine);
+
+    @Query("SELECT * FROM users where username = :username AND password =:password")
+    User getUser(String username,String password);
 
     @Transaction
     @Query("Select * from morningRoutines where userID = :uID")
@@ -35,7 +38,11 @@ public interface AppDAO {
 
     @Transaction
     @Query("Select * from eveningRoutine where userID = :uID")
-    List<EveningRoutine> getPMRoutinerOfUser(int uID);
+    List<EveningRoutine> getPMRoutineOfUser(int uID);
+
+    @Transaction
+    @Query("Select cleanser from eveningRoutine where userID = :uID")
+    String getAMCleanser(int uID);
 
     //Select all product
     @Query("Select * from SkincareProduct")
@@ -47,7 +54,7 @@ public interface AppDAO {
 
     //List product name
     @Query("Select productName from skincareProduct ")
-    public Name loadName();
+    Name loadName();
 
     //Select product based on time use
     @Query("SELECT productName FROM skincareProduct WHERE timeUse like :timeUse")
