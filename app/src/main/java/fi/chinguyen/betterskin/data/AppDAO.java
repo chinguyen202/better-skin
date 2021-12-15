@@ -31,39 +31,40 @@ public interface AppDAO {
     public void addPMRoutine(EveningRoutine eveningRoutine);
 
     @Transaction
-    @Query("Select * from morningRoutines where userID = :uID")
+    @Query("Select * from morningRoutines where userID = :uID order by amId desc")
     List<MorningRoutine> getAMRoutineOfUser(int uID);
 
     @Transaction
-    @Query("SELECT moisturizer FROM morningRoutines WHERE userID = :uID")
+    @Query("SELECT moisturizer FROM morningRoutines WHERE userID = :uID order by amId desc")
     String getAMMoisturizer(int uID);
 
     @Transaction
-    @Query("SELECT treat FROM morningRoutines WHERE userID = :uID")
+    @Query("SELECT treat FROM morningRoutines WHERE userID = :uID order by amId desc")
     String getAMTreat(int uID);
 
     @Transaction
-    @Query("SELECT SPF FROM morningRoutines WHERE userID = :uID")
+    @Query("SELECT SPF FROM morningRoutines WHERE userID = :uID order by amId desc")
     String getSpf(int uID);
 
     @Transaction
-    @Query("SELECT cleanser FROM morningRoutines WHERE userID = :uID")
+    @Query("SELECT cleanser FROM morningRoutines WHERE userID = :uID order by amId desc")
     String getAMCleanser(int uID);
+
 
     @Transaction
     @Query("Select * from eveningRoutine where userID = :uID")
     List<EveningRoutine> getPMRoutineOfUser(int uID);
 
     @Transaction
-    @Query("SELECT cleanser FROM eveningRoutine WHERE userID = :uID")
+    @Query("SELECT cleanser FROM eveningRoutine WHERE userID = :uID order by pmId desc")
     String getPMCleanser(int uID);
 
     @Transaction
-    @Query("SELECT moisturizer FROM eveningRoutine WHERE userID = :uID")
+    @Query("SELECT moisturizer FROM eveningRoutine WHERE userID = :uID order by pmId desc")
     String getPMMoisturizer(int uID);
 
     @Transaction
-    @Query("SELECT treat FROM eveningRoutine WHERE userID = :uID")
+    @Query("SELECT treat FROM eveningRoutine WHERE userID = :uID order by pmId desc")
     String getPMTreat(int uID);
 
 
