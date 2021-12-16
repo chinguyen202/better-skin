@@ -29,8 +29,9 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
 
-        SharedPreferences registerUser = getSharedPreferences("register", Activity.MODE_PRIVATE);
-        SharedPreferences.Editor editor = registerUser.edit();
+        //Call database
+        AppDB userDB = AppDB.getInstance(getApplicationContext());
+        AppDAO userDao = userDB.appDao();
 
         userName = findViewById(R.id.userNameInput);
         password = findViewById(R.id.passwordInput);
@@ -42,7 +43,7 @@ public class Register extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                //Create an user
+                //Create an user in database with all information given by user
                 user = new User();
                 String username = userName.getText().toString();
                 user.setUsername(username);
@@ -50,11 +51,11 @@ public class Register extends AppCompatActivity {
                 user.setFullName(fullName.getText().toString());
                 String repass = rePassword.getText().toString();
 
+                //Condition to check user input
                 if (validateUser(user)) {
+                    //set condition for matching password
+                    //If they are matched, add user to database
                     if (user.getPassword().equals(rePassword.getText().toString())) {
-                        //insert user to database
-                        AppDB userDB = AppDB.getInstance(getApplicationContext());
-                        AppDAO userDao = userDB.appDao();
                         new Thread(new Runnable() {
                             @Override
                             public void run() {
@@ -62,10 +63,12 @@ public class Register extends AppCompatActivity {
                                 Log.d("User", "user registered");
                             }
                         }).start();
+                        //Go to Login
                         Intent intent = new Intent(getApplicationContext(), Login.class);
                         startActivity(intent);
 
                     } else {
+                        //If retype password is not match, display message
                         Toast.makeText(Register.this, "Passwords is not matching", Toast.LENGTH_SHORT).show();
 
 
@@ -73,22 +76,13 @@ public class Register extends AppCompatActivity {
                 } else {
                     Toast.makeText(getApplicationContext(), "Enter all information please!", Toast.LENGTH_SHORT).show();
                 }
-                editor.putString("userName", username);
-                editor.apply();
+
             }
 
         });
 
-        goToLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent (getApplicationContext(), Login.class);
-                startActivity(intent);
-
-            }
-        });
     }
-
+    //Method to check if all user input is empty or not
     private Boolean validateUser(User user){
         if(user.getUsername().isEmpty() || user.getPassword().isEmpty() ||user.getFullName().isEmpty()){
             return false;

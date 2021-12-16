@@ -22,7 +22,7 @@ public interface AppDAO {
     public void addProduct(SkincareProduct skincareProduct);
 
     //Insert user
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.ABORT)
     public void registerUser(User user);
 
     //Insert morning routine
