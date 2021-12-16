@@ -25,45 +25,55 @@ public interface AppDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void registerUser(User user);
 
+    //Insert morning routine
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void addAMRoutine(MorningRoutine morningRoutine);
 
+    //Insert evening routine
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void addPMRoutine(EveningRoutine eveningRoutine);
 
+    //Get list of morning routine by user ID
     @Transaction
     @Query("Select * from morningRoutines where userID = :uID order by amId desc")
     List<MorningRoutine> getAMRoutineOfUser(int uID);
 
+    //Get latest morning moisturiser of user by userID
     @Transaction
     @Query("SELECT moisturizer FROM morningRoutines WHERE userID = :uID order by amId desc")
     String getAMMoisturizer(int uID);
 
+    //Get latest morning treat product of user by userID
     @Transaction
     @Query("SELECT treat FROM morningRoutines WHERE userID = :uID order by amId desc")
     String getAMTreat(int uID);
 
+    //Get latest Spf of user by userID
     @Transaction
     @Query("SELECT SPF FROM morningRoutines WHERE userID = :uID order by amId desc")
     String getSpf(int uID);
 
+    //Get latest morning cleanser of user by userID
     @Transaction
     @Query("SELECT cleanser FROM morningRoutines WHERE userID = :uID order by amId desc")
     String getAMCleanser(int uID);
 
-
+    //Get list of evening routine by user ID
     @Transaction
     @Query("Select * from eveningRoutine where userID = :uID")
     List<EveningRoutine> getPMRoutineOfUser(int uID);
 
+    //Get latest evening cleanser of user by userID
     @Transaction
     @Query("SELECT cleanser FROM eveningRoutine WHERE userID = :uID order by pmId desc")
     String getPMCleanser(int uID);
 
+    //Get latest evening moisturizer of user by userID
     @Transaction
     @Query("SELECT moisturizer FROM eveningRoutine WHERE userID = :uID order by pmId desc")
     String getPMMoisturizer(int uID);
 
+    //Get latest evening treat of user by userID
     @Transaction
     @Query("SELECT treat FROM eveningRoutine WHERE userID = :uID order by pmId desc")
     String getPMTreat(int uID);
@@ -141,7 +151,6 @@ public interface AppDAO {
 
     @Delete
     void deleteUser(User user);
-
 
 
 }
