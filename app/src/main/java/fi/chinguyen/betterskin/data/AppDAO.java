@@ -87,10 +87,6 @@ public interface AppDAO {
     @Query("Select * from SkincareProduct Where stepUse like :stepUse")
     List<SkincareProduct> getProductByStepUse(String stepUse);
 
-    //List product name
-    @Query("Select productName from skincareProduct ")
-    public String loadName();
-
     //Select product based on time use
     @Query("SELECT productName FROM skincareProduct WHERE timeUse like :timeUse")
     public String getProductByTime(String timeUse);
@@ -102,19 +98,6 @@ public interface AppDAO {
     //Select product by using step in which product is used for
     @Query("SELECT productName from SkincareProduct Where stepUse like :stepUse")
     public String getSpfProduct(String stepUse);
-
-
-    @Query("Select * from eveningRoutine")
-    public List<EveningRoutine> getEveningRoutine();
-
-    @Query("Select * from eveningRoutine where userID = :userId")
-    public List<EveningRoutine> getEveningRoutineByUserId(long userId);
-
-    @Update
-    void updateEveningRoutine(EveningRoutine eveningRoutine);
-
-    @Delete
-    void deleteEveningRoutine(EveningRoutine eveningRoutine);
 
     @Query("Select uID from users")
     public int getUserID();
@@ -132,25 +115,35 @@ public interface AppDAO {
     @Query("Select uID from users where username = :username")
     Integer getIdByUsername(String username);
 
-
-    @Query("Select fullName from users")
-    String getFullname();
-
-    @Query("Select password from users")
-    String getPassword();
-
+    //Pull the username from database using username and password
     @Query("Select username from users where username=(:username) AND password=(:password)")
     User logIn(String username, String password);
 
+    //update product data in database
     @Update
     public void updateProduct(SkincareProduct skincareProduct);
+
+
+    //Update user info in database
+    @Update
+    void updateUserInfo(User user);
 
     //delete product from database
     @Delete
     public void deleteProduct(SkincareProduct skincareProduct);
 
+    //Delete user from database
     @Delete
     void deleteUser(User user);
+
+    //Delete morning routine from database
+    @Delete
+    void deleteAmRoutine(MorningRoutine morningRoutine);
+
+    //Delete evening routine from database
+    @Delete
+    void deletePmRoutine(EveningRoutine eveningRoutine);
+
 
 
 }

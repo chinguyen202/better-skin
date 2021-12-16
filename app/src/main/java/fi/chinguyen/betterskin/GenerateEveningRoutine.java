@@ -54,13 +54,13 @@ public class GenerateEveningRoutine extends AppCompatActivity {
         eveningRoutine.add(moisturizer);
         Log.d(TAG, "product: " + eveningRoutine.toString());
 
-        //Insert evening Routine to database
+        //Created and insert evening Routine to database
         EveningRoutine pmRoutine = new EveningRoutine();
-
         pmRoutine.setCleanser(cleaner);
         pmRoutine.setMoisturizer(moisturizer);
         pmRoutine.setTreat(treat);
         pmRoutine.setUserID(appDao.getIdByUsername(loginName));
+
         appDao.addPMRoutine(pmRoutine);
 
         //Display product

@@ -30,29 +30,37 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
+        //Create a shared preference to save user input
         SharedPreferences loginUser = getSharedPreferences("login", Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = loginUser.edit();
+
         username = findViewById(R.id.userNameInput);
         password = findViewById(R.id.passwordInput);
         loginButton = findViewById(R.id.loginButton);
         createNewAccount = findViewById(R.id.goToRegister);
 
+        //When user click Login button
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String userName = username.getText().toString();
                 String passWord = password.getText().toString();
+
+                //set condition to check user input
                 if (userName.isEmpty() || passWord.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Fill username and password please!", Toast.LENGTH_SHORT).show();
 
                 } else {
-                    //Query from database
+                    //Call database
                     appDB= AppDB.getInstance(getApplicationContext());
                     appDao = appDB.appDao();
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
+                            //Check from users table if there is a user has same info as user input
                             User user = appDao.logIn(userName, passWord);
+                            //If not, then create a pop up with message
                             if (user == null) {
                                 runOnUiThread(new Runnable() {
                                     @Override
@@ -62,19 +70,22 @@ public class Login extends AppCompatActivity {
                                 });
 
                             } else {
-                                String userInfo = appDao.getAllUser().toString();
+                                //If user exist in database, go to Profile activity
                                 startActivity(new Intent(getApplicationContext(), Profile.class));
                             }
                         }
 
                     }).start();
                 }
+                //save data to sharePreference
                 editor.putString("userName", userName);
                 editor.putString("password", passWord);
                 editor.apply();
             }
 
         });
+
+        //When user click, go to Register activity
         createNewAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
