@@ -22,27 +22,36 @@ public class SavedMorningRoutine extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.saved_morning_routine);
 
-        AppDB data = AppDB.getInstance(this);
-        AppDAO dataDao = data.appDao();
+        //Get shared preference from Login
         SharedPreferences loginUser = getSharedPreferences("login", Activity.MODE_PRIVATE);
         String loginName = loginUser.getString("userName", "");
+
+        //Access to database method
+        AppDB data = AppDB.getInstance(this);
+        AppDAO dataDao = data.appDao();
         int user = dataDao.getIdByUsername(loginName);
+
+        //Create arrayList for saved morning product
         ArrayList<String> savedMorningProduct = new ArrayList<>();
 
+        //Get saved morning product from database
         cleanser = dataDao.getAMCleanser(user);
         moisturizer = dataDao.getAMMoisturizer(user);
         treat = dataDao.getAMTreat(user);
         spf = dataDao.getSpf(user);
 
+        //Add saved product to database
         savedMorningProduct.add(cleanser);
         savedMorningProduct.add(treat);
         savedMorningProduct.add(moisturizer);
         savedMorningProduct.add(spf);
 
+        //Display in ListView
         ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this, R.layout.list_view_display, savedMorningProduct);
         ListView  morningRoutineList = findViewById(R.id.savedMorningRoutineList);
         morningRoutineList.setAdapter(arrayAdapter);
 
+        //Listen to user's click on the list view and open new activity
         morningRoutineList.setOnItemClickListener((adapterView, view, i, l) -> {
             Intent nextActivity = new Intent(SavedMorningRoutine.this, DisplayProductInfo.class);
             nextActivity.putStringArrayListExtra("product", savedMorningProduct);
@@ -50,10 +59,14 @@ public class SavedMorningRoutine extends AppCompatActivity {
             startActivity(nextActivity);
         });
     }
+
+    //Method to go to saved evening routine
     public void goToSavedEveningRoutine(View view) {
         Intent intent = new Intent(this, SavedEveningRoutine.class);
         startActivity(intent);
     }
+
+    //Method to go to profile
     public void goToProfile(View view) {
         Intent intent = new Intent(this, Profile.class);
         startActivity(intent);

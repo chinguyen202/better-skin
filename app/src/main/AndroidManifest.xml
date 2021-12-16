@@ -39,12 +39,9 @@
 
         <activity
             android:name=".ThirdQuiz"
-            android:exported="false"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+            android:exported="false">
         </activity>
+
         <activity
             android:name=".SecondQuiz"
             android:exported="false"
@@ -63,12 +60,6 @@
                 android:value=".SecondQuiz"/>
         </activity>
 
-
-        <activity
-            android:name=".MainActivity"
-            android:exported="false">
-
-        </activity>
 
         <activity
             android:name=".Profile"

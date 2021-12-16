@@ -23,31 +23,37 @@ public class GenerateEveningRoutine extends AppCompatActivity {
     private static final String productList = "com.example.better-skin.MESSAGE";
     AppDB data;
     AppDAO appDao;
-    EveningRoutine pmRoutine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.evening_routine_layout);
 
+        //Get shared preferences from login
         SharedPreferences loginUser = getSharedPreferences("login", Activity.MODE_PRIVATE);
         String loginName = loginUser.getString("userName", "");
+
+        //Access to database method
         data = AppDB.getInstance(this);
         appDao = data.appDao();
 
-        Log.d(TAG, userQuizChoices.getInstance().getUserChoices().toString());
+        //Get user's choices singleton arrayList
         ArrayList<String> userChoices = userQuizChoices.getInstance().getUserChoices();
+
+        //Create arrayList for evening product
         ArrayList<String> eveningRoutine = new ArrayList<>();
 
-
+        //Get product based on user's choices from database
         String cleaner = appDao.getProductByInput("Clean",userChoices.get(1),userChoices.get(0), userChoices.get(2),"PM");
         String moisturizer = appDao.getProductByInput("Moisturizer",userChoices.get(1),userChoices.get(0), userChoices.get(2),"PM");
         String treat = appDao.getProductByInput("Treat",userChoices.get(1),userChoices.get(0), userChoices.get(2),"PM");
 
+        //Add product to evening product arrayList
         eveningRoutine.add(cleaner);
         eveningRoutine.add(treat);
         eveningRoutine.add(moisturizer);
         Log.d(TAG, "product: " + eveningRoutine.toString());
+
         //Insert evening Routine to database
         EveningRoutine pmRoutine = new EveningRoutine();
 
@@ -56,14 +62,13 @@ public class GenerateEveningRoutine extends AppCompatActivity {
         pmRoutine.setTreat(treat);
         pmRoutine.setUserID(appDao.getIdByUsername(loginName));
         appDao.addPMRoutine(pmRoutine);
-        //Log.d(TAG,"inserted: "+pmRoutine.toString());
 
-
-
+        //Display product
         ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this, R.layout.list_view_display, eveningRoutine);
         ListView eveningRoutineList = findViewById(R.id.eveningRoutineList);
         eveningRoutineList.setAdapter(arrayAdapter);
 
+        //Listen to user's click on the list view and open new activity
         eveningRoutineList.setOnItemClickListener((adapterView, view, i, l) -> {
             Log.d(TAG, eveningRoutineList.toString());
             Intent nextActivity = new Intent(GenerateEveningRoutine.this, DisplayProductInfo.class);
@@ -72,6 +77,8 @@ public class GenerateEveningRoutine extends AppCompatActivity {
             startActivity(nextActivity);
         });
     }
+
+    //Activity when profile button is clicked
     public void goToProfile(View view) {
         Log.d("Profile",userQuizChoices.getInstance().getUserChoices().toString());
         Intent intent = new Intent(this, Profile.class);

@@ -18,8 +18,12 @@ public class FirstQuiz extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_quiz);
+
+        //Clear the old choices when the user take the quiz again
         userQuizChoices.getInstance().clearChoices();
     }
+
+    //Method to do while radio button in first quiz is clicked
     public void getSkinType(View view){
         RadioGroup skinType = findViewById(R.id.skinType);
         // Listen to the user's choice
@@ -29,8 +33,9 @@ public class FirstQuiz extends AppCompatActivity {
         Log.d(TAG, userSkinType);
     }
 
-
+    //Go to second quiz when button "next" is clicked
     public void goToSecondQuiz(View view) {
+        //Add user's choice to singleton arrayList
         userQuizChoices.getInstance().addToUserChoices(userSkinType);
         Intent intent = new Intent(this, SecondQuiz.class);
         intent.putExtra(EXTRA_MESSAGE, userSkinType);

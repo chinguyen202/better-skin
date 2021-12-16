@@ -3,7 +3,6 @@ package fi.chinguyen.betterskin;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -25,7 +24,6 @@ public class Login extends AppCompatActivity {
     TextView createNewAccount;
     AppDB appDB;
     AppDAO appDao;
-    private Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

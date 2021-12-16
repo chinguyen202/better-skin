@@ -1,29 +1,31 @@
 package fi.chinguyen.betterskin;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class DisplayProductInfo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.display_product_info);
 
+        //Find ImageView
         ImageView productImg= (ImageView) findViewById(R.id.product);
+
+        //Get intend
         Bundle b = getIntent().getExtras();
         int a = b.getInt(GenerateMorningRoutine.EXTRA_MESSAGE, 0);
         ArrayList<String> ProductList=getIntent().getExtras().getStringArrayList("product");
         ArrayList<String> productInformation = new ArrayList<>();
+
+        //Display product info in ListView
         ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this, R.layout.display_product_intruction, productInformation);
         ListView instruction = findViewById(R.id.listViewInstruction);
+
+        //Control what will appear when user click to each product in ListView
         if (a == 0) {
             productImg.setImageResource(R.drawable.cleansing_transparent);
             // -- This information following this article https://www.biore.com/en-us/blog/brightening/how-to-use-cleanser/

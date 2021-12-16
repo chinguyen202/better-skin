@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -17,8 +16,9 @@ public class ThirdQuiz extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third_quiz);
     }
-    public void getSkinSensitivity(View view){
 
+    //Method to do while radio button in third quiz is clicked
+    public void getSkinSensitivity(View view){
         RadioGroup sensitiveSkin = findViewById(R.id.sensitiveRadioGroup);
         // Listen to the user's choice
         RadioButton selectedSensitiveSkin  = findViewById(sensitiveSkin.getCheckedRadioButtonId());
@@ -26,8 +26,9 @@ public class ThirdQuiz extends AppCompatActivity {
         userSensitivity = selectedSensitiveSkin.getText().toString();
     }
 
-
+    //Go to GenerateMorningRoutine when button is clicked
     public void goToGenerateRoutine(View view) {
+        //Add user's choice to singleton arrayList
         userQuizChoices.getInstance().addToUserChoices(userSensitivity);
         Intent intent = new Intent(this, GenerateMorningRoutine.class);
         intent.putExtra(EXTRA_MESSAGE, userSensitivity);
