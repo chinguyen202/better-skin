@@ -74,6 +74,7 @@ public class Register extends AppCompatActivity {
 
                     }
                 } else {
+                    //Display message to ask for user input
                     Toast.makeText(getApplicationContext(), "Enter all information please!", Toast.LENGTH_SHORT).show();
                 }
 
@@ -82,7 +83,7 @@ public class Register extends AppCompatActivity {
         });
 
     }
-    //Method to check if all user input is empty or not
+    //Method to check if all required user input is empty or not
     private Boolean validateUser(User user){
         if(user.getUsername().isEmpty() || user.getPassword().isEmpty() ||user.getFullName().isEmpty()){
             return false;

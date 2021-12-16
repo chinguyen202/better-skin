@@ -3,7 +3,7 @@ package fi.chinguyen.betterskin.data;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-
+//Create a table name users to store user data
 @Entity(tableName = "users")
 public class User {
 
@@ -19,14 +19,7 @@ public class User {
     @ColumnInfo(name = "fullName")
     String fullName;
 
-    public Integer getuID() {
-        return uID;
-    }
-
-    public void setuID(Integer uID) {
-        this.uID = uID;
-    }
-
+//Getter and setter for user
     public String getUsername() {
         return username;
     }

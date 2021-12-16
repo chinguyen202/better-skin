@@ -5,6 +5,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+//table to store evening routine
 @Entity(tableName = "eveningRoutine")
 public class EveningRoutine {
 

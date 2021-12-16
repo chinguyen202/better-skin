@@ -5,6 +5,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+//Create a table name skincareProduct to store skincare product
 @Entity(tableName = "skincareProduct")
 public class SkincareProduct {
 
@@ -32,6 +33,7 @@ public class SkincareProduct {
     @ColumnInfo(name = "timeUse")
     private String timeUse;
 
+    //Skincare product constructor
     public SkincareProduct(int productID, String productName, String stepUse, String skinGoal, String skinType, String sensitiveSkin, String timeUse) {
         this.productID = productID;
         this.productName = productName;
@@ -42,6 +44,7 @@ public class SkincareProduct {
         this.timeUse = timeUse;
     }
 
+    //Getter and setter
     public int getProductID() {
         return productID;
     }

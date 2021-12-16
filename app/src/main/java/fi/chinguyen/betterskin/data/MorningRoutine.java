@@ -3,7 +3,7 @@ package fi.chinguyen.betterskin.data;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-
+//Create a table to store user's morning routine
 @Entity(tableName = "morningRoutines")
 public class MorningRoutine {
 
