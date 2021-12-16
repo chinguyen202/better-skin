@@ -21,6 +21,7 @@ public interface AppDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void addProduct(SkincareProduct skincareProduct);
 
+    //Insert user
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void registerUser(User user);
 
@@ -78,11 +79,11 @@ public interface AppDAO {
 
     //List product name
     @Query("Select productName from skincareProduct ")
-    public Name loadName();
+    public String loadName();
 
     //Select product based on time use
     @Query("SELECT productName FROM skincareProduct WHERE timeUse like :timeUse")
-    public Name getProductByTime(String timeUse);
+    public String getProductByTime(String timeUse);
 
     //select product using all input from user
     @Query("SELECT productName FROM skincareProduct WHERE stepUse like :stepUse AND skinGoal like :skinGoal AND skinType like :skinType AND sensitiveSkin like :sensitiveSkin AND timeUse like :timeUse")
@@ -141,14 +142,6 @@ public interface AppDAO {
     @Delete
     void deleteUser(User user);
 
-    public class Name{
-        @ColumnInfo(name = "productName")
-        public String productName;
 
-        @Override
-        public String toString(){
-            return productName;
-        }
-    }
 
 }
