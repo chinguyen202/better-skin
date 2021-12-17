@@ -1,9 +1,11 @@
 package fi.chinguyen.betterskin;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import fi.chinguyen.betterskin.data.AppDAO;
@@ -34,5 +36,10 @@ public class aboutMe extends AppCompatActivity {
         displayUsername.setText("Username: " + usernameInfo);
         displayFullname.setText("Full name: " + dataDao.getFullNameByUsername(usernameInfo));
 
+    }
+    //Method to go Profile
+    public void goToProfile(View view) {
+        Intent intent = new Intent(this, Profile.class);
+        startActivity(intent);
     }
 }

@@ -6,6 +6,21 @@
     android:layout_height="match_parent"
     android:background="#ffccd5">
 
+    <ImageButton
+        android:id="@+id/goToProfile"
+        android:layout_width="60sp"
+        android:layout_height="50sp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:background="@color/choices_normal"
+        android:contentDescription="Go to profile button"
+        android:onClick="goToProfile"
+        android:paddingRight="5sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profile_icon" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
