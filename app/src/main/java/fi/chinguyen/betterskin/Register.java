@@ -19,21 +19,21 @@ import fi.chinguyen.betterskin.data.User;
 
 public class Register extends AppCompatActivity {
 
-    EditText userName, password,fullName, rePassword;
+    EditText userName, password, fullName, rePassword;
     Button registerButton;
     TextView goToLogin;
     User user;
 
     //Method to check if all required user input is empty or not
-    private Boolean validateUser(User user){
-        if(user.getUsername().isEmpty() || user.getPassword().isEmpty() ||user.getFullName().isEmpty()){
+    private Boolean validateUser(User user) {
+        if (user.getUsername().isEmpty() || user.getPassword().isEmpty() || user.getFullName().isEmpty()) {
             return false;
         }
         return true;
     }
 
     @Override
-    protected void onCreate (Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
 
@@ -48,7 +48,7 @@ public class Register extends AppCompatActivity {
         rePassword = findViewById(R.id.reTypePassword);
         goToLogin = findViewById(R.id.goToLogin);
 
-        registerButton.setOnClickListener(new View.OnClickListener(){
+        registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -64,11 +64,11 @@ public class Register extends AppCompatActivity {
                 user.setPassword(passWord);
                 user.setFullName(fullname);
 
-
-                if (validateUser(user) & appDao.getUserByUsername(username) !=null) {
-                    //Check if retype password is match or not
-                    if(passWord.equals(repass))  {
-                        //Check if username is already exist
+                if (appDao.getUserByUsername(username) == null) {
+                    if (validateUser(user)) {
+                        //Check if retype password is match or not
+                        if (passWord.equals(repass)) {
+                            //Check if username is already exist
                             //If password matched and username is not used yet, add user to database and go to next activity
                             appDao.registerUser(user);
                             Log.d("User", "user registered");
@@ -76,13 +76,16 @@ public class Register extends AppCompatActivity {
                             startActivity(intent);
 
 
-                    }else{
-                        //If mismatch, show message
-                        Toast.makeText(Register.this, "Mismatch password", Toast.LENGTH_SHORT).show();
+                        } else {
+                            //If mismatch, show message
+                            Toast.makeText(Register.this, "Mismatch password", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        //Display message to ask for user input
+                        Toast.makeText(getApplicationContext(), "Enter all information please!", Toast.LENGTH_SHORT).show();
                     }
-                }else{
-                    //Display message to ask for user input
-                    Toast.makeText(getApplicationContext(), "Enter all information please!", Toast.LENGTH_SHORT).show();
+                } else{
+                    Toast.makeText(getApplicationContext(),"Username is taken. Use another one please!",Toast.LENGTH_SHORT).show();
                 }
             }
 
