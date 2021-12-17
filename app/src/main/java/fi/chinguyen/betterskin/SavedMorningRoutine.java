@@ -49,18 +49,22 @@ public class SavedMorningRoutine extends AppCompatActivity {
         //Display in ListView
         ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this, R.layout.list_view_display, savedMorningProduct);
         ListView  morningRoutineList = findViewById(R.id.savedMorningRoutineList);
-        morningRoutineList.setAdapter(arrayAdapter);
 
-        //Set empty listview
-        morningRoutineList.setEmptyView(findViewById(R.id.emptyElement));
+        if(cleanser != null) {
+            morningRoutineList.setAdapter(arrayAdapter);
 
-        //Listen to user's click on the list view and open new activity
-        morningRoutineList.setOnItemClickListener((adapterView, view, i, l) -> {
-            Intent nextActivity = new Intent(SavedMorningRoutine.this, DisplayProductInfo.class);
-            nextActivity.putStringArrayListExtra("product", savedMorningProduct);
-            nextActivity.putExtra(EXTRA_MESSAGE, i);
-            startActivity(nextActivity);
-        });
+            //Listen to user's click on the list view and open new activity
+            morningRoutineList.setOnItemClickListener((adapterView, view, i, l) -> {
+                Intent nextActivity = new Intent(SavedMorningRoutine.this, DisplayProductInfo.class);
+                nextActivity.putStringArrayListExtra("product", savedMorningProduct);
+                nextActivity.putExtra(EXTRA_MESSAGE, i);
+                startActivity(nextActivity);
+            });
+        }else{
+            //Set empty listview
+            morningRoutineList.setEmptyView(findViewById(R.id.emptyElement));
+
+        }
     }
 
     //Method to go to saved evening routine

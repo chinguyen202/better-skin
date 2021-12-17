@@ -60,6 +60,7 @@ public class SavedEveningRoutine extends AppCompatActivity {
                 startActivity(nextActivity);
             });
         }else{
+            //set an empty view
                 TextView emptyView = findViewById(R.id.emptyElement);
                 savedEveningRoutineList.setEmptyView(emptyView);
         };
