@@ -64,24 +64,29 @@ public class Register extends AppCompatActivity {
                 user.setPassword(passWord);
                 user.setFullName(fullname);
 
-                if (validateUser(user)) {
-                    //Check if retype password is match or not
-                    if (passWord.equals(repass)) {
-                        //Check if username is already exist
-                        //If password matched and username is not used yet, add user to database and go to next activity
-                        appDao.registerUser(user);
-                        Log.d("User", "user registered");
-                        Intent intent = new Intent(getApplicationContext(), Login.class);
-                        startActivity(intent);
+                //Check if username is already exist in database
+                if (appDao.getIdByUsername(username) != null) {
+                    //If yes, dipslay a message asking for another username
+                    Toast.makeText(getApplicationContext(),"Username is taken. Use another one please!",Toast.LENGTH_SHORT).show();
+                } else{
+                    //If not, continue from here
+                    if (validateUser(user)) {
+                        //Check if retype password is match or not
+                        if (passWord.equals(repass)) {
+                            //If password matched and username is not used yet, add user to database and go to next activity
+                            appDao.registerUser(user);
+                            Log.d("User", "user registered");
+                            Intent intent = new Intent(getApplicationContext(), Login.class);
+                            startActivity(intent);
 
-
-                    } else {
-                        //If mismatch, show message
-                        Toast.makeText(Register.this, "Mismatch password", Toast.LENGTH_SHORT).show();
+                        } else {
+                            //If mismatch, show message
+                            Toast.makeText(Register.this, "Mismatch password", Toast.LENGTH_SHORT).show();
+                        }
+                    }else {
+                        //Display message to ask for user input
+                        Toast.makeText(getApplicationContext(), "Enter all information please!", Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    //Display message to ask for user input
-                    Toast.makeText(getApplicationContext(), "Enter all information please!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
