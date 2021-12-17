@@ -64,10 +64,15 @@ public class Register extends AppCompatActivity {
                 user.setPassword(passWord);
                 user.setFullName(fullname);
 
-                if (appDao.getUserByUsername(username) == null) {
+                ;
+                if (appDao.getIdByUsername(username) != null) {
+                    Toast.makeText(getApplicationContext(),"Username is taken. Use another one please!",Toast.LENGTH_SHORT).show();
+                } else{
                     if (validateUser(user)) {
                         //Check if retype password is match or not
                         if (passWord.equals(repass)) {
+
+
                             //Check if username is already exist
                             //If password matched and username is not used yet, add user to database and go to next activity
                             appDao.registerUser(user);
@@ -84,8 +89,6 @@ public class Register extends AppCompatActivity {
                         //Display message to ask for user input
                         Toast.makeText(getApplicationContext(), "Enter all information please!", Toast.LENGTH_SHORT).show();
                     }
-                } else{
-                    Toast.makeText(getApplicationContext(),"Username is taken. Use another one please!",Toast.LENGTH_SHORT).show();
                 }
             }
 
