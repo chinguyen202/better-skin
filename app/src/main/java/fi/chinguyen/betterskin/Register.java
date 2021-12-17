@@ -65,21 +65,16 @@ public class Register extends AppCompatActivity {
                 user.setFullName(fullname);
 
 
-                if (validateUser(user)) {
+                if (validateUser(user) & appDao.getUserByUsername(username) !=null) {
                     //Check if retype password is match or not
                     if(passWord.equals(repass))  {
                         //Check if username is already exist
-                     //   if(username != null){
-                            //if yes, show a message
-                        //     Log.d("test", "check all user: "+appDao.getAllUsername());
-                        //    Toast.makeText(getApplicationContext(), "username is used, please enter another one", Toast.LENGTH_SHORT).show();
-                       // } else {
                             //If password matched and username is not used yet, add user to database and go to next activity
                             appDao.registerUser(user);
                             Log.d("User", "user registered");
                             Intent intent = new Intent(getApplicationContext(), Login.class);
                             startActivity(intent);
-                    //    }
+
 
                     }else{
                         //If mismatch, show message

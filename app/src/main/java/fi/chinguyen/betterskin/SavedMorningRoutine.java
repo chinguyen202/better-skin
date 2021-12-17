@@ -51,6 +51,9 @@ public class SavedMorningRoutine extends AppCompatActivity {
         ListView  morningRoutineList = findViewById(R.id.savedMorningRoutineList);
         morningRoutineList.setAdapter(arrayAdapter);
 
+        //Set empty listview
+        morningRoutineList.setEmptyView(findViewById(R.id.emptyElement));
+
         //Listen to user's click on the list view and open new activity
         morningRoutineList.setOnItemClickListener((adapterView, view, i, l) -> {
             Intent nextActivity = new Intent(SavedMorningRoutine.this, DisplayProductInfo.class);

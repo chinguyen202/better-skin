@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -44,18 +45,24 @@ public class SavedEveningRoutine extends AppCompatActivity {
         savedEveningProduct.add(treat);
         savedEveningProduct.add(moisturizer);
 
-        //Display in ListView
         ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this, R.layout.list_view_display, savedEveningProduct);
         ListView savedEveningRoutineList = findViewById(R.id.savedEveningRoutineList);
-        savedEveningRoutineList.setAdapter(arrayAdapter);
 
-        //Listen to user's click on the list view and open new activity
-        savedEveningRoutineList.setOnItemClickListener((adapterView, view, i, l) -> {
-            Intent nextActivity = new Intent(SavedEveningRoutine.this, DisplayProductInfo.class);
-            nextActivity.putStringArrayListExtra("product",savedEveningProduct);
-            nextActivity.putExtra(EXTRA_MESSAGE, i);
-            startActivity(nextActivity);
-        });
+        if (cleanser != null){
+             //Display in ListView
+             savedEveningRoutineList.setAdapter(arrayAdapter);
+
+            //Listen to user's click on the list view and open new activity
+            savedEveningRoutineList.setOnItemClickListener((adapterView, view, i, l) -> {
+                Intent nextActivity = new Intent(SavedEveningRoutine.this, DisplayProductInfo.class);
+                nextActivity.putStringArrayListExtra("product", savedEveningProduct);
+                nextActivity.putExtra(EXTRA_MESSAGE, i);
+                startActivity(nextActivity);
+            });
+        }else{
+                TextView emptyView = findViewById(R.id.emptyElement);
+                savedEveningRoutineList.setEmptyView(emptyView);
+        };
     }
 
     //Method to go Profile
@@ -64,3 +71,5 @@ public class SavedEveningRoutine extends AppCompatActivity {
         startActivity(intent);
     }
 }
+
+

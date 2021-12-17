@@ -31,6 +31,13 @@
         app:layout_constraintTop_toTopOf="@+id/guideline4">
 
     </ListView>
+    <TextView
+        android:id="@+id/emptyElement"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/eveningRoutineTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:id="@+id/eveningRoutineTitle"

@@ -105,6 +105,8 @@ public interface AppDAO {
     @Query("Select * from users")
     List<User> getAllUser();
 
+    @Query("Select * from users where username = :username")
+    public List<User> getUserByUsername(String username);
     @Query("Select username from users")
     String getUsername();
 
