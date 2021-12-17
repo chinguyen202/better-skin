@@ -24,14 +24,22 @@ public class Register extends AppCompatActivity {
     TextView goToLogin;
     User user;
 
+    //Method to check if all required user input is empty or not
+    private Boolean validateUser(User user){
+        if(user.getUsername().isEmpty() || user.getPassword().isEmpty() ||user.getFullName().isEmpty()){
+            return false;
+        }
+        return true;
+    }
+
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
 
         //Call database
-        AppDB userDB = AppDB.getInstance(getApplicationContext());
-        AppDAO userDao = userDB.appDao();
+        AppDB appDB = AppDB.getInstance(getApplicationContext());
+        AppDAO appDao = appDB.appDao();
 
         userName = findViewById(R.id.userNameInput);
         password = findViewById(R.id.passwordInput);
@@ -43,52 +51,47 @@ public class Register extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                //Create an user in database with all information given by user
-                user = new User();
+
+                //Get input from user
                 String username = userName.getText().toString();
-                user.setUsername(username);
-                user.setPassword(password.getText().toString());
-                user.setFullName(fullName.getText().toString());
+                String passWord = password.getText().toString();
+                String fullname = fullName.getText().toString();
                 String repass = rePassword.getText().toString();
 
-                //Condition to check user input
+                //Create an user in database with all information given by user
+                user = new User();
+                user.setUsername(username);
+                user.setPassword(passWord);
+                user.setFullName(fullname);
+
+
                 if (validateUser(user)) {
-                    //set condition for matching password
-                    //If they are matched, add user to database
-                    if (user.getPassword().equals(rePassword.getText().toString())) {
-                        new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                userDao.registerUser(user);
-                                Log.d("User", "user registered");
-                            }
-                        }).start();
-                        //Go to Login
-                        Intent intent = new Intent(getApplicationContext(), Login.class);
-                        startActivity(intent);
+                    //Check if retype password is match or not
+                    if(passWord.equals(repass))  {
+                        //Check if username is already exist
+                     //   if(username != null){
+                            //if yes, show a message
+                        //     Log.d("test", "check all user: "+appDao.getAllUsername());
+                        //    Toast.makeText(getApplicationContext(), "username is used, please enter another one", Toast.LENGTH_SHORT).show();
+                       // } else {
+                            //If password matched and username is not used yet, add user to database and go to next activity
+                            appDao.registerUser(user);
+                            Log.d("User", "user registered");
+                            Intent intent = new Intent(getApplicationContext(), Login.class);
+                            startActivity(intent);
+                    //    }
 
-                    } else {
-                        //If retype password is not match, display message
-                        Toast.makeText(Register.this, "Passwords is not matching", Toast.LENGTH_SHORT).show();
-
-
+                    }else{
+                        //If mismatch, show message
+                        Toast.makeText(Register.this, "Mismatch password", Toast.LENGTH_SHORT).show();
                     }
-                } else {
+                }else{
                     //Display message to ask for user input
                     Toast.makeText(getApplicationContext(), "Enter all information please!", Toast.LENGTH_SHORT).show();
                 }
-
             }
 
         });
-
-    }
-    //Method to check if all required user input is empty or not
-    private Boolean validateUser(User user){
-        if(user.getUsername().isEmpty() || user.getPassword().isEmpty() ||user.getFullName().isEmpty()){
-            return false;
-        }
-        return true;
 
     }
 }

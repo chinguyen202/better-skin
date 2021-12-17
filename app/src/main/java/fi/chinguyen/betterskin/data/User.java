@@ -20,6 +20,12 @@ public class User {
     String fullName;
 
 //Getter and setter for user
+
+
+    public Integer getuID() {
+        return uID;
+    }
+
     public String getUsername() {
         return username;
     }

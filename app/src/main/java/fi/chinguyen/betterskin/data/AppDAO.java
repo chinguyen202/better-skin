@@ -22,7 +22,7 @@ public interface AppDAO {
     public void addProduct(SkincareProduct skincareProduct);
 
     //Insert user
-    @Insert(onConflict = OnConflictStrategy.ABORT)
+    @Insert(onConflict = OnConflictStrategy.FAIL)
     public void registerUser(User user);
 
     //Insert morning routine
@@ -108,6 +108,12 @@ public interface AppDAO {
     @Query("Select username from users")
     String getUsername();
 
+    @Query("Select username from users where uID = :id")
+    public String getUsernameByID(int id);
+
+    @Query("Select username from users")
+    public List<User> getAllUsername();
+
 
     @Query("Select fullName from users where username = :username")
     String getFullNameByUsername(String username);
@@ -143,7 +149,6 @@ public interface AppDAO {
     //Delete evening routine from database
     @Delete
     void deletePmRoutine(EveningRoutine eveningRoutine);
-
 
 
 }
