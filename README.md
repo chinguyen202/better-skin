@@ -25,6 +25,12 @@ https://users.metropolia.fi/~bachp/BetterSkin%20javadoc/
 4. Product database built based on information provided by website:
     https://www.theinkeylist.com
 
+5. Login and Register:
+    https://www.youtube.com/watch?v=5yghiEUyeHY
+
+6. Logo animation: 
+    https://github.com/DanielMartinus/Konfetti
+
 Links: 
 1. Test documentations
 https://docs.google.com/document/d/18pLj7oasPRIoM3V8RmsLMvGVS4emxmYYvVWI1bPulhI/edit?usp=sharing
