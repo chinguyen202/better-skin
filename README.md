@@ -5,7 +5,7 @@ By answering some questions about your skin type and your skin goals, the applic
 and evening skincare routine together with general instructions on how to use that type of product.
 Currently, the application is preloaded with products from one brand: The Inkey List.
 
-**Team members: **
+**Team members**
 - Chi Nguyen
 - Bach Pham 
 - Thu Hoang
@@ -13,7 +13,7 @@ Currently, the application is preloaded with products from one brand: The Inkey 
 **Javadoc**
 https://users.metropolia.fi/~bachp/BetterSkin%20javadoc/
 
-**References: **
+**References**
 1. Android room with a view
     https://developer.android.com/codelabs/android-room-with-a-view#0
 
@@ -25,7 +25,13 @@ https://users.metropolia.fi/~bachp/BetterSkin%20javadoc/
 4. Product database built based on information provided by website:
     https://www.theinkeylist.com
 
-Links: 
-1. Test documentations
+5. Login and Register:
+    https://www.youtube.com/watch?v=5yghiEUyeHY
+
+6. Logo animation: 
+    https://github.com/DanielMartinus/Konfetti
+
+ 
+**Test documentations**
 https://docs.google.com/document/d/18pLj7oasPRIoM3V8RmsLMvGVS4emxmYYvVWI1bPulhI/edit?usp=sharing
 
