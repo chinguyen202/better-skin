@@ -19,6 +19,8 @@ import fi.chinguyen.betterskin.data.User;
 /**
  * This class purpose is allow user to login their account
  */
+
+//I do this one with youtube support https://www.youtube.com/watch?v=5yghiEUyeHY
 public class Login extends AppCompatActivity {
 
     EditText username, password;

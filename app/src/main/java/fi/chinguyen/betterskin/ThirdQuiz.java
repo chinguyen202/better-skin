@@ -20,6 +20,10 @@ public class ThirdQuiz extends AppCompatActivity {
     public RadioButton selectedSensitiveSkin;
     public Button goToGenerateRoutine;
 
+    /**
+     * Modify the third quiz
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

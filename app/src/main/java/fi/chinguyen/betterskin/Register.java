@@ -20,6 +20,8 @@ import fi.chinguyen.betterskin.data.User;
 /**
  * this class purpose is allow user register an account
  */
+
+// I do this class with youtube support: https://www.youtube.com/watch?v=9Ta4OwNtw-4&t=383s
 public class Register extends AppCompatActivity {
 
     EditText userName, password, fullName, rePassword;
