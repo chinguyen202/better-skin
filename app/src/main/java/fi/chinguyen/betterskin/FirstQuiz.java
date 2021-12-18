@@ -11,6 +11,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * logic and button for the first quiz
+ */
 public class FirstQuiz extends AppCompatActivity {
     public static final String TAG = "Test mode";
     public static final String EXTRA_MESSAGE = "com.example.better-skin.MESSAGE";
@@ -20,6 +23,9 @@ public class FirstQuiz extends AppCompatActivity {
     Button goToSecondQuiz;
 
     @Override
+    /**
+     * Modify the first quiz
+     */
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
@@ -49,8 +55,11 @@ public class FirstQuiz extends AppCompatActivity {
             });
         }
 
-        //Method to do while radio button in first quiz is clicked
-        public void getSkinType(View view){
+    /**
+     * Method to do while radio button in first quiz is clicked
+     * @param view
+     */
+    public void getSkinType(View view){
 
             // Listen to the user's choice
             selectedSkinType = findViewById(skinType.getCheckedRadioButtonId());

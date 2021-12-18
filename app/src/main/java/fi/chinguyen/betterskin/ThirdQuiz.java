@@ -10,6 +10,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+/**
+ * Modify the third quiz
+ */
 public class ThirdQuiz extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.better-skin.MESSAGE";
     private String userSensitivity;
@@ -24,9 +27,11 @@ public class ThirdQuiz extends AppCompatActivity {
 
         sensitiveSkin = findViewById(R.id.sensitiveRadioGroup);
         goToGenerateRoutine = findViewById(R.id.btnNext3);
-
-        //Set a condition when user click Generate Routine button
+        /**
+         * Set a condition when user click Generate Routine button
+         */
         goToGenerateRoutine.setOnClickListener(view->{
+
             if(sensitiveSkin.getCheckedRadioButtonId() == -1){
                 //If user choose nothing, show a message
                 Toast.makeText(ThirdQuiz.this,"Please choose one!",Toast.LENGTH_SHORT).show();
@@ -42,7 +47,10 @@ public class ThirdQuiz extends AppCompatActivity {
 
     }
 
-    //Method to do while radio button in third quiz is clicked
+    /**
+     * Method to do while radio button in third quiz is clicked
+     * @param view
+     */
     public void getSkinSensitivity(View view){
         // Listen to the user's choice
         selectedSensitiveSkin  = findViewById(sensitiveSkin.getCheckedRadioButtonId());
@@ -50,12 +58,5 @@ public class ThirdQuiz extends AppCompatActivity {
         userSensitivity = selectedSensitiveSkin.getText().toString();
     }
 
-   /* //Go to GenerateMorningRoutine when button is clicked
-    public void goToGenerateRoutine(View view) {
-        //Add user's choice to singleton arrayList
-        userQuizChoices.getInstance().addToUserChoices(userSensitivity);
-        Intent intent = new Intent(this, GenerateMorningRoutine.class);
-        intent.putExtra(EXTRA_MESSAGE, userSensitivity);
-        startActivity(intent);
-    }*/
+
 }

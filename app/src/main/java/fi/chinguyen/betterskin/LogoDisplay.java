@@ -14,11 +14,17 @@ import nl.dionsegijn.konfetti.KonfettiView;
 import nl.dionsegijn.konfetti.models.Shape;
 import nl.dionsegijn.konfetti.models.Size;
 
+/**
+ * Display the BetterSkin logo
+ */
 public class LogoDisplay extends AppCompatActivity implements View.OnTouchListener {
     private Timer timer;
     private Boolean isTouched = false;
 
     @Override
+/**
+ * Set up logo animation and logic
+ */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logo_display);
@@ -55,7 +61,12 @@ public class LogoDisplay extends AppCompatActivity implements View.OnTouchListen
     }
 
 
-    //Set activity to go to login when screen is touched
+    /**
+     * Set activity to go to login when screen is touched
+     * @param v
+     * @param event
+     * @return
+     */
     public boolean onTouch(View v, MotionEvent event) {
         isTouched = true;
                 startActivity(new Intent(LogoDisplay.this, Login.class));

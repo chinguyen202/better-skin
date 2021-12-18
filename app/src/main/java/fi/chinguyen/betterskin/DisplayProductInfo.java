@@ -7,7 +7,14 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
+/**
+ * Display product info when the user click on the product
+ */
 public class DisplayProductInfo extends AppCompatActivity {
+    /**
+     * Logic and set up for the display product info
+     * @param savedInstanceState
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.display_product_info);

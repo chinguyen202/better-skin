@@ -17,6 +17,9 @@ import fi.chinguyen.betterskin.data.AppDAO;
 import fi.chinguyen.betterskin.data.AppDB;
 import fi.chinguyen.betterskin.data.User;
 
+/**
+ * this class purpose is allow user register an account
+ */
 public class Register extends AppCompatActivity {
 
     EditText userName, password, fullName, rePassword;
@@ -24,7 +27,11 @@ public class Register extends AppCompatActivity {
     TextView goToLogin;
     User user;
 
-    //Method to check if all required user input is empty or not
+    /**
+     * Method to check if all required user input is empty or not
+     * @param user
+     * @return boolean to know that user input is correct or not
+     */
     private Boolean validateUser(User user) {
         if (user.getUsername().isEmpty() || user.getPassword().isEmpty() || user.getFullName().isEmpty()) {
             return false;
@@ -32,6 +39,10 @@ public class Register extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * set register button on click and logic
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +77,7 @@ public class Register extends AppCompatActivity {
 
                 //Check if username is already exist in database
                 if (appDao.getIdByUsername(username) != null) {
-                    //If yes, dipslay a message asking for another username
+                    //If yes, display a message asking for another username
                     Toast.makeText(getApplicationContext(),"Username is taken. Use another one please!",Toast.LENGTH_SHORT).show();
                 } else{
                     //If not, continue from here

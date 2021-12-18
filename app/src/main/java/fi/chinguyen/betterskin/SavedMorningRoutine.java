@@ -15,9 +15,17 @@ import java.util.ArrayList;
 import fi.chinguyen.betterskin.data.AppDAO;
 import fi.chinguyen.betterskin.data.AppDB;
 
+/**
+ * This class purpose is save morning routine for user
+ */
 public class SavedMorningRoutine extends AppCompatActivity {
     private static final String EXTRA_MESSAGE = "com.example.better-skin.MESSAGE";
     String cleanser, moisturizer, treat,  spf;
+
+    /**
+     * Working with database
+     * @param savedInstanceState
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.saved_morning_routine);
@@ -67,13 +75,19 @@ public class SavedMorningRoutine extends AppCompatActivity {
         }
     }
 
-    //Method to go to saved evening routine
+    /**
+     * Method to go to saved evening routine
+     * @param view
+     */
     public void goToSavedEveningRoutine(View view) {
         Intent intent = new Intent(this, SavedEveningRoutine.class);
         startActivity(intent);
     }
 
-    //Method to go to profile
+    /**
+     * Method to go to profile
+     * @param view
+     */
     public void goToProfile(View view) {
         Intent intent = new Intent(this, Profile.class);
         startActivity(intent);

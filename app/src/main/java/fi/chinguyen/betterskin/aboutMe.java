@@ -11,10 +11,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import fi.chinguyen.betterskin.data.AppDAO;
 import fi.chinguyen.betterskin.data.AppDB;
 
+/**
+ * contain user data (fullname, username)
+ */
 public class aboutMe extends AppCompatActivity {
 
     TextView displayUsername, displayFullname;
     @Override
+
+    /**
+     * logic and set up for about me session
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about_me_layout);
@@ -37,7 +44,11 @@ public class aboutMe extends AppCompatActivity {
         displayFullname.setText("Full name: " + dataDao.getFullNameByUsername(usernameInfo));
 
     }
-    //Method to go Profile
+
+    /**
+     * Method to go Profile
+     * @param view
+     */
     public void goToProfile(View view) {
         Intent intent = new Intent(this, Profile.class);
         startActivity(intent);

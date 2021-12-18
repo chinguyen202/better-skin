@@ -17,11 +17,18 @@ import fi.chinguyen.betterskin.data.AppDAO;
 import fi.chinguyen.betterskin.data.AppDB;
 import fi.chinguyen.betterskin.data.MorningRoutine;
 
+/**
+ * Generate morning routine after the user finish the quiz
+ */
 public class GenerateMorningRoutine extends AppCompatActivity {
     public static final String TAG = "Test mode";
     public static final String EXTRA_MESSAGE = "com.example.better-skin.MESSAGE";
     String cleanser, moisturizer, treat, spf;
 
+    /**
+     * Generate morning routine
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,13 +87,19 @@ public class GenerateMorningRoutine extends AppCompatActivity {
 
     }
 
-    //Method to go to evening routine
+    /**
+     * Method to go to evening routine
+     * @param view
+     */
     public void getEveningRoutine(View view) {
         Intent intent = new Intent(this, GenerateEveningRoutine.class);
         startActivity(intent);
     }
 
-    //Method to go to profile
+    /**
+     * Method to go to profile
+     * @param view
+     */
     public void goToProfile(View view) {
         Intent intent = new Intent(this, Profile.class);
         startActivity(intent);

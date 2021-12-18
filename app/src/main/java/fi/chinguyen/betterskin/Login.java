@@ -16,7 +16,9 @@ import fi.chinguyen.betterskin.data.AppDAO;
 import fi.chinguyen.betterskin.data.AppDB;
 import fi.chinguyen.betterskin.data.User;
 
-
+/**
+ * This class purpose is allow user to login their account
+ */
 public class Login extends AppCompatActivity {
 
     EditText username, password;
@@ -25,6 +27,10 @@ public class Login extends AppCompatActivity {
     AppDB appDB;
     AppDAO appDao;
 
+    /**
+     * set up login button and logic
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,7 +91,9 @@ public class Login extends AppCompatActivity {
 
         });
 
-        //When user click, go to Register activity
+        /**
+         * When user click, go to Register activity
+         */
         createNewAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

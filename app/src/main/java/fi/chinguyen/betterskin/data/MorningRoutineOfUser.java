@@ -6,7 +6,9 @@ import androidx.room.Relation;
 
 import java.util.List;
 
-//Intersection class to connect user with morning routine
+/**
+ * Intersection class to connect user with morning routine
+ */
 public class MorningRoutineOfUser {
     @Embedded public User user;
     @Relation(

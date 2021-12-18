@@ -10,11 +10,17 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+/**
+ * Modify the second quiz
+ */
 public class SecondQuiz extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.better-skin.MESSAGE";
     private String userSkinGoal;
     RadioGroup mainGoalGroup;
     @Override
+    /**
+     * Modify the third quiz button
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second_quiz);
@@ -39,7 +45,10 @@ public class SecondQuiz extends AppCompatActivity {
 
     }
 
-    //Method to do while radio button in second quiz is clicked
+    /**
+     * Method to do while radio button in second quiz is clicked
+     * @param view
+     */
     public void getSkinMainGoal(View view){
         // Listen to the user's choice
         RadioButton skinMainGoal  = findViewById(mainGoalGroup.getCheckedRadioButtonId());

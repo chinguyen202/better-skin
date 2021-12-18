@@ -17,6 +17,9 @@ import fi.chinguyen.betterskin.data.AppDAO;
 import fi.chinguyen.betterskin.data.AppDB;
 import fi.chinguyen.betterskin.data.EveningRoutine;
 
+/**
+ * generate evening routine based on user answer
+ */
 public class GenerateEveningRoutine extends AppCompatActivity {
     private static final String TAG = "TEST MODE";
     private static final String EXTRA_MESSAGE = "com.example.better-skin.MESSAGE";
@@ -24,6 +27,10 @@ public class GenerateEveningRoutine extends AppCompatActivity {
     AppDB data;
     AppDAO appDao;
 
+    /**
+     * generate evening routine logic
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +85,10 @@ public class GenerateEveningRoutine extends AppCompatActivity {
         });
     }
 
-    //Activity when profile button is clicked
+    /**
+     * Activity when profile button is clicked
+     */
+
     public void goToProfile(View view) {
         Log.d("Profile",userQuizChoices.getInstance().getUserChoices().toString());
         Intent intent = new Intent(this, Profile.class);
