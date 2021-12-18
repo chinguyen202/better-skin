@@ -10,6 +10,9 @@ Currently, the application is preloaded with products from one brand: The Inkey 
 - Bach Pham 
 - Thu Hoang
 
+**Javadoc**
+https://users.metropolia.fi/~bachp/BetterSkin%20javadoc/
+
 **References: **
 1. Android room with a view
     https://developer.android.com/codelabs/android-room-with-a-view#0
