@@ -13,6 +13,9 @@ Currently, the application is preloaded with products from one brand: The Inkey 
 **Javadoc**
 https://users.metropolia.fi/~bachp/BetterSkin%20javadoc/
 
+**UML Diagram**
+https://users.metropolia.fi/~bachp/Better%20Skin.drawio%20(3).png
+
 **References**
 1. Android room with a view
     https://developer.android.com/codelabs/android-room-with-a-view#0
